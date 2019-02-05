@@ -1,0 +1,15 @@
+{?section name=i loop=$articlerows?}
+   <dd class="focus im clearfix"{?if $i['order'] > 1?}style="display:none;"{?/if?} >
+     <a class="img" href="{?$articlerows[i].url_articleinfo?}" target="_blank"><img src="{?$articlerows[i].url_image?}" title="{?$articlerows[i].articlename?}"></a>
+     <div class="info">
+       <p class="name2"><a class="f-gray3" title="{?$articlerows[i].articlename?}" target="_blank" href="{?$articlerows[i].url_articleinfo?}">{?$articlerows[i].articlename?}</a></p>
+       <p class="author">作者：{?$articlerows[i].author?}</p>
+       <p class="author">类型：<a class="f-gray9" target="_blank" href="{?function jieqi_geturl:article:articlelist:1:$articlerows[i].sortid?}" title="{?$articlerows[i].sort?}">{?$articlerows[i].sort?}</a></p>          
+       <p class="lnk f-org"><a target="_blank" href="{?$articlerows[i].url_articleinfo?}">[阅读]</a><a href="javascript:void(0)" onclick="GPage.addbook('{?$articlerows[i].url_bookcase?}');">[收藏]</a></p>
+      </div>
+    </dd>
+	<dd class="tt"{?if $i['order'] == 1?}style="display:none;"{?/if?} >
+     <a class="f-gray9" href="{?function jieqi_geturl:article:articlelist:1:$articlerows[i].sortid?}" title="{?$articlerows[i].sort?}">[{?$articlerows[i].sort|truncate:4?}]</a>
+     <a class="f-black" target="_blank" href="{?$articlerows[i].url_articleinfo?}" title="{?$articlerows[i].articlename?}">{?$articlerows[i].articlename?}</a>
+    </dd>
+{?/section?}

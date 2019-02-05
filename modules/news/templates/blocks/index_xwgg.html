@@ -1,0 +1,5 @@
+<ul class="tab_cnt1" style="margin-top:5px;">
+{?section name=i loop=$newsrows?}
+<li>¡¤<a href="{?function jieqi_geturl:'news':'info':$newsrows[i].topicid?}">{?$newsrows[i].title|truncate:40:'..'?}</a></li>
+{?/section?}
+</ul>

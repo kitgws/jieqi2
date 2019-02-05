@@ -1,0 +1,41 @@
+{?section name=i loop=$reviewrows?}
+<li class="">
+  <a href="javascript:void(0)">
+        <span>
+            <strong>{?$reviewrows[i].poster?}：</strong>
+            <i></i>
+            <em>{?$reviewrows[i].replytime|date:m-d H:i?}</em>
+			
+        </span>
+        <br>
+        {?$reviewrows[i].posttext?}
+		<div style="clear:both;color:#3c97dd;text-align:right" onclick="showReply({?$reviewrows[i].topicid?},this)">回应({?$reviewrows[i].replies?})</div>
+		<div class="well" id="__comment_{?$reviewrows[i].topicid?}" style="clear: both; display: none;">
+	<div class="comments comments-level-2">
+        <ul>
+		<script type="text/javascript" src="{?$jieqi_url?}/modules/article/reviewshows.php?rid={?$reviewrows[i].topicid?}"></script>
+		</ul>
+        <div class="form column-2 ">
+            <form name="frmreviews" id="frmreviews" method="post" action="{?$article_dynamic_url?}/reviewshow.php?tid={?$reviewrows[i].topicid?}&aid={?$articleid?}">
+                <table class="tablebtn" style="border-width:1px;">
+					<tbody><tr>
+						<td>
+						<input type="text" name="pcontent" id="pcontent" value=""  placeholder="我也来评一句">
+                            
+						</td>
+						<td width="70">
+						<input type="hidden" name="act" value="newpost" />{?$jieqi_token_input?}
+							<input type="submit" name="Submit" class="btn btn-auto btn-blue vm"value="回应">
+						</td>
+					</tr>
+				</tbody></table>
+
+
+                
+            </form>
+ </div>
+</div>
+</div>
+</a>
+</li>
+{?/section?}

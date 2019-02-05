@@ -1,0 +1,32 @@
+{?section name=i loop=$actlogrows?}
+{?if $actlogrows[i].actname == 'redrose'?}
+	<li><p><span style="color:#f60">{?$actlogrows[i].uname?}</span> 送来 {?$actlogrows[i].actnum?}个 <span style="color:red">红包</span><br />
+        <span>多更多福气。满满的红包送上，祝大大早日立地成神！</span>
+        </p>
+        <p style="text-align:right;color:#999">{?$actlogrows[i].addtime|date:'Y-m-d H:i:s'?}</p>
+{?elseif $actlogrows[i].actname == 'yellowrose'?}
+	<li><p><span style="color:#f60">{?$actlogrows[i].uname?}</span> 送来 {?$actlogrows[i].actnum?}颗 <span style="color:red">宝石</span><br />
+        <span>宝石一颗永留存，愿大大的故事能永世长存！</span>
+        </p>
+        <p style="text-align:right;color:#999">{?$actlogrows[i].addtime|date:'Y-m-d H:i:s'?}</p>
+{?elseif $actlogrows[i].actname == 'bluerose'?}
+	<li><p><span style="color:#f60">{?$actlogrows[i].uname?}</span> 送来 {?$actlogrows[i].actnum?}辆 <span style="color:red">马车</span><br />
+        <span>作者大大的文太好看了，坐着马车去赶场</span>
+        </p>
+        <p style="text-align:right;color:#999">{?$actlogrows[i].addtime|date:'Y-m-d H:i:s'?}</p>
+{?elseif $actlogrows[i].actname == 'whiterose'?}
+	<li><p><span style="color:#f60">{?$actlogrows[i].uname?}</span> 送来 {?$actlogrows[i].actnum?}个 <span style="color:red">丫鬟</span><br />
+        <span>送给大大随身丫鬟，保管您瞬间文思泉涌！</span>
+        </p>
+        <p style="text-align:right;color:#999">{?$actlogrows[i].addtime|date:'Y-m-d H:i:s'?}</p>
+{?elseif $actlogrows[i].actname == 'greenrose'?}
+	<li><p><span style="color:#f60">{?$actlogrows[i].uname?}</span> 送来 {?$actlogrows[i].actnum?}座 <span style="color:red">府邸</span><br />
+        <span>谢谢作者大大满足了我们的最初幻想，梦幻的府邸送上！</span>
+        </p>
+        <p style="text-align:right;color:#999">{?$actlogrows[i].addtime|date:'Y-m-d H:i:s'?}</p>
+{?elseif $actlogrows[i].actname == 'blackrose'?}
+	<li><p><span style="color:#f60">{?$actlogrows[i].uname?}</span> 送来 {?$actlogrows[i].actnum?}枚 <span style="color:red">金印</span><br />
+        <span>大大的小说精彩至极，一枚金印在手无人敢挡！</span>
+        </p>
+        <p style="text-align:right;color:#999">{?$actlogrows[i].addtime|date:'Y-m-d H:i:s'?}</p>
+{?/if?}{?/section?}

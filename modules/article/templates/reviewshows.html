@@ -1,0 +1,7 @@
+{?section name=i loop=$replyrows?}{?if $i['order'] > 1?}document.writeln("<li style=\"padding:8px 8px;\">");
+document.writeln("{?$replyrows[i].username?}£º");
+document.writeln("<span style=\"color:#999;\">");
+document.writeln("{?$replyrows[i].posttime|date:"Y-m-d H:i:s"?}");
+document.writeln("</span><br>");
+document.writeln("{?$replyrows[i].posttext?}");
+document.writeln("</li>");{?/if?}{?/section?}

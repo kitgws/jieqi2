@@ -1,0 +1,252 @@
+.reg .wechat, .reg .qq, .reg .weibo{
+    width: 2.8rem;
+    height: 2.8rem;
+}
+/*注册*/
+.reg{
+    padding: 15px 0;
+}
+.reg h2{
+    font-size: 1.42rem;
+    color:#21a7ee;
+}
+.newlogin,.newpsd{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    right: 0;
+    top: 0;
+}
+.newlogin h2 img,.newpsd h2 img{
+    width: 40%;
+    display: block;
+    margin: 10% auto  ;
+}
+.reg .left,.reg .right{
+    width: 60%;  
+    overflow: hidden;
+}
+.reg .left input{
+    max-width: 58%;
+    -moz-border-radius: 3px 0 0 3px;
+    -webkit-border-radius: 3px 0 0 3px;
+    border-radius: 3px 0 0 3px;
+} 
+.newpsd .left,.newpsd .right{
+    width: 100%;   
+    height: 44px; 
+}
+.newpsd .left input{
+    max-width: 96%;
+    width: 96%; 
+} 
+.newpsd .left:first-child input{
+    width: 96%!important;
+}
+.reg .right{
+    width: 40%;    
+    position: absolute;
+    top: 0;
+    right: 2%; 
+/*    max-height: 1.866rem;*/
+} 
+.reg .bindPhone_time{
+    display: inline-block;
+    width: 98%;
+    height: 44px;
+    text-align: center;
+    background: #21a7ee;
+    font-size: 1.15rem;
+    color: #fff;
+    border: none;
+    padding: 1rem 0;
+    -moz-border-radius: 0 3px 3px 0;
+    -webkit-border-radius: 0 3px 3px 0;
+    border-radius: 0 3px 3px 0;
+     
+}
+.newpsd .bindPhone_time{ 
+    width: 80%; 
+    height: 38px; 
+    line-height: 38px;
+    padding: 0;
+     position: relative;
+    top: 5px; 
+    left: 10%;
+     -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+}
+.reg ul li{
+    margin: 15px auto;
+    width: 90%;
+    clear: both;
+    position: relative;
+}
+ 
+.reg .newli{ 
+    background: #f4f4f4;
+    padding: 5px  15px 0;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    margin: 0 auto;
+    -webkit-border-radius: 5px 5px 0 0;
+    border-radius: 5px 5px 0 0; 
+}
+.newpsd .newli{  
+    -webkit-border-radius: 0!important;
+    border-radius: 0!important; 
+}
+.newpsd .newli:first-child{  
+    -webkit-border-radius: 5px 5px 0 0!important;
+    border-radius: 5px 5px 0 0!important; 
+}
+.reg .li2{  
+    padding: 0  15px  5px; 
+    -webkit-border-radius:  0 0 5px 5px!important;
+    border-radius:  0 0 5px 5px!important;
+}
+.reg .newli input{
+    border: none;
+    background: none;
+    border-bottom: 1px solid #e1e1e1;
+    outline: none;
+    -webkit-border-radius: 0;
+    border-radius: 0;
+}
+.reg .li2 input{
+    border: none; 
+}
+.reg  li input{
+    padding: 1rem 2%;
+    font-size: 1.15rem;
+    color: #b3b3b3;
+    border: 1px solid #b3b3b3; 
+    width: 95.2%;
+    z-index: 10;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+     height: 18px;
+}
+.reg .tips{
+    display: block;
+    color: #fe4f4f;
+    padding-left: 10px;
+    margin-top: 15px;
+    display: none;
+}
+.reg .login_button,.reg .bindPhone_Num,.reg .add_login_post,.newpsd .lostpsd a{
+    display: block;
+    background: #21a7ee;
+    color: #fff;
+    border: none;
+    font-size: 1.33rem;
+    text-align: center; 
+    padding: 1rem;
+     -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+}
+.newpsd .lostpsd a{
+    border: 1px solid #21a7ee;
+    background: none;
+    color: #21a7ee!important;
+/*    width: 100%;*/
+}
+.reg  .timerOver{ 
+	color: #fff;
+     border: 1px solid #21a7ee;
+}
+.reg  .timerStart{
+	background: #aeaeae;
+	color: #fff;
+    border: 1px solid #aeaeae;
+}
+.reg .eye{
+    display: inline-block;
+    background: url(../images/eyeclose.png) no-repeat center center;
+    background-size: contain;
+    width:2rem ;
+    height: 0.98rem;
+    position: absolute;
+    top: 1.5rem;
+    right: 1rem; 
+    z-index: 100;
+    display: none;
+}
+.reg .eyeopen{ 
+    background: url(../images/eye.png) no-repeat center center;
+    background-size: contain; 
+}
+.reg .lostpsd input{
+    width: 16px;
+    height: 16px;
+}
+.reg .lostpsd .rems{
+    position: relative; 
+    width: 60%;   
+    display: inline-block;
+}
+.reg .lostpsd b{
+    position: absolute;
+    top: 4px; 
+    color: #c1c1c1;
+}
+.reg .lostpsd a{
+    position: relative;
+    top: 3px;
+    color: #c1c1c1;
+}
+.reg .lostpsd .fr{ 
+    color: #68d0ff;
+}
+.reg .otlog{
+    text-align: center;
+    position: relative;
+    top: 20px;
+    color: #bbbaba;
+}
+.reg .otlog em{
+    display: inline-block;
+    background: #bbbaba;
+    height: 1px;
+    width: 28%;
+    margin: 0 10px;
+    position: relative;
+    top: -3px;
+}
+.reg .ot_login{
+    padding: 2rem 0;
+    text-align: center;  
+}
+.reg .ot_login a{
+    margin: 0 10px; 
+    position: relative;
+}
+.reg .ot_login b{
+    position: absolute;
+    left: 0;
+    bottom: -1.8rem;
+    width: 100%;
+}
+.reg .left:first-child input{
+    width: 56%;
+}
+.reg .xieyi {
+    padding-bottom: 0.5rem;
+    margin: 5px  auto;
+}
+.reg  .xieyi input{
+    width: 1.2rem;
+    position: relative;
+    top: 0.3rem;
+} 
+.reg  .CodeImg{ 
+    margin-left: 1rem;
+    width: 80%;
+    height: 3rem;
+    position: relative;
+    top: 0.35rem;
+}

@@ -1,0 +1,3 @@
+{?section name=i loop=$articlerows?}{?if $i['order'] == 1?}<li><em class="first">1</em>{?$articlerows[i].articlename?}<i class="author">{?$articlerows[i].author?}</i></li>
+			  {?elseif $i['order'] == 2?}<li><em class="second">2</em>{?$articlerows[i].articlename?}<i class="author">{?$articlerows[i].author?}</i></li>
+			  {?elseif $i['order'] == 3?}<li><em class="third">3</em>{?$articlerows[i].articlename?}<i class="author">{?$articlerows[i].author?}</i></li>{?/if?}{?/section?}

@@ -1,0 +1,130 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="application/xhtml+xml; charset={?$jieqi_charset?}">
+<meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, maximum-scale=1.0, user-scalable=1">
+<meta name="format-detection" content="telephone=no">
+<title>{?$articlename?}-{?$chaptername?}-{?$author?}-{?$sort?}-{?$jieqi_sitename?}</title>
+<meta name="keywords" content="{?$articlename?} {?$chaptername?} {?$author?} {?$sort?} {?$jieqi_sitename?}" />
+<meta name="description" content="{?$summary|truncate:500:'..'?}" />
+<link rel="stylesheet" type="text/css" href="/wap/css/fs.css" media="all" />
+<script src="http://cdn.bootcss.com/jquery/1.11.2/jquery.min.js"></script>
+<script type="text/javascript" src="/sink/js/base.js"></script>
+<script type="text/javascript" src="/sink/js/layer.js"></script>
+<script type="text/javascript" src="/sink/js/page.js"></script>
+<script src="/wap/js/read150116.js"></script>
+<style>
+.author-say {
+  zoom: 1;
+  padding: 5px;
+  background: #FFFAE5;
+  border: 1px solid #CACAA6;
+  color: #333;
+  font-size: 12px;
+  line-height: 2em;
+  width: 90%;
+  margin: 10px auto;
+}
+.goodbook .list a{
+	height:24px;
+	line-height:24px;
+	overflow:hidden;
+}
+</style>
+</head>
+<body id="read" onCopy="return false" onPaste="return false">
+<div class="main">
+<header id="jstop">
+	<ul class="fn-clear">
+		<li class="left"><span id="jsBack"></span></li>
+		 <li><a id="goHome" href="/"></a></li>
+
+         <li><a id="goSet"></a></li>
+	</ul>
+</header>
+	<div id="jsuser">
+	<div class="container">
+</div>
+</div>
+<div id="config">
+    <p>字体大小</p>
+    <div class="size"><span id="font14">A</span><span id="font16" class="">A</span><span id="font18" class="">A</span><span id="font20" class="">A</span><span id="font22" class="">A</span></div>
+    <p>背景设置</p>
+    <div class="style"><span id="backStyle1">白天</span><span id="backStyle2">夜间</span><span id="backStyle4">护眼</span><span id="backStyle3">浅粉</span><span id="backStyle5">青春</span></div>
+</div>
+    <div id="chpaterInfo">
+    <div id="htmlmain" class="content18">
+    <h2 id="chaptertitle">{?$chaptername?}</h2>
+    <div id="htmlContent">
+     <p>
+		{?$jieqi_content|str_replace:'&nbsp;&nbsp;&nbsp;&nbsp;':'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' ?}
+		</p>
+    </div>
+</div>
+    <div id="htmlPage">
+    <a href="{?$url_previous?}" id="htmlxiazhang2">上一章</a>
+    <!--a href="{?$url_index?}" id="htmlshangzhang">返回目录</a>
+    <a id="jsshuqian">加入书签</a-->
+    <a href="{?$url_next?}" id="htmlxiazhang">下一章</a>
+</div>
+<div id="ufoot">
+    <div><a href="{?function jieqi_geturl:'article':'article':$articleid:'info'?}">书籍</a> | <a href="{?$url_index?}">目录</a> | <a href="javascript:;" onclick="GPage.addbook('{?$jieqi_modules['article']['url']?}/reviews.php?aid={?$articleid?}');">评论</a> </div>
+</div>
+</div>
+</div>
+</div>
+<div class="footer">
+<style type="text/css">
+			#jstop{
+				background: #F86FB0;
+			}
+			.footer{
+				position: relative;
+				background: #F86FB0;
+			}
+			.weixin_dibu{
+				position: absolute;
+				width:30%;
+				padding-bottom: 5px;
+				overflow: hidden;
+				right: 0.5em;
+				top: 1em;
+			}
+			.weixin_dibu img{
+				width:100%;
+				height:100%;
+				max-width: 120px;
+				max-height: 120px;
+			}
+		</style>
+		<div class="weixin_dibu">
+			<img src="/wap/img/weixin.png"/>
+		</div>
+	<div class="section nav">
+		<p>
+			<a href="/">首页</a>
+			<a href="{?$jieqi_modules['article']['url']?}/articlefilter.php">书库</a>
+			<a href="/Top">排行</a>
+			<a href="{?$jieqi_modules['pay']['url']?}/buyegold.php">充值</a>
+			<a href="{?$jieqi_modules['article']['url']?}/bookcase.php">我的收藏</a>
+		</p>
+	</div>
+	<div class="section kefu">
+		<h4>联系客服</h4>
+		<p>
+			在线时间:周一到周日9:00-24:00 <br/>电 话：13606913177 <br/>Ｑ Ｑ：2762987495<br/>邮 箱：banquan888@qq.com<br/>微信二维码：888言情
+
+		</p>
+	</div>
+	<div class="section copyright">
+		<p>
+			Copyright 2016 {?$jieqi_host?} All rights reserved.
+		</p>
+	</div>
+</div>
+<script>initBottom();</script>
+<div id="box">
+	<div id="boxtxt"></div>
+	<div id="boxmask"></div>
+</div>
+</body>
+</html>

@@ -1,0 +1,19 @@
+<?php
+echo '
+<div class="business">    
+<ul class="busines-ul">     
+
+<li>
+<a href="'.$this->_tpl_vars['jieqi_modules']['article']['url'].'/newarticle.php">       
+<div class="bmonth"></div>
+<span>创建新书</span></a>
+</li>            
+<li><a href="'.$this->_tpl_vars['jieqi_modules']['article']['url'].'/masterpage.php"> <div class="consuming"></div><span>管理小说</span></a></li>     
+<li><a href="'.$this->_tpl_vars['jieqi_modules']['article']['url'].'/newdraft.php"> <div class="frame"></div><span>新建草稿</span></a></li>     
+<li><a href="'.$this->_tpl_vars['jieqi_modules']['article']['url'].'/draft.php"> <div class="psw"></div><span>管理草稿</span></a></li>     
+<li><a href="'.$this->_tpl_vars['jieqi_modules']['article']['url'].'/tool.php?id=1"> <div class="record"></div><span>申请签约</span></a></li>  
+<li><a href="'.$this->_tpl_vars['jieqi_modules']['article']['url'].'/tool.php?id=2"> <div class="record"></div><span>申请上架</span></a></li>    
+<li><a href="'.$this->_tpl_vars['jieqi_modules']['obook']['url'].'/masterpage.php"> <div class="record"></div><span>收入管理</span></a></li>      
+</ul>   
+</div>';
+?>

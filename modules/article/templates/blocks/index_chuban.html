@@ -1,0 +1,11 @@
+{?section name=i loop=$articlerows?}
+ <li>
+                <div class="blockcontentmoviesl"><a href="{?$articlerows[i].url_articleinfo?}"><img src="{?$articlerows[i].url_image?}"  /></a></div>
+                <div class="blockcontentmoviesr">
+                  <div class="moviesname"><a href="{?$articlerows[i].url_articleinfo?}">书名：{?$articlerows[i].articlename|truncate:28:'..'?}</a></div>
+                  <div class="movieswriter">作者：{?$articlerows[i].author?}</div>
+                  <div class="moviesins"> 简介：{?$articlerows[i].intro|truncate:168:'...'?} </div>
+                </div>
+              </li>
+{?/section?}
+

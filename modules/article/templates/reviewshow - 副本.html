@@ -1,0 +1,33 @@
+{?set jieqi_page_rows = "10"?}
+<div class=" block comments">
+		<div class="hd"><h4>{?$articlename?}书评回复</h4></div>
+		<div class="bd">
+		{?section name=i loop=$replyrows?}
+			<ul id="htmlreview">
+			<li class="">
+  <a href="javascript:void(0)">
+        <span>
+            <strong>{?$replyrows[i].username?}：</strong>
+            <i></i>
+            <em>{?$replyrows[i].posttime|date:"Y-m-d H:i:s"?}</em>
+			
+        </span>
+        <br>
+        {?$replyrows[i].posttext?}
+</a>
+</li>
+</ul>
+            {?/section?}
+            {?$url_jumppage?}
+        <div class="pl_nr">
+        <form name="frmreview" id="frmreview" method="post" action="{?$article_dynamic_url?}/reviewshow.php?tid={?$reviewrows[i].topicid?}&aid={?$articleid?}" target="_blank">
+        <p>发表新回复</p>
+        <textarea name="pcontent" id="pcontent" maxlength="500" style="height:100px;margin-top:10px;opacity:1"  placeholder="内容"></textarea>
+		<input type="hidden" name="act" id="act" value="newpost" />{?$jieqi_token_input?}
+        <input type="button" name="Submit" class="button" value=" 发表书评 " style="cursor:pointer;" onclick="Ajax.Request('frmreview',{onComplete:function(){alert(this.response.replace(/<br[^<>]*>/g,'\n'));Form.reset('frmreview');
+}});">
+        </form>
+        </div>
+        
+        </div>
+	</div>

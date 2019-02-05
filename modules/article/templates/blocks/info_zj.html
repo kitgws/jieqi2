@@ -1,0 +1,4 @@
+{?section name=i loop=$chapterrows?}
+{?if $chapterrows[i].chaptertype == 0?}
+<p{?if $i['order'] == 1?} class="firstl"{?/if?}><span class="zjspan1">{?$chapterrows[i].chapterorder?}</span><span class="zjspan2"><a href="{?$chapterrows[i].url_chapter?}" target="_blank">{?$chapterrows[i].volumename?} {?$chapterrows[i].chaptername?}</a>{?if $chapterrows[i].isvip_n > 0?}<font color="#FF0000">[VIP]</font>{?/if?}</span><span class="zjspan3">{?$chapterrows[i].size?}</span><span class="zjspan4">{?$chapterrows[i].lastupdate|date:'m-d h:i'?}</span></p>
+{?/if?}{?/section?}

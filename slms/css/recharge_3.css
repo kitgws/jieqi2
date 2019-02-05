@@ -1,0 +1,47 @@
+@charset "utf-8";
+/* CSS Document */
+/* ------------------ 阅读详情-充值书币 2017-09-05 ------------------ */
+
+.recharge_sc{top: 20%;}
+.recharge_sc .inner .entry{margin: 0 15px;margin-top: 4px;overflow: hidden;}
+.recharge_sc .inner .entry li{margin-top: 10px;position: relative;}
+/*.recharge .inner .entry li a{height: 48px;line-height: 48px;display: block;border: 1px solid #e9e9e9;border-radius: 5px;text-align: left;font-size: 1.5rem;padding: 0 15px;background: #fafafa;}
+.recharge .inner .entry li a.active{border: 1px solid #ff730b;}
+.recharge .inner .entry li a em,.reward .inner .entry li a.active .icon-check{width: 28px;height: 28px;display: block;position: absolute;right: 0;top: 0;}
+.recharge .inner .entry li a em.icon-check{background-position: -95px -141px;}
+.recharge .inner .entry li a.active em.icon-check,.reward .inner .entry li a.active .icon-check{background-position: -63px -142px;}*/
+.recharge_sc .inner .btn,.reward .inner .btn{margin: 0 15px;margin-top: 10px;}
+.recharge_sc .inner .btn a,.reward .inner .btn a{height: 50px;line-height: 50px;display: block;text-align: center;background: #ff730b;color: #fff;border-radius: 5px;font-size: 1.6rem;}
+.recharge_sc .inner .read{color: #ed1c24; font-size: 1.4rem;}
+.recharge_sc .inner .entry li a {height: 55px;line-height: 55px;display: block;border: 1px solid #ebebeb;border-radius: 5px; text-align: left;font-size: 1.5rem;padding: 0 5%;background: #f8f8f8;position: relative;}
+.recharge_sc .inner .entry li a .rt{  line-height: 18px; position: absolute;left: 35%;top: 10px;}
+.recharge_sc .inner .entry li a .jine{ width: 22%; float: left; text-align: center;    line-height: 55px;}
+.recharge_sc .inner .entry li a span.tip{display: block;}
+.recharge_sc .inner .entry li:nth-child(2) a div.rt{    line-height: 36px!important;}
+.recharge_sc .inner .entry li:nth-child(2) a span.tip{display:inline-block; padding-right: 5px;}
+.recharge_sc .inner .entry li a.active{background: #fff8ed; border: 1px solid #ff730b;}
+.recharge_sc .inner .entry li a .cz-xian{border-left: #ebebeb 1px solid; border-right: #fff 1px solid;height: 18px;background-image:none; margin: 18px 5%;display: inline-block;}
+.reward{color: #999; font-size:1.3rem;}
+.recharge_sc .inner .entry li a.active .cz-xian{border-left: #ffe4d0 1px solid;}
+.recharge_sc .inner .entry li a.active .reward{color:#ff730b;}
+.shouchong-icon-check{display: block;position: absolute;left: 0;top: 0;background: url(../images/shouchong-jiang.png)no-repeat top; background-position: 0 0; background-size:cover; width: 36px;height: 40px;}
+.recharge_sc .inner .entry li a.active .shouchong-icon-check{background-position: 0 0px;}
+.recharge_sc .inner .close-201795{display: block;position: absolute;right:15px;top:20px;background: url(shouchong-jiang.png)no-repeat top; background-position: -72px 0; background-size:100px 40px; width: 18px;height:18px;}
+
+.shouchong-icon-check{display: block;position: absolute;left: 0;top: 0;background: url(../images/shouchong-jiang.png)no-repeat top; background-position: 0 0; background-size:cover; width: 36px;height: 40px;}
+.chong-icon-check{display: block;position: absolute;left: 0;top: 0;background: url(../images/shouchong-jiang.png)no-repeat top; background-position: -36px 0; background-size:cover; width: 36px;height: 40px;}
+.recharge .inner .entry li a.active .shouchong-icon-check{background-position:-36px 0px;}
+
+.jiang-icon-check{display: block;position: absolute;left: 0;top: 0;background: url(../images/shouchong-jiang.png)no-repeat top; background-position: 0 0; background-size:cover; width: 36px;height: 40px;}
+.jiang-icon-check{display: block;position: absolute;left: 0;top: 0;background: url(../images/shouchong-jiang.png)no-repeat top; background-position: 0 0; background-size:cover; width: 36px;height: 40px;}
+.recharge .inner .entry li a.active .jiang-icon-check{background-position: 0 0;}
+
+@media only screen and (min-width: 320px) and (max-width: 350px){
+	.recharge_sc {top: 10%;}
+	/*.recharge_sc .inner .entry li a .rt{ width: 90%;}*/
+	
+	}
+
+
+
+

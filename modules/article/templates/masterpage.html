@@ -1,0 +1,96 @@
+{?set jieqi_blocks_module = "article"?}
+{?set jieqi_blocks_config = "authorblocks"?}
+{?set jieqi_page_rows = "30"?}
+<style>
+/* table */
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+table.fix {
+	table-layout: fixed;
+}
+table.fix td {
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	-o-text-overflow: ellipsis;
+}
+table.grid {
+	border: 1px solid #d2d2d2;
+	background: #fff;
+}
+table.grid caption, .gridtop {
+	height: 2.5em;
+	line-height: 2.5em;
+	background: #fff;
+	border: 1px solid #d2d2d2;
+	_border-right: 1px solid #d2d2d2;
+	_border-bottom: 1px solid #d2d2d2;
+	font-weight: bold;
+	font-size: 18px;
+	color: #239eda;
+	text-align: left;
+	padding-left: 10px;
+
+}
+table.grid th {
+	border-bottom: 1px solid #d2d2d2;
+	color: #666666;
+	line-height: 2.5;
+	padding: 0 0.3em;
+	text-align: center;
+}
+table.grid tr {
+	border-bottom: 1px dashed #dedede;
+}
+table.grid td {
+	padding: 0.4em;
+}
+table.hide, table.hide caption, table.hide tr, table.hide th, table.hide td, table.nb {
+	border: 0;
+}
+/* table add-ons */
+</style>
+
+<div class="container">
+	<div class="mod block form">
+		<div class="hd">
+			<h4>管理小说</h4>
+</div>
+
+<form action="{?$url_article?}" method="post" name="checkform" id="checkform">
+<div class="ft fcc"><a href="{?$jieqi_modules['article']['url']?}/masterpage.php" class="btn btn-auto btn-blue" >全部小说</a></div>
+<div class="ft fcc"><a href="{?$jieqi_modules['article']['url']?}/masterpage.php?display=author" class="btn btn-auto btn-blue" >原创小说</a></div>
+<div class="ft fcc"><a href="{?$jieqi_modules['article']['url']?}/masterpage.php?display=poster" class="btn btn-auto btn-blue" >转载小说</a></div>
+<div class="ft fcc"><a href="{?$jieqi_modules['article']['url']?}/masterpage.php?display=agent" class="btn btn-auto btn-blue" >代管小说</a></div>
+<div class="bd">
+
+<table class="grid" width="100%" align="center">
+  <tr align="center">
+    <th width="25%">小说名称</th>
+    <th width="10%">作者</th>
+    <th width="20%">操作</th>
+  </tr>
+  {?section name=i loop=$articlerows?}
+  <tr>
+    <td><a href="{?$articlerows[i].url_articleinfo?}" target="_blank">{?$articlerows[i].articlename?}</a></td>
+    <td align="center">{?if $articlerows[i].authorid == 0?}{?$articlerows[i].author?}{?else?}<a href="{?$jieqi_modules['article']['url']?}/authorpage.php?id={?$articlerows[i].authorid?}" target="_blank">{?$articlerows[i].author?}</a>{?/if?}</td>
+    <td align="center">
+	<a href="{?$article_static_url?}/articlemanage.php?id={?$articlerows[i].articleid?}">管理</a>
+	{?if $articlerows[i].sourceid == 0?}
+	| <a href="{?$article_static_url?}/newchapter.php?aid={?$articlerows[i].articleid?}">更新</a>
+	{?if $articlerows[i].issign_n == 0?}
+	| <a href="{?$jieqi_url?}/newmessage.php?tosys=1&title=《{?$articlerows[i].articlename?}》申请VIP签约" class="hottext" title="申请VIP签约">签约</a>
+	{?/if?}
+	{?/if?}
+	</td>
+  </tr>
+  {?/section?}
+</table>
+</div>
+</form>
+<div class="pages">{?$url_jumppage?}</div>
+	</div>
+</div>
+

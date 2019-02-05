@@ -1,0 +1,141 @@
+{?set jieqi_blocks_module = "system"?}
+{?set jieqi_blocks_config = "userblocks"?}
+<div class="container">
+	<div class="mod block form">
+		<div class="hd">
+			<h4>实名资料</h4>
+		</div>
+<form name="useredit" id="useredit" action="{?$jieqi_url?}/personedit.php?do=submit" method="post">
+<div class="mail-zc">
+    <div class="phone-name">  
+      <h3>说明</h3>
+      <span>以下请填写真实联系方式，用于网站管理员跟您联系及收入结算，不会对外公开！</span>
+    </div>
+    <div class="phone-name">  
+      <h3>用户名</h3>
+      {?$jieqi_useruname?}
+    </div>
+    <div class="phone-name">  
+      <h3>昵称</h3>
+      {?$jieqi_username?}
+    </div>
+    <div class="phone-name">  
+      <h3>真实姓名</h3>
+       {?if $personsvars['realname']!=""?}
+        {?$personsvars['realname']?}
+        <input type="hidden" name="p_realname" value="{?$personsvars['realname']?}" />
+        <span> (不可更改)</span> {? else ?}
+        <input type="text" class="text" name="p_realname" size="25" maxlength="100" value="{?$personsvars['realname']?}" />
+        <span> (*)</span> {?/if?} 
+    </div>
+    <div class="phone-name">  
+      <h3>性别</h3>
+      <input type="radio" class="radio" name="p_gender" value="1"{?if $personsvars['gender_n'] == 1?} checked="checked"{?/if?}  />
+        男
+        <input type="radio" class="radio" name="p_gender" value="2"{?if $personsvars['gender_n'] == 2?} checked="checked"{?/if?} />
+        女<span> (*)</span>
+    </div>
+    <div class="phone-name">  
+      <h3>电话</h3>
+      <input type="text" class="text" name="p_telephone" size="25" maxlength="100" value="{?$personsvars['telephone']?}" />
+    </div>
+    <div class="phone-name">  
+      <h3>手机</h3>
+      <input type="text" class="text" name="p_mobilephone" size="25" maxlength="100" value="{?$personsvars['mobilephone']?}" />
+        <span> (*)</span>
+    </div>
+    <div class="phone-name">  
+      <h3>证件类型</h3>
+      {?if $personsvars['idcardtype']!="" ?}
+        {?$personsvars['idcardtype']?}
+        <input type="hidden" name="p_idcardtype" value="{?$personsvars['idcardtype']?}" />
+        <span> (不可更改)</span> {? else ?}
+        <input type="text" class="text" name="p_idcardtype" size="25" maxlength="100" value="{?if $personsvars['idcardtype'] == ''?}身份证{?else?}{?$personsvars['idcardtype']?}{?/if?}" />
+        <span> (*)</span> {?/if?} 
+    </div>
+    <div class="phone-name">  
+      <h3>证件号码</h3>
+       {?if $personsvars['idcard'] !="" ?}
+        {?$personsvars['idcard']?}
+        <input type="hidden" name="p_idcard" value="{?$personsvars['idcard']?}" />
+        <span> (不可更改)</span> {? else ?}
+        <input type="text" class="text" name="p_idcard" size="25" maxlength="100" value="{?$personsvars['idcard']?}" />
+        <span> (*)</span> {?/if?} 
+    </div>
+    <div class="phone-name">  
+      <h3>收款银行</h3>
+       {?if $personsvars['banktype']!=""?}
+        {?$personsvars['banktype']?}
+        <input type="hidden" name="p_banktype" value="{?$personsvars['banktype']?}" />
+        <span> (不可更改)</span> {?else?}
+        <input type="text" class="text" name="p_banktype" size="25" maxlength="100" value="{?$personsvars['banktype']?}" />
+        <span>(*) 填写 银行名称/支付宝/邮局汇款</span> {?/if?} 
+    </div>
+    <div class="phone-name">  
+      <h3>银行所在地</h3>
+       {?if $personsvars['bankname']!=""?}
+        {?$personsvars['bankname']?}
+        <input type="hidden" name="p_bankname" value="{?$personsvars['bankname']?}" />
+        <span> (不可更改)</span> {?else?}
+        <input type="text" class="text" name="p_bankname" size="25" maxlength="100" value="{?$personsvars['bankname']?}" />
+        <span>(*) 填写开户行的 省/市/区</span> {?/if?} 
+    </div>
+    <div class="phone-name">  
+      <h3>卡号</h3>
+       {?if $personsvars['bankcard']!=""?}
+        
+        {?$personsvars['bankcard']?}
+        <input type="hidden" name="p_bankcard" value="{?$personsvars['bankcard']?}" />
+        <span> (不可更改)</span> {?else?}
+        <input type="text" class="text" name="p_bankcard" size="25" maxlength="100" value="{?$personsvars['bankcard']?}" />
+        <span> (*)</span> {?/if?} 
+    </div>
+    <div class="phone-name">  
+      <h3>持卡人姓名</h3>
+       {?if $personsvars['bankuser']!=""?}
+        {?$personsvars['bankuser']?}
+        <input type="hidden" name="p_bankuser" value="{?$personsvars['bankuser']?}" />
+        <span> (不可更改)</span> {?else?}
+        <input type="text" class="text" name="p_bankuser" size="25" maxlength="100" value="{?$personsvars['bankuser']?}" />
+        <span> (*)</span> {?/if?} 
+    </div>
+    <div class="phone-name">  
+      <h3>联系地址</h3>
+      <input type="text" class="text" name="p_address" size="50" maxlength="250" value="{?$personsvars['address']?}" />
+    </div>
+    <div class="phone-name">  
+      <h3>邮编</h3>
+      <input type="text" class="text" name="p_zipcode" size="25" maxlength="100" value="{?$personsvars['zipcode']?}" />
+    </div>
+    <div class="phone-name">  
+      <h3>补充信息</h3>
+      <textarea class="textarea" name="p_mynote" rows="5" cols="50">{?$personsvars['mynote']?}</textarea>
+    </div>
+    <div class="ft">
+        <input type="hidden" name="act" value="update" />{?$jieqi_token_input?}
+      <input type="submit" class="btn btn-auto btn-blue" name="submit"  id="submit" value="保 存" />
+    </div>
+	</div>
+</form>
+	</div>
+</div>
+<script type="text/javascript">
+$(function(){
+		$('#useredit').on('submit', function(e){
+		e.preventDefault();
+		 var tips = layer.open({type: 2,content: '加载中'});
+				GPage.postForm('useredit', $("#useredit").attr("action"),
+			   function(data){
+					if(data.status=='OK'){
+                        $.ajaxSetup ({ cache: false });
+					    layer.close(tips);
+                        jumpurl(data.jumpurl);
+					}else{
+					    layer.close(tips);
+		                openMsgs(data.msg);
+					}
+			   });
+//			}
+		});
+});
+</script> 

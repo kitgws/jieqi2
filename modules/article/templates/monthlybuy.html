@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="gb2312"?>
+<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<title>购买包月-账务中心-{?$jieqi_sitename?}-手机版</title>
+		<meta name="keywords" content="账务中心-{?$jieqi_sitename?}-手机版">
+		<meta name="description" content="账务中心-{?$jieqi_sitename?}-手机版">
+	<meta http-equiv="Content-Type" content="text/html; charset={?$jieqi_charset?}" />
+	<meta http-equiv="Cache-Control" content="no-transform" />
+	<meta http-equiv="Cache-Control" content="no-cache" />
+		<meta http-equiv="Pragma" content="no-cache" />
+		<meta http-equiv="Expires" content="-1" />
+		<meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, maximum-scale=1.0, user-scalable=1" />
+		<meta name="format-detection" content="telephone=no" />
+		<link rel="shortcut  icon" href="{?$jieqi_url?}/favicon.ico" type="image/x-icon" />
+		<link rel="stylesheet" type="text/css" href="{?$jieqi_url?}/slms/css/bybase.css?bust=201712251515" media="all" />
+		<link rel="stylesheet" href="{?$jieqi_url?}/slms/css/byswiper.min.css?1" media="all" />
+		<script type="text/javascript" src="{?$jieqi_url?}/slms/js/jquery-1.11.1.min.js"></script>
+		<style>
+.topup .block {
+	background: #fff;
+	margin: 0;
+}
+.topup h1 {
+	padding-bottom: 0;
+	FONT-SIZE: 0.875em;
+}
+.topup .mod {
+	margin: 0;
+	padding: 10px 15px;
+}
+.topup .choose-list {
+	border-bottom: none;
+	margin-bottom: 0;
+}
+.topup .choose-list .other-sum .inputValue.active {
+	background: #fd6e0e;
+	color: #fff;
+}
+.topup .choose-list .choose-item .input {
+	width: 100%;
+}
+.topup .choose-list .sum-item li {
+	width: 47%;
+}
+.topup .choose-list .choose-item .input {
+	width: 47%;
+}
+.topup .choose-list .sum-item li:nth-child(2n) {
+	margin-right: 0;
+}
+.topup .choose-list .sum-item li:nth-child(2n-1) {
+	margin-right: 5%;
+}
+</style>
+		</head>
+		<body class="topup">
+<div class="head_sty02">
+          <div class="top">
+    <div class="header_btn">
+		<a href="javascript:;" onclick="javascript:history.go(-1)"><span class="back_icon"></span></a> 
+		<a href="/"><span class="home_icon"></span></a> </div>
+    <p class="header_title">购买包月</p>
+  </div>
+        </div>
+<div class="container" style="padding-top:0;">
+          <div class="top-alert"> </div>
+          <div class="my-pocket" >
+    <div class="mod"> <em>账户：</em>{?$jieqi_username?}（用户Id：{?$uid?}）<br />
+              <em>余额：</em><span class="count">{?$egold?}</span> {?$egoldname?} <br/>
+		    {?if $overtime == 0?} <em>包月状态：</em><span class="count">尚未包月</span>{?else?}<em>包月状态：</em><span class="count">{?$overtime|date:'Y-m-d'?}</span> 到期{?/if?}</div>
+			  
+  </div>
+          <div class="mod">
+    <h1>请选择包月方式：</h1>
+  </div>
+
+          <div class="block">
+    <div class="mod">
+              <div class="choose-bottom choose-bank">
+        <ul class="choose-list">
+                  <!--微信 -->
+                  <li class="choose-item choose-weixin">
+             <form name="frmlogin" method="post" action="{?$url_login?}">
+                      <div class="sum-list">
+                <ul class="sum-item">
+				{?section name=i loop=$jieqimonthly['article']['options']?}	
+				 {?if $i['order'] == 1?}
+                  <li class="active" data-type="7" data-value="{?$i['key']?}">{?$i['key']?}个月
+                    <samll style="font-size:12px;">({?$jieqimonthly['article']['options'][i]?}{?$egoldname?})</samll>
+                  </li>
+					{?else?}
+					<li data-type="7" data-value="{?$i['key']?}">{?$i['key']?}个月
+                    <samll style="font-size:12px;">({?$jieqimonthly['article']['options'][i]?}{?$egoldname?})</samll>
+                    </li>
+					{?/if?}
+                {?/section?}  
+                        </ul>
+              </div>
+				 <div id="vim" style="display:none;"></div>
+              <div class="choose-refer">
+                <p class="exchange">包月： <span class="brown">0</span>{?$egoldname?}</p>
+				<input type="hidden" name="act" value="buy">{?$jieqi_token_input?}
+                <input type="submit" class="btn btn-auto btn-brown " name="submit" value="确认购买"/>
+              </div>
+              </form>
+          </li>
+     </ul>
+      </div>
+              <div class="other-link">
+   <!--     <div class="bd" style="text-align: center;"> <a href="" >交易记录查询</a> <span class="divide">|</span> <a href="">充值订单查询</a> </div>  -->
+      </div>
+            </div>
+  </div>
+        </div>
+
+			
+<script type="text/javascript">
+  $(".sum-item li").click(function(){
+	 var i = 0;
+	  i=$(this).index();
+	  if(i == 0){
+		  $("#vim").html("<input type='radio' class='radio' name='buytype'checked='checked' value='1' />");
+		  $(this).attr("class","active").siblings().removeClass("active");
+		  $(".exchange").html("已选套餐："+$(this).text());
+	  }else if(i == 1){
+		  $("#vim").html("<input type='radio' class='radio' name='buytype'checked='checked' value='3' />");
+		  $(this).attr("class","active").siblings().removeClass("active");
+		  $(".exchange").html("已选套餐："+$(this).text());
+	  }else if(i == 2){
+		  $("#vim").html("<input type='radio' class='radio' name='buytype'checked='checked' value='6' />");
+		  $(this).attr("class","active").siblings().removeClass("active");
+		  $(".exchange").html("已选套餐："+$(this).text());
+	  }else if(i == 3){
+		  $("#vim").html("<input type='radio' class='radio' name='buytype'checked='checked' value='12' />");
+		  $(this).attr("class","active").siblings().removeClass("active");
+		  $(".exchange").html("已选套餐："+$(this).text());
+	  }
+  });
+
+</script>			
+</body>
+</html>

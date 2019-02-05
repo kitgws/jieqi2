@@ -1,0 +1,33 @@
+<div class="container">
+	<div class="mod block form">
+		<div class="hd">
+			<h4>购买包月会员</h4>
+</div>
+<form name="frmlogin" method="post" action="{?$url_login?}">
+<div class="mail-zc">
+<div class="phone-name"> 
+    <h3>当前用户：</h3>
+    {?$jieqi_username?}
+</div>
+<div class="phone-name"> 
+    <h3>包月状态：</h3>
+    {?if $overtime == 0?}尚未包月{?else?}{?$overtime|date:'Y-m-d'?} 到期{?/if?}
+  </tr>
+<div class="phone-name"> 
+    <h3>当前余额：</h3>
+    <td>{?$egold?} {?$egoldname?}</td>
+</div>
+<div class="phone-name"> 
+    <h3>包月选项：</h3>
+	{?section name=i loop=$jieqimonthly['article']['options']?}
+	<input type="radio" class="radio" name="buytype" value="{?$i['key']?}" {?if $buytype == $i['key']?} checked="checked"{?/if?}/>{?$i['key']?}个月 ({?$jieqimonthly['article']['options'][i]?}{?$egoldname?})<br />
+	{?/section?}
+</div>
+<div class="ft">
+    <input type="hidden" name="act" value="buy">{?$jieqi_token_input?}
+    <input type="submit" class="btn btn-auto btn-blue" value="确认购买" name="submit">
+  </div>
+
+</form>
+</div>
+</div>

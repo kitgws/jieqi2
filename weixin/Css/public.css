@@ -1,0 +1,130 @@
+*{
+	margin:0;
+	padding:0;
+	outline: none;
+}
+html{
+	font-size:62.5%; 
+}
+body{
+	font-family:Verdana, Arial;
+	font-size: 1.4rem;
+	color:#333;
+}
+a:link {
+	color: #333;
+	text-decoration: none;
+}
+a:visited {
+	text-decoration: none;
+	color: #333;
+}
+a:hover {
+	text-decoration: none;
+	color: #F00;
+}
+a:active {
+	text-decoration: none;
+	color: #333;
+}
+header{
+	height:4.0rem;
+	background:#00aaef;
+	text-align:center;
+	width:100%;
+	font-size: 1.8rem;
+	color:#fff;
+	line-height: 4.0rem;
+	position:relative;
+}
+section{
+	width:90%;
+	min-height: 20px;
+	margin:0 auto;
+	padding-top: 2.0rem;
+}
+
+
+/*send*/
+.sendWrap{
+	text-align:center;
+	margin-top: 4.0rem;
+	margin-bottom: 4.0rem;
+}
+.sendWrap input{
+	width: 60%;
+	margin:0 auto;
+	letter-spacing: 0.8rem;
+	font-size: 1.8rem;
+	height: 3.4rem;
+	line-height: 3.4rem;
+}
+
+header .jiantou{position: absolute; top: 13px; left: 15px;display: block; width:10px; height:16px; background-image:url(../Img/left.png);}
+
+/*表格*/
+.career-table th { text-align: left; background: #0c89b9; color: #fff; padding: 5px 15px; }
+.career-table td { border-bottom: 1px dotted #ccc; padding: 5px 15px; }
+table.gridtable { font-size:12px; color:#333333; border-width: 1px; border-color: #eee; border-collapse: collapse; }
+table.gridtable th { border-width: 1px; padding: 8px; border-style: solid; border-color: #eee; background: #00aaef; color:#FFF; }
+table.gridtable td { border-width: 1px; padding: 8px; border-style: solid; border-color: #eee; background: #fff; }
+
+/*幻灯*/
+.enter{width: 60px; height:24px;line-height:22px;border:1px solid rgba(255,255,255,.2);display:block;background-color:#1e9fe0;font-weight:700;text-align:center;box-shadow:0 3px 0 #1e9fe0;text-shadow:0 -1px 0 #140a0a;overflow:hidden;color:#fff;position:absolute; bottom: 20%;left: 50%; margin-left: -30px;transition:.5s ease-in-out;border-radius:5px; font-size:1.2rem; color:#000;}
+.swiper-container{ width:100%;height:100%;}
+.swiper-slide {
+	/* Center slide text vertically */
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-box-pack: center;
+	-ms-flex-pack: center;
+	-webkit-justify-content: center;
+	justify-content: center;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	-webkit-align-items: center;
+	align-items: center;
+	background:center no-repeat;
+	background-size:cover;    
+}
+.swiper-pagination-bullet{background-color: #ccc;}
+.swiper-pagination-bullet-active{background-color:#1e9fe0;}
+
+/*分页*/
+.page a{text-align:center; background-color:#e4e4e4;padding:5px; color:#7828d3;}
+.page .current{text-align:center; background-color:#1e9fe0;padding:5px; color:#FFF;}
+
+/*product*/
+.main{font-size: 1.4rem;}
+.p_img img{ width:100%;}
+.p_title{ font-size:1.8rem; margin:10px;}
+.p_price{ font-size:1.6rem; margin:10px;}
+.content{ padding:10px; margin-bottom:50px; overflow:hidden;}
+.content img{max-width:100%;}
+
+.mainbottombg{ background:none; border-bottom:1px solid #ededed; height:35px; line-height:35px; text-align:center;background:#ededed;border-top:#d92816 2px solid;}
+
+.top_bar{ height:50px; border-top:1px solid #d8d8d8;background: rgba(230,230,230,0.9);position: fixed; z-index: 900; bottom: 0; left: 0; right: 0; margin: auto; font-family: Helvetica, Tahoma, Arial, Microsoft YaHei, sans-serif; padding-bottom:4px;}
+.top_menu{ height:50px;}
+.top_menu li{ cursor:pointer; width:25%; margin:0 auto;list-style:none; height:50px;}
+.top_menu li a{ display:block; text-align:center; padding-top:32px;color:#666}
+.top_menu li a:hover{ color:#DB383E}
+.top_menu li a label{ cursor:pointer; display:block; height:18px; line-height:18px;}
+.top_menu li.li4 a.butt-buy {display: inline-block;font-size: 15px;width: 90%;height: 40px;line-height: 38px;margin: 6px auto 5px auto;padding: 0;color: #FFF;border-radius: 3px;background:#00aaef;}
+
+.donate_avatar_p{position:relative;width:60px;height:60px;margin:0 auto}
+.donate_avatar{display:block;width:100%;height:100%;border-radius:50%}
+
+
+
+.product_main{font-size: 1.4rem; width:98%; margin:10px auto; line-height:20px;}
+.product_main ul{ list-style:none;margin:0; padding:0;}
+.product_main ul li{ background-color:#FFF; width:100%; height:80px; position:relative; border-bottom:#dedede 1px solid; padding:10px 0px;}
+.product_thumb{ width:80px; height:80px;border-radius:5px;}
+.product_content{ position:absolute; left:90px; top:10px;}
+.product_content span{ display:block;}
+.title{ color:#333; font-size:1.6rem; height:20px; font-weight:600; overflow:hidden;}
+.clou{ color:#999; font-size:1.4rem; height:60px;overflow:hidden;}
+

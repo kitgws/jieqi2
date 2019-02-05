@@ -1,0 +1,15 @@
+{?section name=i loop=$articlerows?}
+{?if $i['order'] == 1?} 
+      <div class="img-t clearfix">
+       <a class="img" target="_blank" href="{?$articlerows[i].url_articleinfo?}">
+<img src="{?$articlerows[i].url_image?}" alt="{?$articlerows[i].articlename?}"></a>
+       <h3><a class="f-black" target="_blank" href="{?$articlerows[i].url_articleinfo?}">{?$articlerows[i].articlename?}</a></h3>
+       <p>  {?$articlerows[i].intro|truncate:100?}.. </p>
+       <a href="javascript:void(0)" class="f-org" onclick="GPage.addbook('{?$articlerows[i].url_bookcase?}');">[立即收藏]</a><a href="{?$articlerows[i].url_articleinfo?}" target="_blank" class="f-org">[开始阅读]</a>
+      </div>
+      <ul class="list-t2 mx10 f14">
+{?else?}
+<li><a href="{?function jieqi_geturl:article:articlelist:1:$articlerows[i].sortid?}" target="_blank" class="f-gray9 sort">[{?$articlerows[i].sort|truncate:4?}]</a><a href="{?$articlerows[i].url_articleinfo?}" target="_blank" class="f-gray3">{?$articlerows[i].articlename?}</a></li>
+{?/if?}
+{?/section?}
+</ul>

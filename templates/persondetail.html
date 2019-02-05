@@ -1,0 +1,82 @@
+{?set jieqi_blocks_module = "system"?}
+{?set jieqi_blocks_config = "userblocks"?}
+{?set $jieqi_pagetitle = "用户联系方式-{$jieqi_sitename}"?}
+<div class="container">
+	<div class="mod block form">
+		<div class="hd">
+			<h4>实名资料</h4>
+		</div>
+<div class="mail-zc">
+
+<div class="phone-name">  
+  <h3>说明：</h3>
+  <span>以下是您的真实联系方式，用于网站管理员跟您联系及收入结算，不会对外公开！</span>
+  {?if $personsvars['denyedit'] != 0?}<br /><span>您的信息已被锁定，禁止修改！如果确实需要修改，请联系管理员处理。</span>{?/if?}
+  
+</div>
+<div class="phone-name">  
+  <h3>用户名/昵称：</h3>
+  {?$jieqi_useruname?} / {?$jieqi_username?}
+</div>
+<div class="phone-name">  
+  <h3>真实姓名：</h3>
+  {?$personsvars['realname']?}
+</div>
+<div class="phone-name">  
+<h3>性别：</h3>
+{?$personsvars['gender']?}
+</div>
+<div class="phone-name">  
+  <h3>电话：</h3>
+  {?$personsvars['telephone']?}
+</div>
+<div class="phone-name">  
+  <h3>手机：</h3>
+  {?$personsvars['mobilephone']?}
+</div>
+<div class="phone-name">  
+  <h3>证件类型：</h3>
+  {?if $personsvars['idcardtype'] == ''?}身份证{?else?}{?$personsvars['idcardtype']?}{?/if?}
+</div>
+<div class="phone-name">  
+  <h3>证件号码：</h3>
+  {?$personsvars['idcard']?}
+</div>
+<div class="phone-name">  
+  <h3>联系地址：</h3>
+  {?$personsvars['address']?}
+</div>
+<div class="phone-name">  
+  <h3>邮编：</h3>
+  {?$personsvars['zipcode']?}
+</div>
+<div class="phone-name">  
+  <h3>收款银行：</h3>
+  {?$personsvars['banktype']?}
+</div>
+<div class="phone-name">  
+  <h3>银行所在地：</h3>
+  {?$personsvars['bankname']?}
+</div>
+<div class="phone-name">  
+  <h3>卡号：</h3>
+  {?$personsvars['bankcard']?}
+</div>
+<div class="phone-name">  
+  <h3>持卡人姓名：</h3>
+  {?$personsvars['bankuser']?}
+</div>
+<div class="phone-name">  
+  <h3>补充信息：</h3>
+  {?$personsvars['mynote']?}
+</div>
+
+<div class="ft">
+  {?if $personsvars['denyedit'] == 0?}<a class="btn btn-auto btn-blue" href="{?$jieqi_url?}/personedit.php">点击修改联系方式</a>{?else?}<span>您的信息已被锁定，禁止修改！如果确实需要修改，请联系管理员处理。</span>{?/if?}
+  </div>
+<div class="ft">  
+  {?if $jieqi_group == 3 && $jieqi_modules['article']['publish'] > 0?}&nbsp;&nbsp;<a class="btn btn-auto btn-blue" href="{?$jieqi_modules['article']['url']?}/applywriter.php">申请成为作者</a>{?/if?}
+  
+</div>
+	</div>
+</div>

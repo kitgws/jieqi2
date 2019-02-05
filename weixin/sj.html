@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>微信扫码支付</title>
+    <meta name="keywords" content="{$Think.config.site.keyword}">
+    <meta name="description" content="{$Think.config.site.description}">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+	<script src="Js/jquery.min.js"></script>
+    <script src="Js/qrcode.js"></script>
+	<script>
+    	$(function(){
+			
+			jsq=setInterval(get_status,3000);
+			out_trade_no='<?=$out_trade_no;?>';
+			function get_status(){
+				$.get("ajax.php?act=getstatus",{out_trade_no:out_trade_no},function(data){
+					if(data=='ok'){
+						clearInterval(jsq);
+						alert('支付成功！');
+						window.location.href="/"; 
+					}
+				});
+			}
+			
+    	});
+    </script>
+    <style type="text/css">
+	body,html{ margin:0px; height:0px; width:100%; height:100%;}
+	#main{ width:100%; height:100%; position:relative;}
+	#bg{ width:100%; height:100%; position:absolute;}
+	#qrcode{ width:40%; height:28%;position:absolute;top:44%;left:30%;z-index:999;}
+	#qrcode img {
+		width:100%;
+		height:100%;
+		margin:auto;
+		
+	}
+	  </style>
+</head>
+<body>
+	<div id="main">
+    <img id="bg" src="Img/bg.png" width="100%" />
+    <div align="center" id="qrcode"></div>
+    </div>
+	
+      <script>
+		if(<?php echo $unifiedOrderResult["code_url"] != NULL; ?>)
+		{
+			var url = "<?php echo $code_url;?>";
+			//参数1表示图像大小，取值范围1-10；参数2表示质量，取值范围'L','M','Q','H'
+			var qr = qrcode(10, 'M');
+			qr.addData(url);
+			qr.make();
+			var wording=document.createElement('p');
+			wording.innerHTML = "";
+			var code=document.createElement('DIV');
+			code.innerHTML = qr.createImgTag();
+			var element=document.getElementById("qrcode");
+			element.appendChild(wording);
+			element.appendChild(code);
+		}
+	</script>
+</body>
+</html>

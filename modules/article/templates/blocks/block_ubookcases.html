@@ -1,0 +1,38 @@
+{?if $ownerid > 0?}
+
+<div class="wrap">
+ <!--boxd begin-->
+ <div class="boxd fix p20">
+   <div class="tabt fix">
+     <ul id="tabs" class="fl f14">
+       <li class="thistab"><a href="javascript:;">藏书架</a></li>
+       
+     </ul>
+   </div>
+   <ul id="tab_conbox">
+    <li style="">
+	
+	
+<!--个人信息页 我的作品-->
+	
+     <!--box0 begin-->
+     <div class="box0">
+      <div class="tbox mt20"><em class="books">他的藏书架</em></div>
+      <dl class="lisd_sj mt10 fix">
+       <dt><em class="name">作品名</em><em class="date">更新时间</em><em class="author">作者</em><em class="status">状态</em><em class="honor">粉丝荣誉</em></dt>
+	   {?section name=i loop=$bookcaserows?}
+       <dd{?if $i['order'] % 2 == 0?} class='dbg'{?/if?}><em class="name"><a href="{?$bookcaserows[i].url_articleinfo?}" target="_blank" class="f_blue">{?$bookcaserows[i].articlename?}</a></em><em class="date">{?$bookcaserows[i].lastupdate|date:"Y-m-d h:i"?}</em><em class="author">{?$bookcaserows[i].author?}</em><em class="status">{?if $bookcaserows[i].fullflag == 0 ?}连载中{?else?}已完结{?/if?}</em><em class="honor"></em></dd>
+{?/section?}
+	    
+
+      </dl>
+     </div><!--box0 end-->
+
+
+	
+    </li>    
+   </ul>
+ </div><!--boxd end-->
+</div>
+  
+{?/if?}

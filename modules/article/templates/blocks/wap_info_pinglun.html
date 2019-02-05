@@ -1,0 +1,15 @@
+{?section name=i loop=$reviewrows?}
+				<li class="">
+				<a href="javascript:void(0)"><span>
+					<strong> {?if $reviewrows[i].posterid > 0?}{?$reviewrows[i].poster?}{?else?}游客{?/if?}：</strong>
+					<i></i>
+					<em>{?$reviewrows[i].replytime|date:Y-m-d H:i:s?}</em>
+		        	</span>
+				<br>
+				<!--h3>{?if $reviewrows[i].istop == 1?}<span class="top">[置顶]</span>{?/if?}{?if $reviewrows[i].isgood == 1?}<span class="top">[精华]</span>{?/if?} {?$reviewrows[i].posttext|truncate:50:'..'?}</h3-->
+				{?$reviewrows[i].posttext?}
+				<div style="clear:both;color:#3c97dd;text-align:right" onclick="showReply({?$reviewrows[i].topicid?},this)">回应({?$reviewrows[i].replies?})</div>
+				<div class="well" id="__comment_{?$reviewrows[i].topicid?}" style="display:none;clear:both;"></div>
+				</a>
+				</li>{?/section?}
+				<li class="g_btn"><a href="{?$jieqi_modules['article']['url']?}/reviews.php?aid={?$articleid?}&type=all">更多评论...</a></li>

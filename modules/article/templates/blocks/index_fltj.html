@@ -1,0 +1,4 @@
+{?section name=i loop=$articlerows?}
+ <li> <a href="{?$articlerows[i].url_articleinfo?}"><img src="{?$articlerows[i].url_image?}"  /></a> <span><a ref="#"><a ref="#">{?$articlerows[i].articlename|truncate:28:'..'?}</a></a></span> <span>{?$articlerows[i].articlename|truncate:28:'..'?}</span> </li>
+{?/section?}
+

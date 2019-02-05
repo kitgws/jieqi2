@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" ?> 
+<document>
+<pagesize>{?$page?}</pagesize>
+{?section name=i loop=$articlerows?}
+<items>
+<bookid>{?$articlerows[i].articleid?}</bookid>
+<title><![CDATA[{?$articlerows[i].articlename?}]]></title>
+<comment><![CDATA[{?$articlerows[i].intro|htmlclickable?}]]></comment>
+<category><![CDATA[{?$articlerows[i].sort?}]]></category>
+<lastupdate>{?$articlerows[i].size?}</lastupdate>
+<author><![CDATA[{?$articlerows[i].author?}]]></author>
+<isvip>{?$articlerows[i].isvip?}</isvip>
+<url><![CDATA[http://www.meiguiwxw.com/modules/article/api/articleinfo.php?id={?$articlerows[i].articleid?}]]></url>
+</items>
+{?/section?}
+</document>

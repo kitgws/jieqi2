@@ -1,0 +1,89 @@
+
+		<div class="container">
+        
+
+<div class="mod block form">
+				<div class="hd"><h4>用户注册</h4></div>
+                 
+				<form name="frmregister" id="frmregister" action="{?$form_action?}?do=submit" method="post" class="form-horizontal">
+					<input value="37987" type="hidden" name="ID">
+					<div class="bd">				
+						<div class="item">
+							<div class="item-label">用户名</div>
+							<div class="item-control">
+								<input type="text" maxlength="60" size="28" class="text" name="username" value="">
+							</div>
+						</div>
+                        <div class="item">
+							<div class="item-label">密码</div>
+							<div class="item-control">
+								<input type="password" maxlength="60" size="28" class="text" name="password" value="">
+							</div>
+						</div>
+                       <div class="item">
+							<div class="item-label">确认密码</div>
+							<div class="item-control">
+								<input type="password" maxlength="60" size="28" class="text" name="repassword" value="">
+							</div>
+						</div>
+                        <div class="item">
+							<div class="item-label">Email</div>
+							<div class="item-control">
+								<input type="text" maxlength="60" size="28" class="text" name="email">
+							</div>
+						</div>
+					</div>
+					<div class="ft fcc">
+					<input type="hidden" name="act" value="newuser" />
+						<input type="submit" value="立即注册" class="btn btn-auto btn-blue">
+					</div>
+					<div class="ft fcc"><a class="btn btn-auto btn-blue" href="/login.php">登陆</a></div>
+				</form>
+			</div>
+
+        </div>
+		
+     <div class="container">
+        
+
+<div class="mod block form">
+				<div class="hd"><h4>快捷登录</h4></div>
+                <div align="center" style=" padding:20px;">
+                        <div style=" width:33%; float:left; text-align:center;">
+                        <a href="{?$jieqi_url?}/api/qq/login.php">
+                        <div style="background: transparent url(/wap/img/sprite_bg.png) no-repeat scroll 0px 0px;width: 80px;height: 80px;text-indent: -9999px;margin: 0px auto 5px;"></div>
+                        <div style="padding-top:5px;">QQ登录</div></a>
+                        </div>
+                        <div style="width:33%; float:left; text-align:center;">
+                            <a href="{?$jieqi_url?}/api/weibo/login.php"><div style="background: transparent url(/wap/img/sprite_bg.png) no-repeat scroll 0px -104px;width: 80px;height: 80px;text-indent: -9999px;margin: 0px auto 5px;"></div>
+                            <div style="padding-top:5px;">微博登录</div></a>
+                        </div>
+
+                 </div>
+                 <div style="padding:20px 20px; line-height:20px;text-align:left;clear:both;">
+                 	<p>您好，本站支持QQ、微博、百度账号一键登录，成功登陆即可使用本站的全部功能！</p>
+                 </div>
+      </div>	
+		
+<script type="text/javascript">
+$(function(){
+		$('#frmregister').on('submit', function(e){
+		e.preventDefault();
+		 var tips = layer.open({type: 2,content: '加载中'});
+				GPage.postForm('frmregister', $("#frmregister").attr("action"),
+			   function(data){
+					if(data.status=='OK'){
+					    layer.close(tips);
+						jumpurl(data.jumpurl);
+					}else{
+					    layer.close(tips);
+		                openMsg(data.msg);
+					}
+			   });
+//			}
+		});
+});
+$('#recode').click(function(){
+	$('#checkcode').attr('src','{?$jieqi_url?}/checkcode.php?rand='+Math.random());
+});
+</script>

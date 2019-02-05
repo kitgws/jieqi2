@@ -1,0 +1,225 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset={?$jieqi_charset?}" />
+<meta name="keywords" content="{?$meta_keywords?}" />
+<meta name="description" content="{?$meta_description?}" />
+<meta name="author" content="{?$meta_author?}" />
+<meta name="copyright" content="{?$meta_copyright?}" />
+<meta name="generator" content="jieqi.com" />
+<title>{?$jieqi_pagetitle?}</title>
+<link rel="stylesheet" rev="stylesheet" href="{?$jieqi_themeurl?}style.css" type="text/css" media="all" />
+<script language="javascript" type="text/javascript" src="{?$jieqi_url?}/scripts/common.js"></script>
+<script language="javascript" type="text/javascript" src="{?$jieqi_url?}/scripts/theme.js"></script>
+{?$jieqi_head?}
+</head>
+<body>
+<div class="m_top">
+	<div class="main">
+	<div class="fl">
+	{?if $jieqi_userid == 0?}
+	<form name="t_frmlogin" id="t_frmlogin" method="post" action="{?$jieqi_user_url?}/login.php">
+	&nbsp;用户名：<input type="text" class="text" size="10" maxlength="30" style="width:70px;" name="username" onKeyPress="javascript: if (event.keyCode==32) return false;">
+	密码：<input type="password" class="text" size="10" maxlength="30" style="width:70px;" name="password">
+	<!--
+	验证码：<input type="text" class="text" size="4" maxlength="8" style="width:35px;" name="checkcode" onfocus="if($_('t_imgccode').style.display == 'none'){$_('t_imgccode').src = '{?$jieqi_url?}/checkcode.php';$_('t_imgccode').style.display = '';}" title="点击显示验证码"><img id="t_imgccode" src="" style="cursor:pointer;vertical-align:middle;margin-left:3px;display:none;" onclick="this.src='{?$jieqi_url?}/checkcode.php?rand='+Math.random();" title="点击刷新验证码">
+	-->
+	<input type="checkbox" class="checkbox" name="usecookie" value="1" />自动登录
+	<input type="button" class="button" value="登录" name="t_btnlogin" id="t_btnlogin" onclick="Ajax.Tip(event, 't_frmlogin', {timeout:3000, onLoading:'登录中...', onComplete:'登录成功，页面跳转中...'});">
+	<input type="hidden" name="action" value="login">
+	<input type="hidden" name="jumpreferer" value="1">
+	<!--
+	<a href="{?$jieqi_url?}/api/qq/login.php" rel="nofollow" target="_top"><img src="{?$jieqi_url?}/images/api/qq_ico.gif" title="用QQ账号登录" style="border:0;vertical-align:middle;"></a>
+	<a href="{?$jieqi_url?}/api/weibo/login.php" rel="nofollow" target="_top"><img src="{?$jieqi_url?}/images/api/weibo_ico.gif" title="用新浪微博账号登录" style="border:0;vertical-align:middle;"></a>
+	<a href="{?$jieqi_url?}/api/taobao/login.php" rel="nofollow" target="_top"><img src="{?$jieqi_url?}/images/api/taobao_ico.gif" title="用淘宝账号登录" style="border:0;vertical-align:middle;"></a>
+	-->
+	&nbsp;&nbsp;<a class="hottext" href="{?$jieqi_user_url?}/register.php" onclick="openDialog('{?$jieqi_user_url?}/register.php?ajax_gets=jieqi_contents', false);stopEvent();">注册用户</a> ┊ <a class="hottext" href="{?$jieqi_user_url?}/getpass.php" onclick="openDialog('{?$jieqi_user_url?}/getpass.php?ajax_gets=jieqi_contents', false);stopEvent();">忘记密码？</a>
+	</form>
+	{?else?}
+	&nbsp;<strong>{?$jieqi_username?}</strong> ┊ <a href="{?$jieqi_url?}/message.php?box=inbox">短消息</a>{?if $jieqi_newmessage > 0?}<span class="hottext">({?$jieqi_newmessage?})</span>{?/if?}{?if $jieqi_modules['article']['publish'] > 0?} ┊ <a href="{?$jieqi_modules['article']['url']?}/bookcase.php">我的书架</a>{?/if?} ┊ <a href="{?$jieqi_url?}/userdetail.php">个人中心</a>{?if $jieqi_modules['pay']['publish'] > 0?} ┊ <a href="{?$jieqi_modules['pay']['url']?}/buyegold.php">帐户充值</a>{?/if?} ┊ <a href="{?$jieqi_user_url?}/logout.php">退出</a>
+	{?/if?}
+	</div>
+	<div class="fr">
+	<a href="{?$url_gb2312?}">简体版</a> · <a href="{?$url_big5?}">繁体版</a>&nbsp;&nbsp;
+	</div>
+	</div>
+</div>
+
+<div class="main m_head">
+	<div class="h_logo">
+	<a href="{?$jieqi_url?}/"><img src="{?$jieqi_themeurl?}logo.jpg" border="0" alt="{?$jieqi_sitename?}" /></a>
+	</div>
+	<div class="h_banner">
+	{?if $jieqi_banner == ''?}
+	<div style="margin:15px 0px 0px 100px;">
+	<form name="t_frmsearch" method="post" action="{?$jieqi_modules['article']['url']?}/search.php">
+	<div style="float:left;width:250px;height:30px;margin:0;padding:0;overflow:hidden;border:2px solid #dddddd;">
+	<select name="searchtype" style="width:56px;vertical-align:middle;margin:0;border:0;font-size:14px;">
+	<option value="articlename" selected>书名</option>
+	<option value="author">作者</option>
+	</select>
+	<input name="searchkey" type="text" style="width:185px;height:30px;line-height:25px;margin:0 0 0 5px;border:0;font-size:14px;">
+	</div>
+	<input name="t_btnsearch" type="submit" value="搜索" style="float:left;height:34px;line-height:34px;background:#1c86d4;color:#ffffff;margin:0;padding:0px 20px;cursor:pointer;border:0;font-size:14px;">
+	</form>
+	</div>
+	{?else?}
+	{?$jieqi_banner?}
+	{?/if?}
+	</div>
+	<div class="h_link">
+	<ul class="ulitem">
+	<li><a onClick="this.style.behavior='url(#default#homepage)';this.setHomePage('{?$jieqi_local_url?}');" href="#">设为首页</a>&nbsp;</li>
+	<li><a href="mailto:{?$jieqi_email?}">联系我们</a>&nbsp;</li>
+	<li><a href="javascript:window.external.addFavorite('{?$jieqi_local_url?}','{?$jieqi_sitename?}');">加入收藏</a>&nbsp;</li>
+	</ul>
+	</div>
+</div>
+
+<div class="m_nav">
+	<div class="main">
+	<ul>
+	<li><a href="{?$jieqi_url?}/">首页</a></li>
+	<li><a href="{?$jieqi_modules['article']['url']?}/articlefilter.php">书库</a></li>
+	<li><a href="{?function jieqi_geturl:article:toplist:1:allvisit?}">排行</a></li>
+	<li><a href="{?function jieqi_geturl:article:toplist:1:allvisit::1?}"">全本</a></li>
+	<li><a href="{?$jieqi_modules['forum']['url']?}/">论坛</a></li>
+	<li><a href="{?$jieqi_url?}/userdetail.php">个人中心</a></li>
+	<li><a href="{?$jieqi_modules['article']['url']?}/myarticle.php">作者专区</a></li>
+	<li><a href="{?$jieqi_modules['pay']['url']?}/buyegold.php">帐户充值</a></li>
+	</ul>
+	</div>
+</div>
+
+<div class="m_link">
+	<div class="main">
+	<a href="{?function jieqi_geturl:article:articlelist:1:1?}">玄幻·魔法</a>|
+	<a href="{?function jieqi_geturl:article:articlelist:1:2?}">武侠·修真</a>|
+	<a href="{?function jieqi_geturl:article:articlelist:1:3?}">都市·言情</a>|
+	<a href="{?function jieqi_geturl:article:articlelist:1:4?}">历史·军事</a>|
+	<a href="{?function jieqi_geturl:article:articlelist:1:5?}">穿越·架空</a>|
+	<a href="{?function jieqi_geturl:article:articlelist:1:6?}">游戏·竞技</a>|
+	<a href="{?function jieqi_geturl:article:articlelist:1:7?}">科幻·灵异</a>|
+	<a href="{?function jieqi_geturl:article:articlelist:1:8?}">同人·动漫</a>|
+	<a href="{?function jieqi_geturl:article:articlelist:1:9?}">社会·文学</a>|
+	<a href="{?function jieqi_geturl:article:articlelist:1:10?}">综合·其他</a>
+	</div>
+</div>
+
+<div class="m_middle">
+{?if $jieqi_top_bar != ""?}<div class="main">{?$jieqi_top_bar?}</div>{?/if?}
+
+{?if $jieqi_showblock > 0?}
+	{?if $jieqi_showtblock == 1?}
+	<div class="main">
+		{?section name=i loop=$jieqi_tblocks?}
+		<div class="block">
+		{?if $jieqi_tblocks[i].title != ""?}<div class="blocktitle">{?$jieqi_tblocks[i].title?}</div>{?/if?}
+		<div class="blockcontent">{?$jieqi_tblocks[i].content?}</div>
+		</div>
+		{?/section?}
+	</div>
+	{?/if?}
+
+	{?if $jieqi_clblocks|empty == false || $jieqi_crblocks|empty == false?}
+	<div class="main">
+		<div class="cleft">
+			{?section name=i loop=$jieqi_clblocks?}
+			<div class="block">
+			{?if $jieqi_clblocks[i].title != ""?}<div class="blocktitle">{?$jieqi_clblocks[i].title?}</div>{?/if?}
+			<div class="blockcontent">{?$jieqi_clblocks[i].content?}</div>
+			</div>
+			{?/section?}
+		</div>
+		<div class="cright">
+			{?section name=i loop=$jieqi_crblocks?}
+			<div class="block">
+			{?if $jieqi_crblocks[i].title != ""?}<div class="blocktitle">{?$jieqi_crblocks[i].title?}</div>{?/if?}
+			<div class="blockcontent">{?$jieqi_crblocks[i].content?}</div>
+			</div>
+			{?/section?}
+		</div>
+	</div>
+	{?/if?}
+
+	<div class="main">
+		{?if $jieqi_showlblock == 1?}
+		<div class="left">
+			{?section name=i loop=$jieqi_lblocks?}
+			<div class="block">
+			{?if $jieqi_lblocks[i].title != ""?}<div class="blocktitle">{?$jieqi_lblocks[i].title?}</div>{?/if?}
+			<div class="blockcontent">{?$jieqi_lblocks[i].content?}</div>
+			</div>
+			{?/section?}  
+		</div>
+		{?if $jieqi_showrblock == 1?}<div class="centers">{?else?}<div class="centerm">{?/if?}
+		{?else?}
+		{?if $jieqi_showrblock == 1?}<div class="centerm">{?else?}<div class="centerl">{?/if?}
+		{?/if?}
+			{?if $jieqi_showcblock == 1?}
+			{?section name=i loop=$jieqi_ctblocks?}
+			<div class="block">
+			{?if $jieqi_ctblocks[i].title != ""?}<div class="blocktitle">{?$jieqi_ctblocks[i].title?}</div>{?/if?}
+			<div class="blockcontent">{?$jieqi_ctblocks[i].content?}</div>
+			</div>
+			{?/section?}
+			{?section name=i loop=$jieqi_cmblocks?}
+			<div class="block">
+			{?if $jieqi_cmblocks[i].title != ""?}<div class="blocktitle">{?$jieqi_cmblocks[i].title?}</div>{?/if?}
+			<div class="blockcontent">{?$jieqi_cmblocks[i].content?}</div>
+			</div>
+			{?/section?}
+			{?/if?}
+
+			{?if $jieqi_contents != ""?}<div id="content">{?$jieqi_contents?}</div>{?/if?}
+
+			{?if $jieqi_showcblock == 1?}
+			{?section name=i loop=$jieqi_cbblocks?}
+			<div class="block">
+			{?if $jieqi_cbblocks[i].title != ""?}<div class="blocktitle">{?$jieqi_cbblocks[i].title?}</div>{?/if?}
+			<div class="blockcontent">{?$jieqi_cbblocks[i].content?}</div>
+			</div>
+			{?/section?}
+			{?/if?}
+		</div>
+
+		{?if $jieqi_showrblock == 1?}
+		<div class="right">
+			{?section name=i loop=$jieqi_rblocks?}
+			<div class="block">
+			{?if $jieqi_rblocks[i].title != ""?}<div class="blocktitle">{?$jieqi_rblocks[i].title?}</div>{?/if?}
+			<div class="blockcontent">{?$jieqi_rblocks[i].content?}</div>
+			</div>
+			{?/section?}
+		</div>
+		{?/if?}
+	</div>
+
+	{?if $jieqi_showbblock == 1?}
+	<div class="main">
+		{?section name=i loop=$jieqi_bblocks?}
+		<div class="block">
+		{?if $jieqi_bblocks[i].title != ""?}<div class="blocktitle">{?$jieqi_bblocks[i].title?}</div>{?/if?}
+		<div class="blockcontent">{?$jieqi_bblocks[i].content?}</div>
+		</div>
+		{?/section?}
+	</div>
+	{?/if?}
+
+{?else?}
+	<div id="content" class="main">{?$jieqi_contents?}</div>
+{?/if?}
+
+{?if $jieqi_bottom_bar != ""?}<div class="main">{?$jieqi_bottom_bar?}</div>{?/if?}
+<div class="cb"></div>
+</div>
+
+<div class="m_foot">
+	<div class="main">
+	Powered by <strong><a href="http://www.jieqi.com" target="_blank">JIEQI CMS</a></strong> &copy; 2004-2013 <a href="http://www.jieqi.com" target="_blank">杰奇网络（jieqi.com）</a><br />
+{?$jieqi_time|date:'Y-m-d H:i:s'?}, Processed in {?$jieqi_exetime?} second(s).
+	</div>
+</div>
+
+</body>
+</html>

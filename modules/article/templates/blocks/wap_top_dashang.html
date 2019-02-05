@@ -1,0 +1,5 @@
+{?section name=i loop=$salesrows?}
+{?if $salesrows[i].egoldnum > 0?}
+				<li{?if $i['order'] < 4?} class='t'{?/if?}>
+				<a href="{?function jieqi_geturl:'article':'article':$salesrows[i].articleid:'info'?}">
+					<span class="count">{?$i['order']?}</span>{?$salesrows[i].articlename?}</a></li>{?/if?}{?/section?}

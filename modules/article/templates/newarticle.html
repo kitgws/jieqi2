@@ -1,0 +1,152 @@
+{?set jieqi_blocks_module = "article"?}
+{?set jieqi_blocks_config = "authorblocks"?}
+<script type="text/javascript">
+function frmnewarticle_validate(){
+  if(document.frmnewarticle.sortid.value == "0"){
+    alert("请输入类别");
+    document.frmnewarticle.sortid.focus();
+    return false;
+  }
+  if(document.frmnewarticle.articlename.value == ""){
+    alert("请输入小说名称");
+    document.frmnewarticle.articlename.focus();
+    return false;
+  }
+}
+</script>
+<div class="container">
+	<div class="mod block form">
+		<div class="hd">
+			<h4>创建新书</h4>
+		</div>
+<form name="frmnewarticle" id="frmnewarticle" action="{?$url_newarticle?}" method="post" onsubmit="return frmnewarticle_validate();" enctype="multipart/form-data">
+<div class="mail-zc">
+
+ <div class="phone-name">  
+   <h3>类别 </h3>  
+  
+  <select class="select" size="1" onchange="showtypes(this)" name="sortid" id="sortid">
+  <option value="0">请选择类别</option>
+  {?section name=i loop=$sortrows?}
+  <option value="{?$i['key']?}">{?$sortrows[i].caption?}</option>
+  {?/section?}
+  </select>
+  <span id="typeselect" name="typeselect" style="display: none;"></span>
+  <script type="text/javascript">
+  function showtypes(obj){
+    var typeselect=document.getElementById('typeselect');
+    typeselect.innerHTML='';
+    {?section name=i loop=$sortrows?}
+	  {?if $sortrows[i].types != ''?}
+	  if(obj.options[obj.selectedIndex].value == {?$i['key']?}) typeselect.innerHTML='<select class="select" size="1" name="typeid" id="typeid">{?section name=j loop=$sortrows[i].types?}<option value="{?$j['key']?}">{?$sortrows[i]['types'][j]?}</option>{?/section?}</select>';
+	  {?/if?}
+    {?/section?}
+  }
+  </script>
+ 
+</div>
+ <div class="phone-name">  
+  <h3>小说名称 </h3>  
+  <input type="text" class="text" name="articlename" id="articlename" size="30" maxlength="50" value="" onBlur="Ajax.Update('{?$jieqi_modules['article']['url']?}/articlecheck.php?articlename='+this.value, {outid:'anamemsg', tipid:'anamemsg', onLoading:'<img border=\'0\' height=\'16\' width=\'16\' src=\'{?$jieqi_url?}/images/loading.gif\' /> Loading...'});" /> <span id="anamemsg"></span>
+</div>
+ <div class="phone-name">  
+  <h3>副标题 </h3>  
+  <input type="text" class="text" name="backupname" id="backupname" size="30" maxlength="100" value="" /> <span>一句话简介</span></td>
+</div>
+ <div class="phone-name">  
+  <h3>标签 </h3>  
+<input type="text" class="text" name="keywords" id="tagwords" size="60" maxlength="100" value=""/><span>多个标签用英文空格分隔</span>
+</div>
+ <div class="phone-name">  
+  <h3>管理员 </h3>  
+  <input type="text" class="text" name="agent" id="agent" size="30" maxlength="30" value="" /> <span>可以指定一个本站现有用户作为管理员</span></td>
+</div>
+{?if $allowtrans > 0?}
+ <div class="phone-name">  
+  <h3>作者 </h3>  
+  <input type="text" class="text" name="author" id="author" size="30" maxlength="30" value="" /> <span>发表自己作品请留空</span></td>
+</div>
+ <div class="phone-name">  
+  <h3>作者授权 </h3>  
+  
+  {?section name=i loop=$authorflag['items']?}
+  <input type="radio" class="radio" name="authorflag" value="{?$i['key']?}" {?if $i['key'] == $authorflag['default']?}checked="checked" {?/if?}/>{?$authorflag['items'][i]?} 
+  {?/section?}
+</td>
+</div>
+{?/if?}
+ <div class="phone-name">  
+  <h3>授权级别 </h3>  
+  
+  {?section name=i loop=$permission['items']?}
+  <input type="radio" class="radio" name="permission" value="{?$i['key']?}" {?if $i['key'] == $permission['default']?}checked="checked" {?/if?}/>{?$permission['items'][i]?} 
+  {?/section?}
+</td>
+</div>
+ <div class="phone-name">  
+  <h3>首发状态 </h3>  
+  
+  {?section name=i loop=$firstflag['items']?}
+  <input type="radio" class="radio" name="firstflag" value="{?$i['key']?}" {?if $i['key'] == $firstflag['default']?}checked="checked" {?/if?}/>{?$firstflag['items'][i]?} 
+  {?/section?}
+</td>
+</div>
+{?if $ismanager > 0?}
+  {?if $customsites|count > 0?}
+ <div class="phone-name">  
+  <h3>来源网站 </h3>  
+  
+  <select class="select" size="1" name="siteid">
+  <option value="0" selected="selected">本站原创</option>
+  {?section name=i loop=$customsites?}
+  <option value="{?$i['key']?}">{?$customsites[i].name?}</option>
+  {?/section?}
+  </select>
+ 
+</div>
+  {?/if?}
+{?/if?}
+ <div class="phone-name">  
+  <h3>内容简介 </h3>  
+  <textarea class="textarea" name="intro" id="intro" rows="6" cols="60"></textarea></td>
+</div>
+ <div class="phone-name">  
+  <h3>本书公告 </h3>  
+  <textarea class="textarea" name="notice" id="notice" rows="6" cols="60"></textarea></td>
+</div>
+ <div class="phone-name">  
+  <h3>封面小图 </h3>  
+  <input type="file" class="text" size="30" name="articlespic" id="articlespic" /> <span>图片格式：.jpg</span></td>
+</div>
+ <div class="phone-name">  
+  <h3>封面大图 </h3>  
+  <input type="file" class="text" size="30" name="articlelpic" id="articlelpic" /> <span>图片格式：.jpg</span></td>
+</div>
+ <div class="ft">
+  <h3>&nbsp;<input type="hidden" name="act" value="newarticle" />{?$jieqi_token_input?}
+  <input type="submit" class="btn btn-auto btn-blue" name="submit" value="提 交" /></td>
+</div>
+</div>
+</form>
+	</div>
+</div>
+<script type="text/javascript">
+$(function(){
+		$('#frmnewarticle').on('submit', function(e){
+		e.preventDefault();
+		 var tips = layer.open({type: 2,content: '加载中'});
+				GPage.postForm('frmnewarticle', $("#frmnewarticle").attr("action"),
+			   function(data){
+					if(data.status=='OK'){
+                        $.ajaxSetup ({ cache: false });
+					    layer.close(tips);
+                        jumpurl(data.jumpurl);
+					}else{
+					    layer.close(tips);
+		                openMsgs(data.msg);
+					}
+			   });
+//			}
+		});
+});
+</script> 

@@ -1,0 +1,272 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta property="qc:admins" content="634505324761554561676375" />
+<meta http-equiv="Content-Type" content="text/html; charset={?$jieqi_charset?}" />
+<meta name="keywords" content="{?$meta_keywords?}" />
+<meta name="description" content="{?$meta_description?}" />
+<meta name="author" content="{?$meta_author?}" />
+<meta name="copyright" content="{?$meta_copyright?}" />
+<meta name="generator" content="jieqi.com" />
+<meta property="wb:webmaster" content="a6e81e72de684a95" />
+<link rel="shortcut icon" href="favicon.ico"/>
+<title>{?$jieqi_pagetitle?}</title>
+<link rel="stylesheet" rev="stylesheet" href="{?$jieqi_themeurl?}style.css" type="text/css"/>
+<link rel="stylesheet" rev="stylesheet" href="{?$jieqi_themeurl?}slider.css" type="text/css"/>
+<script language="javascript" type="text/javascript" src="{?$jieqi_url?}/scripts/common.js"></script>
+<script type="text/javascript" src="{?$jieqi_url?}/scripts/jquery-1.8.3.min.js"></script>
+<script language="javascript" type="text/javascript" src="{?$jieqi_url?}/scripts/jquery-latest.min.js"></script>
+<script language="javascript" type="text/javascript" src="{?$jieqi_url?}/scripts/unslider.js"></script>
+<script language="javascript" type="text/javascript" src="{?$jieqi_themeurl?}theme.js"></script>
+<script type="text/javascript">
+
+</script>
+{?$jieqi_head?}
+</head>
+<body>
+<div class="m_top">
+  <div class="mintop">
+    <div class="wrap fix">
+      <div class="userbar" id="userbar"> 
+{?if $jieqi_userid == 0?}	  
+        	<div class="logn">欢迎访问，<span class="g9">请<a href="{?function jieqi_geturl:'users':'users':login:0?}" class="f_blue5">登录</a>或<a href="{?function jieqi_geturl:'users':'users':register:0?}" class="f_blue5">注册</a></span><a href="{?$jieqi_url?}/api/qq/login.php" class="qq f_gray3r" title="QQ登录">&nbsp;</a><a href="{?$jieqi_url?}/api/weibo/login.php" class="sina f_gray3r" title="微博登录">&nbsp;</a></div>
+      
+{?else?}
+<script type="text/javascript" src="/sink/js/jquery.cookie.js"></script> 
+<!--logined2  begin-->
+<div class="logined2">
+    <ul class="topmenu" clearfix="" id="jq_topmenu">
+     <li class="webnav" qxpp="" style="background:none">
+      <span class="icon_arr2"><a class="vip{?$jieqi_vip_img?} vs" title="VIP{?$jieqi_vip_img?}级会员" href="#"></a><em>{?$jieqi_username?}</em></span>
+      <div class="jq_hidebox" id="jq_hidebox" style="display: none; " block;="">
+        <dl class="jq2">
+          <dd class="dd1"><a href="{?$jieqi_url?}/user/" class="f_black">个人中心</a></dd>
+		  <dd><a href="{?$jieqi_modules['article']['url']?}/myarticle.php" class="f_black">作家中心</a></dd>
+          <dd><a href="{?function jieqi_geturl:'users':'users':useredit:0?}" class="f_black">账号管理</a></dd>
+          <dd><a href="{?function jieqi_geturl:'users':'users':setavatar:0?}" class="f_black">修改头像</a></dd>
+          <dd><a href="{?function jieqi_geturl:'users':'users':passedit:0?}" class="f_black">修改密码</a></dd>
+          <dd><a href="/modules/pay/buyegold.php" class="f_black">充值</a></dd>
+          <dd class="dd2"><a href="{?function jieqi_geturl:'users':'users':logout:0?}" class="f_black">退出</a></dd>
+        </dl>
+      </div>     
+     </li>
+     <li class="webnav" qxpp="" style="background:none">
+      <span class="icon_arr2">消息<em class="org">({?$jieqi_newmessage?})</em></span>
+      <div class="jq_hidebox" id="jq_hidebox" style="display: none; " block;="">
+        <dl class="jq1">
+          <dd><a href="/message.php?box=inbox" class="f_black">查看私信</a><em class="g9">您有<em class="org">{?$jieqi_newmessage?}</em>条私信</em></dd>
+        </dl>
+      </div>   
+     </li>
+     <li class="webnav" qxpp="" style="background:none">
+      <span class="icon_arr2">我的书架</span>
+      <div class="jq_hidebox" id="jq_hidebox" style="display: none; " block;="">
+       <div class="jq3 fix">
+        <ul id="tabs9" class="tabmenu2 fix" >
+          <li id="arl" class="brdl"><a href="javascript:;">书架记录</a></li>
+          <li id="list"><a href="javascript:;">最近阅读</a></li>
+        </ul>
+        <ul id="tab_conbox9">
+         <li style="display:none;" id="am">
+			          <dl class="lisd fix">
+
+           
+		    
+           <dd class="fix g9 noline tr"><a href="{?function jieqi_geturl:'article':'bookcase':bookcase:0?}" class="f_blue1">查看更多&gt;&gt;</a></dd>
+          </dl>
+
+         </li>
+         <li>
+          <dl class="lisd fix" id="list2">
+          </dl>
+         </li>
+        </ul>
+       </div>
+      </div>     
+     </li>
+     <li>|<a href="/logout.php" class="f_black">退出</a></li>
+    </ul>
+</div><!--logined2 end-->
+ {?/if?}</div>
+      <div class="mini_r f-black">
+       <a href="{?$jieqi_url?}/" onClick="window.external.addFavorite(this.href,this.title);return false;" title='{?$jieqi_pagetitle?}' rel="sidebar" class="addfav">加入收藏</a>
+       |<a href="javascript:;"  onclick=this.style.behavior="url(#default#homepage)";this.setHomePage("{?$jieqi_url?}/");  class="sethome"  title="{?$jieqi_pagetitle?}" >设为首页</a>
+       |<a href="javascript:void(0)" id="StranLink" name="StranLink" class="fan"  title="繁体">繁体</a>
+       |<a href="#" title="帮助">帮助</a>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div class="main m_head">
+<div class="h_logo"><a href="{?$jieqi_url?}/"><img src="{?$jieqi_themeurl?}logo.jpg" border="0" alt="{?$jieqi_sitename?}" /></a></div>
+<div class="h_banner">{?$jieqi_banner?}</div>
+
+</div>
+
+<div class="main m_nav">
+	<div class="m_nav_c">
+         <ul>
+           <li class="now"><a href="{?$jieqi_url?}/">首页</a></li>
+		   <li><a href="{?$jieqi_modules['article']['url']?}/articlefilter.php?order=lastupdate">书库</a></li>
+		   <li><a href="{?$jieqi_modules['article']['url']?}/rank.php">排行榜</a></li>
+		   <li><a href="{?$jieqi_modules['article']['url']?}/search.php">搜索</a></li>
+		   <li><a href="{?$jieqi_modules['article']['url']?}/applywriter.php">申请作家</a></li>
+		   <li><a href="#">作家福利</a></li>
+		   <li><a href="{?$jieqi_modules['pay']['url']?}/buyegold.php">在线充值</a></li>   
+         </ul>
+	</div>
+   <div class="sortnav">
+    <dl class="f-white">
+	 {?section name=i loop=$sortrowss?}<dd><a href="{?$sortrowss[i].url_sorts?}" target="_blank">{?$sortrowss[i].sortnames?}</a></dd>{?/section?}
+    </dl>
+   </div>
+
+</div>
+<div class="main">
+	<div class="h_link">
+	<div class="cb" style="margin-top:5px;"></div>
+	<form name="articlesearch" method="post" action="{?$jieqi_modules['article']['url']?}/search.php" target="_blank">
+		<span class="span_search">
+    	<select name="searchtype" id="searchtype" class="select_search">
+			<option value="articlename" selected>书名</option>
+			<option value="author">作者</option>
+		</select>
+		<input name="searchkey" type="text" class="text_search">
+		</span>
+		<input type="hidden" name="act" value="search">{?$jieqi_token_input?}
+		<input type="submit" class="btn_search" value="搜索">
+	</form>
+	</div>
+	<!-- header hot begin-->
+	<div class="header_hot">
+		<a href="http://www.yuedufang.com/modules/article/articleinfo.php?id=17" class="hot_a">首席霸爱：别逃，宠你上瘾</a>
+	<a href="http://www.yuedufang.com/modules/article/articleinfo.php?id=68">我和26岁美女上司</a>
+	</div>
+	<!-- header  hot eng -->
+
+	<!-- header notice begin -->
+	<!--<div class="header_notice">
+		<ul>
+			<li><img src="/themes/jieqiyc/images/laba.jpg"/>sunshine..订阅了《天下经纶》</li>
+		</ul>
+	</div>-->
+	<!-- header notice end -->
+	
+</div>
+
+{?if $jieqi_top_bar != ""?}<div class="main">{?$jieqi_top_bar?}</div>{?/if?}
+{?if $jieqi_sideblocks['7']|empty == false?}
+{?section name=i loop=$jieqi_sideblocks['7']?}
+  <div class="main">
+  <div class="block">
+  {?if $jieqi_sideblocks['7'][i].title != ""?}<div class="blocktitle">{?$jieqi_sideblocks['7'][i].title?}</div>{?/if?}
+  <div class="blockcontent">{?$jieqi_sideblocks['7'][i].content?}</div>
+  </div>
+  </div>
+{?/section?}
+{?/if?}
+
+{?if $jieqi_sideblocks['2']|empty == false || $jieqi_sideblocks['3']|empty == false?}
+<div class="main" id="topm">
+<div id="cleft">
+{?section name=i loop=$jieqi_sideblocks['2']?}
+  <div class="block">
+  {?if $jieqi_sideblocks['2'][i].title != ""?}<div class="blocktitle">{?$jieqi_sideblocks['2'][i].title?}</div>{?/if?}
+  <div class="blockcontent">{?$jieqi_sideblocks['2'][i].content?}</div>
+  </div>
+{?/section?}
+</div>
+<div id="cright">
+{?section name=i loop=$jieqi_sideblocks['3']?}
+  <div class="block">
+  {?if $jieqi_sideblocks['3'][i].title != ""?}<div class="blocktitle">{?$jieqi_sideblocks['3'][i].title?}</div>{?/if?}
+  <div class="blockcontent">{?$jieqi_sideblocks['3'][i].content?}</div>
+  </div>
+{?/section?}
+</div>
+</div>
+{?/if?}
+
+<div class="main">
+{?if $jieqi_sideblocks['0']|empty == false || $jieqi_sideblocks['9']|empty == false?}
+<div id="left">
+{?section name=i loop=$jieqi_sideblocks['9']?}
+<div class="block">
+{?if $jieqi_sideblocks['9'][i].title != ""?}<div class="blocktitle">{?$jieqi_sideblocks['9'][i].title?}</div>{?/if?}
+<div class="blockcontent">{?$jieqi_sideblocks['9'][i].content?}</div>
+</div>
+{?/section?}  
+{?section name=i loop=$jieqi_sideblocks['0']?}
+<div class="block">
+{?if $jieqi_sideblocks['0'][i].title != ""?}<div class="blocktitle">{?$jieqi_sideblocks['0'][i].title?}</div>{?/if?}
+<div class="blockcontent">{?$jieqi_sideblocks['0'][i].content?}</div>
+</div>
+{?/section?}  
+</div>
+  {?if $jieqi_sideblocks['1']|empty == false?}<div id="centers">{?else?}<div id="centerm">{?/if?}
+{?else?}
+  {?if $jieqi_sideblocks['1']|empty == false?}<div id="centerm">{?else?}<div id="centerl">{?/if?}
+{?/if?}
+{?if $jieqi_sideblocks['4']|empty == false || $jieqi_sideblocks['5']|empty == false?}
+{?section name=i loop=$jieqi_sideblocks['4']?}
+<div class="block">
+{?if $jieqi_sideblocks['4'][i].title != ""?}<div class="blocktitle">{?$jieqi_sideblocks['4'][i].title?}</div>{?/if?}
+<div class="blockcontent">{?$jieqi_sideblocks['4'][i].content?}</div>
+</div>
+{?/section?}
+{?section name=i loop=$jieqi_sideblocks['5']?}
+<div class="block">
+{?if $jieqi_sideblocks['5'][i].title != ""?}<div class="blocktitle">{?$jieqi_sideblocks['5'][i].title?}</div>{?/if?}
+<div class="blockcontent">{?$jieqi_sideblocks['5'][i].content?}</div>
+</div>
+{?/section?}
+{?/if?}
+{?if $jieqi_contents != ""?}<div id="content">{?$jieqi_contents?}</div>{?/if?}
+{?if $jieqi_sideblocks['6']|empty == false?}
+{?section name=i loop=$jieqi_sideblocks['6']?}
+<div class="block">
+{?if $jieqi_sideblocks['6'][i].title != ""?}<div class="blocktitle">{?$jieqi_sideblocks['6'][i].title?}</div>{?/if?}
+<div class="blockcontent">{?$jieqi_sideblocks['6'][i].content?}</div>
+</div>
+{?/section?}
+{?/if?}
+</div>
+{?if $jieqi_sideblocks['1']|empty == false?}
+<div id="right">
+{?section name=i loop=$jieqi_sideblocks['1']?}
+<div class="block">
+{?if $jieqi_sideblocks['1'][i].title != ""?}<div class="blocktitle">{?$jieqi_sideblocks['1'][i].title?}</div>{?/if?}
+<div class="blockcontent">{?$jieqi_sideblocks['1'][i].content?}</div>
+</div>
+{?/section?}
+</div>
+{?/if?}
+</div>
+
+{?if $jieqi_sideblocks['8']|empty == false?}
+{?section name=i loop=$jieqi_sideblocks['8']?}
+  <div class="main">
+  <div class="block">
+  {?if $jieqi_sideblocks['8'][i].title != ""?}<div class="blocktitle">{?$jieqi_sideblocks['8'][i].title?}</div>{?/if?}
+  <div class="blockcontent">{?$jieqi_sideblocks['8'][i].content?}</div>
+  </div>
+  </div>
+{?/section?}
+{?/if?}
+{?if $jieqi_bottom_bar != ""?}<div class="main">{?$jieqi_bottom_bar?}</div>{?/if?}
+<div class="cb"></div>
+<div class="main m_foot">
+	<p class="m_foot_link"><a href="http://www.yuedufang.com/page.php?template=about">关于我们</a> | <a href="http://www.yuedufang.com/page.php?template=business">商务合作</a> | <a href="http://www.yuedufang.com/page.php?template=joinus">诚聘英才</a> | <a href="http://www.weibo.com/huayuchangxiang">官方微博</a> | <a href="http://www.yuedufang.com/page.php?template=notice">版权声明</a></p>
+    <p>Copyright &copy; 2014 版权所有 悦读坊 京ICP备11045497号-2</p>
+	<p>支持原创，拒绝盗版，反对一切色情暴力，举报电话：010-57216575 投诉邮箱：ts#yuedufang.com 发邮件请用@替换#</P>
+</div>
+<!--baidu tongji begin-->
+<script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F4b500e457981633880d0d8a344cd930f' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<!--baidu tongji end-->
+</body>
+</html>

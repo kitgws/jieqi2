@@ -1,0 +1,10 @@
+
+{?section name=i loop=$actlogrows?}
+<dd><span class="name"><a href="{?function jieqi_geturl:'system':'user':$actlogrows[i].uid:'info'?}" ajaxhover="true" uid="{?$actlogrows[i].uid?}" target="_blank">{?$actlogrows[i].uname?}</a></span>
+        		<p class="data">
+        			{?if $actlogrows[i].actname == 'tip'?}
+        				<span class="nm">打赏</span>{?$actlogrows[i].actnum?} {?$egoldname?}{?elseif $actlogrows[i].actname == 'hurry'?}<span class="nm">催更</span>{?$actlogrows[i].actnum?} {?$egoldname?}{?elseif $actlogrows[i].actname == 'vipvote'?}<span class="nm"> 赠送</span> {?$actlogrows[i].actnum?} 张月票{?elseif $actlogrows[i].actname == 'poll'?}<span class="nm">赠送</span> {?$actlogrows[i].actnum?} 张推荐票{?elseif $actlogrows[i].actname == 'bookcase'?}<span class="nm">收藏</span>1次{?elseif $actlogrows[i].actname == 'flower'?}<span class="nm">赠送</span>{?$actlogrows[i].actnum?}朵鲜花{?elseif $actlogrows[i].actname == 'vipvote'?}<span class="nm">赠送</span>{?$actlogrows[i].actnum?}张月票{?elseif $actlogrows[i].actname == 'buychapter'?}<span class="nm">订阅</span>1章{?/if?}
+        			
+        		</p>
+        	</dd>{?/section?}
+

@@ -1,0 +1,2 @@
+{?section name=i loop=$articlerows?}{?if $articlerows[i].visitnum > 0?}
+				<li{?if $i['order'] < 4?} class='t'{?/if?}><a href="{?$articlerows[i].url_articleinfo?}"><span class="count">{?$i['order']?}</span>{?$articlerows[i].articlename?}</a></li>{?/if?}{?/section?}

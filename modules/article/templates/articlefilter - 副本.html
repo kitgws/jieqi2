@@ -1,0 +1,50 @@
+{?set jieqi_blocks_module = "article"?}
+{?set jieqi_blocks_config = "guideblocks"?}
+{?set $jieqi_pagetitle = "小说书库-{$jieqi_sitename}"?}{?set jieqi_page_rows = "30"?}{?set jieqi_page_links = "5"?}
+<div class="container">
+	<h1 class="page-title">书库</h1>
+	<div class="mod block book-all-list">
+		<div class="hd">
+
+			<div class="filter">
+				<span>分类：</span>{?section name=i loop=$sortidrows?}{?if $sortidrows[i]['group'] == $rgroup?}{?if $sortidrows[i]['selected'] > 0?}
+				<a href="{?$sortidrows[i]['url']?}"  class="current">{?$sortidrows[i]['name']?}</a>{?else?}<a href="{?$sortidrows[i]['url']?}">{?$sortidrows[i]['name']?}</a>{?/if?}{?elseif $rgroup == ''?}{?if $sortidrows[i]['selected'] > 0?}
+				<a href="{?$sortidrows[i]['url']?}"  class="current">{?$sortidrows[i]['name']?}</a>{?else?}<a href="{?$sortidrows[i]['url']?}">{?$sortidrows[i]['name']?}</a>{?/if?}{?/if?}{?/section?}
+			</div>{?if $typeidrows|count > 0?}
+			<div class="filter even" style="display: none;">
+				<span>小类：</span>{?section name=i loop=$typeidrows?}{?if $typeidrows[i]['selected'] > 0?}
+				<a href="{?$typeidrows[i]['url']?}"  class="current">{?$typeidrows[i]['name']?}</a>{?else?}<a href="{?$typeidrows[i]['url']?}">{?$typeidrows[i]['name']?}</a>{?/if?}{?/section?}
+			</div>{?/if?}
+			<div class="filter">
+				<span>字数：</span>{?section name=i loop=$sizerows?}{?if $sizerows[i]['selected'] > 0?}
+				<a href="{?$sizerows[i]['url']?}" class="current">{?$sizerows[i]['name']?}</a>{?else?}<a href="{?$sizerows[i]['url']?}">{?$sizerows[i]['name']?}</a>{?/if?}{?/section?}
+			</div>
+			<div class="filter even">
+				<span>排序：</span>{?section name=i loop=$orderrows?}{?if $orderrows[i]['selected'] > 0?}
+				<a href="{?$orderrows[i]['url']?}" class="current">{?$orderrows[i]['name']?}</a>{?else?}<a href="{?$orderrows[i]['url']?}">{?$orderrows[i]['name']?}</a>{?/if?}{?/section?}
+			</div>
+			<div class="filter">
+				<span>更新：</span>{?section name=i loop=$updaterows?}{?if $updaterows[i]['selected'] > 0?}
+				<a href="{?$updaterows[i]['url']?}" class="current">{?$updaterows[i]['name']?}</a>{?else?}<a href="{?$updaterows[i]['url']?}">{?$updaterows[i]['name']?}</a>{?/if?}{?/section?}
+			</div>
+			<div class="filter even">
+				<span>免费：</span>{?section name=i loop=$isviprows?}{?if $isviprows[i]['selected'] > 0?}
+				<a href="{?$isviprows[i]['url']?}" class="current">{?$isviprows[i]['name']?}</a>{?else?}<a href="{?$isviprows[i]['url']?}">{?$isviprows[i]['name']?}</a>{?/if?}{?/section?}
+			</div>
+			<div class="filter">
+				<span>完结：</span>{?section name=i loop=$isfullrows?}{?if $isfullrows[i]['selected'] > 0?}
+				<a href="{?$isfullrows[i]['url']?}" class="current">{?$isfullrows[i]['name']?}</a>{?else?}<a href="{?$isfullrows[i]['url']?}">{?$isfullrows[i]['name']?}</a>{?/if?}{?/section?}
+			</div>
+		</div>
+		<div class="bd">
+			<ul class="item list cont">{?section name=i loop=$articlerows?}
+				<li class="column-2 over"><a href="{?$articlerows[i].url_articleinfo?}"><p class="book_title">{?$articlerows[i].articlename?}</p>{?if $articlerows[i].vipchapterid > 0?}
+				<p onclick="window.location='{?$articlerows[i].url_vipchapter?}'" style="color:#666">{?$articlerows[i].vipchapter?} ({?$articlerows[i].viptime|date:'m-d H:i'?})</p>{?else?}
+				<p onclick="window.location='{?$articlerows[i].url_lastchapter?}'" style="color:#666">{?$articlerows[i].lastchapter?} ({?$articlerows[i].lastupdate|date:'m-d H:i'?})</p>{?/if?}
+				<p><span class="status">{?$articlerows[i].fullflag?}</span>作者：{?$articlerows[i].author?} 字数：{?$articlerows[i].size_c?} 字</p></a>
+				</li>{?/section?}
+			</ul>
+			{?$url_jumppage?}
+		</div>
+	</div>
+</div>

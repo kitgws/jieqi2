@@ -1,0 +1,12 @@
+{?section name=i loop=$articlerows?}
+				<div class="left">
+					<a href="{?$articlerows[i].url_articleinfo?}">
+					<img src="{?$articlerows[i].url_image?}" alt="{?$articlerows[i].articlename?}" width="80" height="112"/>
+					</a>
+				</div>
+				<div class="right">
+					<h4><a href="{?$articlerows[i].url_articleinfo?}">{?$articlerows[i].articlename?}</a></h4>
+					<p>
+						{?$articlerows[i].intro|truncate:130:...?}
+					</p>
+				</div>{?/section?}

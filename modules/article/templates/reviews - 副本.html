@@ -1,0 +1,168 @@
+{?set jieqi_page_rows = "30"?}
+
+<script type="text/javascript">
+//置顶置后
+function act_top(url){
+	var o = getTarget();
+	var param = {
+		method: 'POST', 
+		onFinish: ''
+	}
+	if(o.getAttribute('switch') == '0'){
+		url = url.replace('act=untop', 'act=top');
+		param.onFinish = function(res){
+			if(res.match('成功')){
+				o.setAttribute('switch', '1');
+				o.innerHTML = '置后';
+			}
+		}
+	}else{
+		url = url.replace('act=top', 'act=untop');
+		param.onFinish = function(res){
+			if(res.match('成功')){
+				o.setAttribute('switch', '0');
+				o.innerHTML = '置顶';
+			}
+		}
+	}
+	Ajax.Tip(url, param);
+	return false;
+}
+//加精去精
+function act_good(url){
+	var o = getTarget();
+	var param = {
+		method: 'POST', 
+		onReturn: ''
+	}
+	if(o.getAttribute('switch') == '0'){
+		url = url.replace('act=normal', 'act=good');
+		param.onFinish = function(res){
+			if(res.match('成功')){
+			o.setAttribute('switch', '1');
+			o.innerHTML = '去精';
+			}
+		}
+	}else{
+		url = url.replace('act=good', 'act=normal');
+		param.onFinish = function(res){
+			if(res.match('成功')){
+			o.setAttribute('switch', '0');
+			o.innerHTML = '加精';
+			}
+		}
+	}
+	Ajax.Tip(url, param);
+	return false;
+}
+//删除
+function act_delete(url){
+	var o = getTarget();
+	var param = {
+		method: 'POST', 
+		onReturn: function(){
+			$_(o.parentNode.parentNode).remove();
+		}
+	}
+	if(confirm('确实要删除该书评么？')) Ajax.Tip(url, param);
+	return false;
+}
+</script>
+<div class=" block comments">
+		<div class="hd"><h4>粉丝评论</h4></div>
+		<div class="bd">
+		<div class="pl_nr">
+        <form name="frmreview" id="frmreview" method="post" action="{?$jieqi_modules['article']['url']?}/reviews.php?aid={?$articleid?}" target="_blank">
+        <p>发表新评论</p>
+        <textarea name="pcontent" id="pcontent" maxlength="500" style="height:100px;margin-top:10px;opacity:1"  placeholder="内容"></textarea>
+		<input type="hidden" name="act" id="act" value="newpost" />{?$jieqi_token_input?}
+        <input type="button" name="Submit" class="button" value=" 发表书评 " style="cursor:pointer;" onclick="Ajax.Request('frmreview',{onComplete:function(){alert(this.response.replace(/<br[^<>]*>/g,'\n'));Form.reset('frmreview');
+}});">
+        </form>
+        </div>
+			<ul id="htmlreview">
+			{?section name=i loop=$reviewrows?}
+<li class="">
+  <a href="javascript:void(0)">
+        <span>
+            <strong>{?$reviewrows[i].poster?}：</strong>
+            <i></i>
+            <em>{?$reviewrows[i].replytime|date:m-d H:i?}</em>
+			
+        </span>
+        <br>
+        {?$reviewrows[i].title?}
+		<div style="clear:both;color:#3c97dd;text-align:right" onclick="showReply({?$reviewrows[i].topicid?},this)">回应({?$reviewrows[i].replies?})</div>
+		<div class="well" id="__comment_{?$reviewrows[i].topicid?}" style="clear: both; display: none;">
+	<div class="comments comments-level-2">
+        <ul>
+		<script type="text/javascript" src="{?$jieqi_url?}/modules/article/reviewshows.php?rid={?$reviewrows[i].topicid?}"></script>
+		</ul>
+        <div class="form column-2 ">
+            <form name="frmreviews" id="frmreviews" method="post" action="{?$article_dynamic_url?}/reviewshow.php?tid={?$reviewrows[i].topicid?}&aid={?$articleid?}">
+                <table class="tablebtn" style="border-width:1px;">
+					<tbody><tr>
+						<td>
+						<input type="text" name="pcontent" id="pcontent" value=""  placeholder="我也来评一句">
+                            
+						</td>
+						<td width="70">
+						<input type="hidden" name="act" value="newpost" />{?$jieqi_token_input?}
+							<input type="submit" name="Submit" class="btn btn-auto btn-blue vm"value="回应">
+						</td>
+					</tr>
+				</tbody></table>
+
+
+                
+            </form>
+ </div>
+</div>
+</div>
+</a>
+</li>
+{?/section?}
+</ul>
+          
+            
+
+        
+        </div>
+	</div>
+	 <div class="pages">{?$url_jumppage?}</div> 
+<script type="text/javascript">
+function setTab(name,cursel,n){
+for(i=1;i<=n;i++){
+var menu=document.getElementById(name+i);
+var con=document.getElementById("con_"+name+"_"+i);
+menu.className=i==cursel?"item active":"item";
+con.style.display=i==cursel?"block":"none";
+}
+}
+	function showReply(id, obj) {
+        var comment = $("#__comment_" + id);
+        var _html = comment.html();
+        //alert(comment.is(":hidden"));
+        if (comment.is(":hidden")) {
+            if (_html == "") {
+                $.ajax({
+                    url: '/ajax/chapter/SubReply/',
+                    type: 'post',
+                    data: { replyId: id, page: 1, size: 50 },
+                    async: false, //默认为true 异步     
+                    error: function () {
+                        alert('error');
+                    },
+                    success: function (data) {
+                        comment.html(data);
+                    }
+                });
+            }
+            comment.show();
+        } else {
+            comment.hide();
+            $(obj).removeClass("comment-status-open");
+        }
+    }
+
+</script>

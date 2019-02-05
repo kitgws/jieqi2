@@ -1,0 +1,159 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>微信扫码支付</title>
+	<script src="Js/jquery.min.js"></script>
+    <script src="Js/qrcode.js"></script>
+	<script>
+    	$(function(){
+			
+			jsq=setInterval(get_status,3000);
+			out_trade_no='<?=$out_trade_no;?>';
+			function get_status(){
+				$.get("ajax.php?act=getstatus",{out_trade_no:out_trade_no},function(data){
+					if(data=='ok'){
+						clearInterval(jsq);
+						alert('支付成功！');
+						window.location.href="/modules/pay/buyegold.php"; 
+					}
+				});
+			}
+			
+    	});
+    </script>
+    <style type="text/css">
+	  #apDiv2 {
+		position:absolute;
+		width:287px;
+		height:374px;
+		z-index:1;
+		left: 1095px;
+		top: 143px;
+	}
+	#qrcode img {
+		max-height:290px;
+		max-width:290px;
+		min-height:200px;
+		min-width:200px;
+		padding:7px;
+		width:360px; height:360px; border:0px;
+	}
+	  </style>
+</head>
+<body>
+    <div class="wx_header">
+      <div class="wx_logo">
+        <img title="微信支付" alt="微信支付标志" src="./Img/wxlogo_pay.png"></div>
+    </div>
+    <div class="weixin">
+      <div class="weixin2">
+        <b class="wx_box_corner left pngFix"></b>
+        <b class="wx_box_corner right pngFix"></b>
+        <div class="wx_box pngFix">
+          <div class="wx_box_area">
+            <div class="pay_box qr_default">
+              <div class="area_bd">
+                <span class="wx_img_wrapper" id="qr_box">
+                  <div align="center" id="qrcode"></div>
+                  <img style="left: 50%; opacity:1; display:block; margin-left: 143px;" class="guide pngFix" src="./Img/wxwebpay_guide.png" alt="" id="guide"></span>
+                <div class="msg_default_box">
+                  <i class="icon_wx pngFix"></i>
+                  <p>请使用微信
+                    <br>扫一扫完成支付</p></div>
+                <div class="msg_box">
+                  <i class="icon_wx pngFix"></i>
+                  <p>
+                    <strong>扫描成功</strong>请在手机确认支付</p></div>
+              </div>
+            </div>
+          </div>
+          <div class="wx_hd">
+            <div class="wx_hd_img icon_wx"></div>
+          </div>
+          <div class="wx_money">
+            <span>￥</span><?=$order['egold']?></div>
+          <!--支付订单号-->
+          <div class="wx_pay">
+            <p>
+              <span class="wx_left">支付订单号</span>
+              <span class="wx_right"><?=$out_trade_no;?></span></p>
+            </div>
+          <div class="wx_kf">
+            <div class="wx_kf_img icon_wx"></div>
+            <div class="wx_kf_wz">
+              <p>&nbsp;客服：13692424XXX</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+        <div class="g-copyrightCon">
+        <div class="w1190">
+          <div class="g-copyright">Copyright © 2016, 苏ICP备xxxx号 <a href="http://www.baidu.com/" target="_blank">xxxx</a> 版权所有</div>
+            <div class="g-links"></div>
+            <div class="g-authentication">
+                <a href="" target="_blank" class="fi_ectrustchina"></a>
+                <a href="" target="_blank" class="fi_315online"></a>
+                <a href="" target="_blank" class="fi_qh"></a>
+                <a href="" target="_blank" class="fi_cnnic"></a>
+                <a href="" target="_blank" class="fi_anxibao"></a>
+                <a href="" target="_blank" class="fi_pingan"></a>
+                <a href="" target="_blank" class="fi_yangshi"></a>
+            </div>
+        </div>
+    </div>
+ <div id="apDiv1"></div>
+<link rel="stylesheet" type="text/css" href="./Css/header.css">
+     <link rel="stylesheet" type="text/css" href="./Css/WeixinPay.css">
+     <script language="javascript" type="text/javascript">$(function() {
+        var e = $("#qr_box");
+        var c = $("#guide");
+        c.css({
+          left: "50%",
+          opacity: 0
+        });
+        e.hover(function() {
+          c.css("display", "block").stop().animate({
+            marginLeft: "+156px",
+
+            opacity: 1
+          },
+          900, "swing",
+          function() {
+            c.animate({
+              marginLeft: "+143px"
+            },
+            300)
+          })
+        },
+        function() {
+          c.stop().animate({
+            marginLeft: "-101px",
+            opacity: 0
+          },
+          "400", "swing",
+          function() {
+            c.hide()
+          })
+        });
+      });
+      </script>
+      <script>
+		if(<?php echo $unifiedOrderResult["code_url"] != NULL; ?>)
+		{
+			var url = "<?php echo $code_url;?>";
+			//参数1表示图像大小，取值范围1-10；参数2表示质量，取值范围'L','M','Q','H'
+			var qr = qrcode(10, 'M');
+			qr.addData(url);
+			qr.make();
+			var wording=document.createElement('p');
+			wording.innerHTML = "";
+			var code=document.createElement('DIV');
+			code.innerHTML = qr.createImgTag();
+			var element=document.getElementById("qrcode");
+			element.appendChild(wording);
+			element.appendChild(code);
+		}
+	</script>
+</body>
+</html>

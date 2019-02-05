@@ -1,0 +1,138 @@
+{?set jieqi_blocks_module = "article"?}
+{?set jieqi_blocks_config = "authorblocks"?}
+<style type="text/css">
+.list_li_i{background:#fff;width:100%;margin:0 auto;}
+.list_li_i li{position:relative}
+.list_li_i li.act{border-left:5px solid #E25858;background:#feefec}
+.list_li_i li.act a{color:#E25858}
+.list_li_i li.act em{position:absolute;top:2px;right:5px;background-position:0 -110px}
+.list_li_i li.two{background:#f9f9f9}
+.list_li_i li a{white-space:nowrap;overflow:hidden;font-size:14px;text-overflow:ellipsis;padding:0 3px;height:41px;line-height:41px;}
+.list_li_i li em {color:#E25858}
+</style>
+<div class="container">
+	<div class="mod block form">
+		<div class="hd">
+			<h4>管理《{?$articlename?}》</h4>
+		</div>
+<form name="chapterdel" id="chapterdel" action="{?$url_chaptersdel?}" method="post">
+<div class="ft fcc"><a class="btn btn-auto btn-blue" href="{?$article_static_url?}/newvolume.php?aid={?$articleid?}">新建分卷</a> </div>
+<div class="ft fcc"><a class="btn btn-auto btn-blue" href="{?$article_static_url?}/newchapter.php?aid={?$articleid?}">增加章节</a> </div>
+<div class="ft fcc"><a class="btn btn-auto btn-blue" href="{?$article_static_url?}/articleedit.php?id={?$articleid?}">编辑小说</a> </div>
+
+ <tr>
+ <td>
+ <ul class="list_li_i">
+ {?section name=i loop=$chapterrows?}
+ {?if $chapterrows[i].chaptertype == 0?}
+ <li>
+ <input type="checkbox" class="checkbox" name="chapterid[]" value="{?$chapterrows[i].chapterid?}" />
+ <a href="{?$chapterrows[i].url_chapterread?}" target="_blank">{?$chapterrows[i].chaptername?}</a>
+ {?if $chapterrows[i].isvip_n > 0?}<em>vip</em>{?/if?} 
+ <a href="{?$chapterrows[i].url_chapteredit?}" class="am_act" title="编辑章节">[编]</a> 
+ <a id="act_delete_{?$chapterrows[i].chapterid?}" href="javascript:;" onclick="if(confirm('确实要删除该章节么？')) Ajax.Tip('{?$chapterrows[i].url_chapterdelete?}{?$jieqi_token_url?}', {method: 'POST'});" class="am_act" title="删除章节">[删]</a> 
+ {?if $chapterrows[i].isvip_n > 0?}
+ <a id="act_free_{?$chapterrows[i].chapterid?}" href="javascript:;" onclick="if(confirm('确实要将本章节设为免费么？')) Ajax.Tip('{?$chapterrows[i].url_chaptersetfree?}{?$jieqi_token_url?}', {method: 'POST'});" class="am_act" title="设为免费章节">[免]</a>
+ {?else?}
+ <a id="act_vip_{?$chapterrows[i].chapterid?}" href="javascript:;" onclick="if(confirm('确实要将本章节设为VIP么？')) Ajax.Tip('{?$chapterrows[i].url_chaptersetvip?}{?$jieqi_token_url?}', {method: 'POST'});" class="am_act" title="设为VIP章节">[VIP]</a>
+ {?/if?} 
+ {?if $chapterrows[i].display_n == 0?}
+ <a id="act_hide_{?$chapterrows[i].chapterid?}" href="javascript:;" onclick="if(confirm('确实要隐藏本章节内容么？')) Ajax.Tip('{?$chapterrows[i].url_chaptersethide?}{?$jieqi_token_url?}', {method: 'POST'});" class="am_act" title="隐藏章节内容">[隐]</a>
+ {?else?}
+ <a id="act_show_{?$chapterrows[i].chapterid?}" href="javascript:;" onclick="if(confirm('确实要显示本章节内容么？')) Ajax.Tip('{?$chapterrows[i].url_chaptersetshow?}{?$jieqi_token_url?}', {method: 'POST'});" class="am_act" title="显示章节内容">[显]</a>
+ {?/if?}
+ </li>
+ {?else?}
+ <li>
+ <input type="checkbox" class="checkbox" name="chapterid[]" value="{?$chapterrows[i].chapterid?}" />
+ <a href="{?$chapterrows[i].url_chapterread?}" target="_blank">{?$chapterrows[i].chaptername?}</a> 
+ <a href="{?$chapterrows[i].url_chapteredit?}" class="am_act" title="编辑分卷">[编]</a> 
+ <a id="act_delete_{?$chapterrows[i].chapterid?}" href="javascript:;" onclick="if(confirm('确实要删除该分卷么？')) Ajax.Tip('{?$chapterrows[i].url_chapterdelete?}{?$jieqi_token_url?}', {method: 'POST'});" class="am_act" title="删除分卷">[删]</a>
+ </li>
+ {?/if?}
+ {?/section?}
+ </ul>
+
+<div class="ft fcc"> <input type="hidden" name="articleid" id="articleid" value="{?$articleid?}" />
+   <input type="button" name="allcheck" value="选择全部章节" class="btn btn-auto btn-blue" onclick="for (var i=0;i<this.form.elements.length;i++){ this.form.elements[i].checked = true; }"></div>
+<div class="ft fcc">  <input type="button" name="nocheck" value="取消全部选中" class="btn btn-auto btn-blue" onclick="for (var i=0;i<this.form.elements.length;i++){ this.form.elements[i].checked = false; }"></div>
+<div class="ft fcc">  <input type="button" name="delcheck" value="批量删除章节" class="btn btn-auto btn-blue" onclick="if(confirm('确实要批量删除章节么？')){this.form.submit();}">
+   <input type="hidden" name="act" value="delete" />{?$jieqi_token_input?}
+</div>
+</form>
+</div>
+</div>
+
+<div class="container">
+	<div class="mod block form">
+		<div class="hd">
+			<h4>章节排序</h4>
+		</div>
+<form name="chaptersort" id="chaptersort" action="{?$url_chaptersort?}" method="post">
+<div class="mail-zc">
+<div class="phone-name"> 
+  <h3>选择章节或分卷</h3>
+  
+  <select class="select"  size="1" name="fromid" id="fromid">
+  {?section name=i loop=$chapterrows?}
+  {?if $chapterrows[i].chaptertype == 0?}
+  <option value="{?$chapterrows[i].chapterorder?}">|-{?$chapterrows[i].chaptername?}</option>
+  {?else?}
+  <option value="{?$chapterrows[i].chapterorder?}">{?$chapterrows[i].chaptername?}</option>
+  {?/if?}
+  {?/section?}
+  </select>
+  
+</div>
+  <div class="phone-name"> 
+  <h3>移动到</h3>
+  <select class="select"  size="1" name="toid" id="toid">
+  <option value="0">--最前面--</option>
+  {?section name=i loop=$chapterrows?}
+  {?if $chapterrows[i].chaptertype == 0?}
+  <option value="{?$chapterrows[i].chapterorder?}">|-{?$chapterrows[i].chaptername?}</option>
+  {?else?}
+  <option value="{?$chapterrows[i].chapterorder?}">{?$chapterrows[i].chaptername?}</option>
+  {?/if?}
+  {?/section?}
+  </select>
+  <span>之后</span>
+  
+</div>
+<div class="ft fcc">
+  <input type="submit" class="btn btn-auto btn-blue" name="submit_sort"  id="submit_sort" value="确 定" />
+  <input type="hidden" name="aid" id="aid" value="{?$articleid?}" />
+  <input type="hidden" name="act" value="sort" />{?$jieqi_token_input?}
+  
+</div>
+</div>
+</form>
+</div>
+</div>
+
+<div class="container">
+	<div class="mod block form">
+		<div class="hd">
+			<h4>重新生成</h4>
+		</div>
+<form name="repack" id="repack" action="{?$url_repack?}" method="post">
+<div class="phone-name"> 
+  <h3>生成选项</h3>
+  
+  <ul class="am_packflag">
+  {?section name=i loop=$packflag?}
+  <li><input type="checkbox" class="checkbox" name="packflag[]" value="{?$packflag[i].value?}" />{?$packflag[i].title?} </li>
+  {?/section?}
+  </ul>
+  
+</div>
+<div class="ft fcc">
+  <input type="submit" class="btn btn-auto btn-blue" name="submit_repack" id="submit_repack" value="确 定" />
+  <input type="hidden" name="id" id="id" value="{?$articleid?}" />
+  <input type="hidden" name="act" value="repack" />{?$jieqi_token_input?}
+  
+</div>
+</form>
+
+	</div>
+</div>

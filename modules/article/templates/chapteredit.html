@@ -1,0 +1,112 @@
+{?set jieqi_blocks_module = "article"?}
+{?set jieqi_blocks_config = "authorblocks"?}
+<script type="text/javascript">
+function frmchapteredit_validate(){
+  if(document.frmchapteredit.chaptername.value == ""){
+    alert("请输入章节章节标题");
+    document.frmchapteredit.chaptername.focus();
+    return false;
+  }
+}
+//统计输入字数
+function show_inputsize(txt){
+	txt = $_(txt);
+	var size = (arguments.length > 1) ? $_(arguments[1]) : $_(txt.id + '_size');
+	size.innerHTML = txt.value.replace(/\s/g, '').length;
+}
+//显示默认字数
+addEvent(window, 'load', function(){show_inputsize('chaptercontent');});
+</script>
+<div class="container">
+	<div class="mod block form">
+		<div class="hd">
+			<h4>编辑章节</h4>
+</div>
+<script type="text/javascript" src="{?$jieqi_url?}/scripts/attaches.js"></script>
+<form name="frmchapteredit" id="frmchapteredit" action="{?$url_chapteredit?}" method="post" onsubmit="return frmchapteredit_validate();" enctype="multipart/form-data">
+<div class="mail-zc">
+<div class="phone-name"> 
+  <h3>小说名称：</h3>
+  <a href="{?$article_static_url?}/articlemanage.php?id={?$articleid?}">{?$articlename?}</a>
+</div>
+<div class="phone-name"> 
+  <h3>{?if $chaptertype == 1?}分卷标题：{?else?}章节标题：{?/if?}</h3>
+  <input type="text" class="text" name="chaptername" id="chaptername" size="50" maxlength="50" value="{?$chaptername?}" />{?if $isvip_n > 0 && $chaptertype == 0?}<span>vip</span>{?/if?}
+</div>
+{?if $chaptertype != 1?}
+<div class="phone-name"> 
+  <h3>章节内容：<br />已输入 <span id="chaptercontent_size">0</span> 字</h3>
+  <textarea class="textarea" name="chaptercontent" id="chaptercontent" rows="25" cols="80" onkeyup="show_inputsize(this);" oninput="show_inputsize(this);" onpropertychange="show_inputsize(this);">{?$chaptercontent?}</textarea>
+</div>
+{?if $isvip_n > 0 && $customprice > 0?}
+
+<!--<div class="phone-name"> 
+  <h3>销售价格：</h3>
+  <input type="text" class="text" name="saleprice" id="saleprice" size="4" maxlength="10" value="{?if $autoprice == 0?}{?$saleprice?}{?/if?}" />{?$egoldname?} <span>(留空则自动按字数计价)</span>
+</div>-->
+
+{?/if?}
+{?if $authtypeset == 1?}
+<div class="phone-name"> 
+  <h3>小说排版：</h3>
+  <input type="radio" class="radio" name="typeset" value="1" checked="checked" />自动排版
+<input type="radio" class="radio" name="typeset" value="0" />无需排版
+</div>
+{?/if?}
+{?if $attachnum > 0?}
+<div class="phone-name"> 
+  <h3>现有附件： <br /><span>（取消打勾表示删除该附件）</span></h3>
+
+  {?section name=i loop=$attachrows?}
+  <input type="checkbox" class="checkbox" name="oldattach[]" value="{?$attachrows[i].attachid?}" checked="checked" />{?$attachrows[i].name?} 
+  {?/section?}
+</div>
+{?/if?}
+{?if $canupload == true && $maxattachnum > 0?}
+<div class="phone-name"> 
+  <h3>附件限制：</h3>
+  文件类型：{?$attachtype?}, 图片最大：{?$maximagesize?}K, 文件最大：{?$maxfilesize?}K
+</div>
+<div class="phone-name"> 
+  <h3>附件上传：</h3>
+  <input type="file" class="file" name="attachfile[]" id="attachfile" onchange="Attaches.addFile('attachfile', 'attachdiv', true);" /><input type="button" class="filebutton" onclick="if(document.all){document.getElementById('attachfile').outerHTML += '';}else{document.getElementById('attachfile').value = '';}" value="清空" />
+  <div id="attachdiv"></div>
+</div>
+{?/if?}
+{?/if?}
+{?if $chapternew == 0 ?}
+<div class="ft">
+  <a class="btn btn-auto btn-blue" href="{?$jieqi_url?}/newmessage.php?tosys=1&title=申请修改章节-书号{?$articleid?}-{?$chaptername?}">申请修改章节</a><span>本章已被锁定，禁止修改！如果确实需要修改，请联系管理员处理。</span>
+  </div>
+  {?else?}
+<div class="ft">
+  <input type="hidden" name="act" value="update" />{?$jieqi_token_input?}
+  <input type="hidden" name="id" value="{?$chapterid?}" />
+  <input type="hidden" name="chaptertype" value="{?$chaptertype?}" />
+  <input type="submit" class="btn btn-auto btn-blue" name="submit" value="提 交" />
+</div>
+{?/if?}
+</div>
+</form>
+</div>
+</div>
+<script type="text/javascript">
+$(function(){
+		$('#frmchapteredit').on('submit', function(e){
+		e.preventDefault();
+		 var tips = layer.open({type: 2,content: '加载中'});
+				GPage.postForm('frmchapteredit', $("#frmchapteredit").attr("action"),
+			   function(data){
+					if(data.status=='OK'){
+                        $.ajaxSetup ({ cache: false });
+					    layer.close(tips);
+                        jumpurl(data.jumpurl);
+					}else{
+					    layer.close(tips);
+		                openMsgs(data.msg);
+					}
+			   });
+//			}
+		});
+});
+</script> 

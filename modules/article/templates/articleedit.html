@@ -1,0 +1,307 @@
+{?set jieqi_blocks_module = "article"?}
+{?set jieqi_blocks_config = "authorblocks"?} 
+<script type="text/javascript">
+<!--
+function frmarticleedit_validate(){
+  if(document.frmarticleedit.sortid.value == ""){
+    alert("请输入类别");
+    document.frmarticleedit.sortid.focus();
+    return false;
+  }
+  if(document.frmarticleedit.articlename.value == ""){
+    alert("请输入小说名称");
+    document.frmarticleedit.articlename.focus();
+    return false;
+  }
+}
+//-->
+</script>
+<div class="container">
+	<div class="mod block form">
+		<div class="hd">
+			<h4>编辑小说</h4>
+</div>
+<form name="frmarticleedit" id="frmarticleedit" action="{?$url_articleedit?}" method="post" onsubmit="return frmarticleedit_validate();" enctype="multipart/form-data">
+<div class="mail-zc">
+      <div class="phone-name"> 
+          <h3>作品类别：</h3>
+          
+{?if $allowmodify > 0?}
+  <select class="select" size="1" onchange="showtypes(this)" name="sortid" id="sortid">
+  {?section name=i loop=$sortrows?}
+  <option value="{?$i['key']?}"{?if $i['key'] == $articlevals['sortid']?} selected="selected"{?/if?}>{?$sortrows[i].caption?}</option>
+  {?/section?}
+  </select>
+  <span id="typeselect" name="typeselect" style="display: none;"></span>
+  <script language="javascript">
+  function showtypes(obj){
+    var typeselect=document.getElementById('typeselect');
+    typeselect.innerHTML='';
+    {?section name=i loop=$sortrows?}
+	  {?if $sortrows[i].types != ''?}
+	  if(obj.options[obj.selectedIndex].value == {?$i['key']?}) typeselect.innerHTML='<select class="select" size="1" name="typeid" id="typeid">{?section name=j loop=$sortrows[i].types?}<option value="{?$j['key']?}"{?if $j['key'] == $articlevals['typeid']?} selected="selected"{?/if?}>{?$sortrows[i]['types'][j]?}</option>{?/section?}</select>';
+	  {?/if?}
+    {?/section?}
+  }
+  </script>
+  
+{?else?}
+  {?section name=i loop=$sortrows?}
+{?if $i['key'] == $articlevals['sortid']?}{?$sortrows[i].caption?}{?/if?}
+  {?/section?}
+
+{?/if?}
+</div>
+<div class="phone-name"> 
+          <h3>作品书名：</h3>
+		  {?if $allowmodify > 0?}
+
+		           <input name="articlename" id="articlename" type="text" class="text" value="{?$articlevals['articlename']?}" maxlength="20" />
+		          
+{?else?}
+
+		  
+		           <span>{?$articlevals['articlename']?}</span>(30天内仅可向管理员申请修改所属分类1次) 
+		          
+		
+		{?/if?}
+         </div>
+<div class="phone-name"> 
+          <h3>作品标签：</h3>
+          
+		  {?if $allowmodify > 0?}
+		<input type="text" class="text" name="keywords" id="keywords" size="30" maxlength="50" value="{?$articlevals['keywords']?}" /><span>主角姓名,特定名词等,以空格分隔</span>
+		  {?else?}
+		 {?$articlevals['keywords']?}<span>主角姓名,特定名词等,以空格分隔</span>
+		   {?/if?}
+		  
+         </div>
+
+<div class="phone-name"> 
+          <h3>编辑：</h3>
+          <input type="text" class="text" name="agent" id="agent" size="30" maxlength="30" value="{?$articlevals['agent']?}" /><span>可以指定一个本站现有用户作为管理员</span>
+         </div>
+
+        <div class="phone-name"> 
+          <h3>作品状态：</h3>
+          
+  {?section name=i loop=$fullflag['items']?}
+  <input type="radio" class="radio" name="fullflag" value="{?$i['key']?}" {?if $i['key'] == $articlevals['fullflag']?}checked="checked" {?/if?}/>{?$fullflag['items'][i]?} 
+  {?/section?}
+
+         </div>
+        <div class="phone-name"> 
+          <h3>内容简介：</h3>
+          
+          <textarea class="inp31" name="intro" id="intro" maxlength="140">{?$articlevals['intro']?}</textarea>
+         </div>
+        <div class="phone-name"> 
+          <h3>作者公告：</h3>
+          
+		  <span>此处填写的是作品的公告内容，之后会显示在新作品首页的作品公告版块中。请不要超过140字。</span>
+		  <textarea  name="notice" id="notice" class="inp31" maxlength="140">{?$articlevals['notice']?}</textarea>         
+         </div>
+        <div class="phone-name"> 
+	          <h3>上传大封面：</h3>
+	          
+	           <input type="file" class="text" size="60" name="articlelpic" id="articlelpic"/>
+	           <span>大封面用于PC端，可在封面管理修改。 </span>
+	          
+	         </div>
+	        <div class="phone-name"> 
+	          <h3>上传小封面：</h3>
+	          
+	           <input type="file" class="text" size="60" name="articlespic" id="articlespic"/>
+	           <span>小封面用于移动端，默认使用大封面缩小图。 </span>
+	          
+	         </div>
+
+
+{?if $allowmodify > 0?}
+</dl>
+
+
+
+		<div class="hd">
+			<h4>管理员修改</h4>
+</div>
+
+   <div class="phone-name"> 
+      <h3>发表者：</h3>
+      <input type="text" class="text" name="poster" id="poster" size="30" maxlength="30" value="{?$articlevals['poster']?}" />
+        <span>必须是本站会员名称</span>  
+	         </div>
+			 
+<div class="phone-name"> 
+          <h3>作者：</h3>
+          <input type="text" class="text" name="author" id="author" size="30" maxlength="30" value="{?$articlevals['author']?}" />
+         </div>
+<div class="phone-name"> 
+          <h3>管理授权：</h3>
+          
+  {?section name=i loop=$authorflag['items']?}
+  <input type="radio" class="radio" name="authorflag" value="{?$i['key']?}" {?if $i['key'] == $articlevals['authorflag']?}checked="checked" {?/if?}/>{?$authorflag['items'][i]?} 
+  {?/section?}
+
+         </div>
+       <div class="phone-name"> 
+          <h3>授权级别：</h3>
+          
+  {?section name=i loop=$permission['items']?}
+  <input type="radio" class="radio" name="permission" value="{?$i['key']?}" {?if $i['key'] == $articlevals['permission']?}checked="checked" {?/if?}/>{?$permission['items'][i]?} 
+  {?/section?}
+
+         </div>
+        <div class="phone-name"> 
+          <h3>首发状态：</h3>
+          
+  {?section name=i loop=$firstflag['items']?}
+  <input type="radio" class="radio" name="firstflag" value="{?$i['key']?}" {?if $i['key'] == $articlevals['firstflag']?}checked="checked" {?/if?}/>{?$firstflag['items'][i]?} 
+  {?/section?}
+
+         </div>			 
+			 
+   <div class="phone-name"> 
+      <h3>是否签约：</h3>
+     {?section name=i loop=$issign['items']?}
+        <input type="radio" class="radio" name="issign" value="{?$i['key']?}" {?if $i['key'] == $articlevals['issign_n']?}checked="checked" {?/if?}/>
+        {?$issign['items'][i]?} 
+        {?/section?}   
+	         </div>
+ 
+<div class="phone-name"> 
+  <h3>是否包月：</h3>
+  
+  {?section name=i loop=$monthly['items']?}
+  <input type="radio" class="radio" name="monthly" value="{?$i['key']?}" {?if $i['key'] == $articlevals['monthly_n']?}checked="checked" {?/if?}/>{?$monthly['items'][i]?} 
+  {?/section?}
+   <span>对于已经签约小说有效</span>
+  
+  
+	         </div>
+
+   <div class="phone-name"> 
+      <h3>是否买断：</h3>
+     {?section name=i loop=$buyout['items']?}
+        <input type="radio" class="radio" name="buyout" value="{?$i['key']?}" {?if $i['key'] == $articlevals['buyout_n']?}checked="checked" {?/if?}/>
+        {?$buyout['items'][i]?} 
+        {?/section?}   
+		<span>对于已经签约小说有效</span>
+		
+	         </div>
+			 
+   <div class="phone-name"> 
+      <h3>是否打折：</h3>
+     {?section name=i loop=$discount['items']?}
+        <input type="radio" class="radio" name="discount" value="{?$i['key']?}" {?if $i['key'] == $articlevals['discount_n']?}checked="checked" {?/if?}/>
+        {?$discount['items'][i]?} 
+        {?/section?}   
+		<span>对于已经签约小说有效</span>
+		
+	         </div>
+
+   <div class="phone-name"> 
+      <h3>是否精品：</h3>
+     {?section name=i loop=$quality['items']?}
+        <input type="radio" class="radio" name="quality" value="{?$i['key']?}" {?if $i['key'] == $articlevals['quality_n']?}checked="checked" {?/if?}/>
+        {?$quality['items'][i]?} 
+        {?/section?}   
+		<span>对于已经签约小说有效</span>
+		
+	         </div>
+
+   <div class="phone-name"> 
+      <h3>篇幅类型：</h3>
+     {?section name=i loop=$isshort['items']?}
+        <input type="radio" class="radio" name="isshort" value="{?$i['key']?}" {?if $i['key'] == $articlevals['isshort_n']?}checked="checked" {?/if?}/>
+        {?$isshort['items'][i]?} 
+        {?/section?}   
+		
+	         </div>
+
+   <div class="phone-name"> 
+      <h3>是否参赛：</h3>
+     {?section name=i loop=$inmatch['items']?}
+        <input type="radio" class="radio" name="inmatch" value="{?$i['key']?}" {?if $i['key'] == $articlevals['inmatch_n']?}checked="checked" {?/if?}/>
+        {?$inmatch['items'][i]?} 
+        {?/section?}   
+		
+	         </div>	
+
+   <div class="phone-name"> 
+      <h3>是否出版：</h3>
+     {?section name=i loop=$ispub['items']?}
+        <input type="radio" class="radio" name="ispub" value="{?$i['key']?}" {?if $i['key'] == $articlevals['ispub_n']?}checked="checked" {?/if?}/>
+        {?$ispub['items'][i]?} 
+        {?/section?}   
+		<span>对于已经签约小说有效</span>
+		
+	         </div>	
+			 
+			 
+   <div class="phone-name"> 
+      <h3>点击数：</h3>
+     日：
+        <input type="text" class="text" name="dayvisit" size="10" maxlength="10" value="{?$articlevals['dayvisit']?}" /> </br>
+        周：
+        <input type="text" class="text" name="weekvisit" size="10" maxlength="10" value="{?$articlevals['weekvisit']?}" /></br>
+        月：
+        <input type="text" class="text" name="monthvisit" size="10" maxlength="10" value="{?$articlevals['monthvisit']?}" /></br>
+        总：
+        <input type="text" class="text" name="allvisit" size="10" maxlength="10" value="{?$articlevals['allvisit']?}" />  
+	         </div>
+   <div class="phone-name"> 
+      <h3>推荐数：</h3>
+     日：
+        <input type="text" class="text" name="dayvote" size="10" maxlength="10" value="{?$articlevals['dayvote']?}" /></br>
+        周：
+        <input type="text" class="text" name="weekvote" size="10" maxlength="10" value="{?$articlevals['weekvote']?}" /></br>
+        月：
+        <input type="text" class="text" name="monthvote" size="10" maxlength="10" value="{?$articlevals['monthvote']?}" /></br>
+        总：
+        <input type="text" class="text" name="allvote" size="10" maxlength="10" value="{?$articlevals['allvote']?}" />  
+	         </div>
+   <div class="phone-name"> 
+      <h3>鲜花数：</h3>
+     日：
+        <input type="text" class="text" name="dayflower" size="10" maxlength="10" value="{?$articlevals['dayflower']?}" /></br>
+        周：
+        <input type="text" class="text" name="weekflower" size="10" maxlength="10" value="{?$articlevals['weekflower']?}" /></br>
+        月：
+        <input type="text" class="text" name="monthflower" size="10" maxlength="10" value="{?$articlevals['monthflower']?}" /></br>
+        总：
+        <input type="text" class="text" name="allflower" size="10" maxlength="10" value="{?$articlevals['allflower']?}" />  
+	         </div>
+   <div class="phone-name"> 
+      <h3>鸡蛋数：</h3>
+     日：
+        <input type="text" class="text" name="dayegg" size="10" maxlength="10" value="{?$articlevals['dayegg']?}" /></br>
+        周：
+        <input type="text" class="text" name="weekegg" size="10" maxlength="10" value="{?$articlevals['weekegg']?}" /></br>
+        月：
+        <input type="text" class="text" name="monthegg" size="10" maxlength="10" value="{?$articlevals['monthegg']?}" /></br>
+        总：
+        <input type="text" class="text" name="allegg" size="10" maxlength="10" value="{?$articlevals['allegg']?}" />  
+		
+	         </div>
+   <div class="phone-name"> 
+      <h3>月票数：</h3>
+     日：
+        <input type="text" class="text" name="dayvipvote" size="10" maxlength="10" value="{?$articlevals['dayvipvote']?}" /></br>
+        周：
+        <input type="text" class="text" name="weekvipvote" size="10" maxlength="10" value="{?$articlevals['weekvipvote']?}" /></br>
+        月：
+        <input type="text" class="text" name="monthvipvote" size="10" maxlength="10" value="{?$articlevals['monthvipvote']?}" /></br>
+        总：
+        <input type="text" class="text" name="allvipvote" size="10" maxlength="10" value="{?$articlevals['allvipvote']?}" />  
+	         </div>
+    {?/if?}
+    <div class="ft">
+        <input type="hidden" name="act" value="update" />{?$jieqi_token_input?}
+        <input type="hidden" name="id" id="id" value="{?$articlevals['articleid']?}" />
+		<input type="submit" class="btn btn-auto btn-blue" name="submit"  id="submit" value="提 交" />
+  </div>
+  </div>
+</form>
+</div>
+</div>

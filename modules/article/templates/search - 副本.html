@@ -1,0 +1,32 @@
+<link href="/sink/css/so.css" type="text/css" rel="stylesheet" />
+<div class="se_cont">
+<div class="se_list">
+<div class="so_form"> 
+     <form id="so-form" action="{?$jieqi_url?}/modules/article/search.php" method="get" rel="nofollow"> 
+      <div class="so_input"> 
+       <input type="text" name="searchkey" class="so-text" id="so-kw" placeholder="请输入你需要查询的内容..." value=""> 
+       <div class="select"> 
+        <span><a href="javascript:void(0)">综合</a></span> 
+        <div class="select-list" style="display: none;"> 
+         <a href="javascript:void(0);" rel="nofollow" data="_all">综合</a> 
+         <a href="javascript:void(0);" rel="nofollow" data="author">作者</a> 
+         <a href="javascript:void(0);" rel="nofollow" data="articlename">书名</a> 
+        </div> 
+       </div> 
+       <div class="so_select_i"></div> 
+      </div> 
+      <div class="so_so">
+	   <input type="hidden" name="f" id="keytype" value="_all"> 
+       <input type="submit" value="搜索"> 
+      </div> 
+     </form> 
+    </div>
+	<script type="text/javascript">
+	$('.select').click(function(){$('.select-list').stop();$('.select-list').slideToggle();});
+	$('.select').mouseleave(function(){if($('.select-list').eq(0).css('display')!='none'){$('.select-list').stop();$('.select-list').slideToggle();}});
+	$('.so_select_i').click(function(){$('.select-list').stop();$('.select-list').slideToggle();});
+	$('.select-list a').click(function(){$('.select span a').html($(this).text());$('#keytype').val($(this).attr('data'));});	
+	</script> 
+ </div>
+ <div class="keyword"><!--还未做--></div>
+</div>

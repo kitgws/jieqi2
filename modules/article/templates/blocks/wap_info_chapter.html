@@ -1,0 +1,3 @@
+{?section name=i loop=$chapterrows?}
+				<li>
+<a href="{?$chapterrows[i].url_chapter?}">{?if $chapterrows[i].isvip_n > 0?}<img src="/wap/img/vip.png" alt="vip">{?/if?}{?$chapterrows[i].chaptername?}<em>({?$chapterrows[i].size_c?}×Ö)</em></a></li>{?/section?}

@@ -1,0 +1,125 @@
+{?set jieqi_blocks_module = "article"?}
+{?set jieqi_blocks_config = "infoblocks"?}
+{?set $jieqi_pagetitle = "{$articlename}小说互动记录"?}
+<?xml version="1.0" encoding="{?$jieqi_charset?}"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset={?$jieqi_charset?}" />
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, maximum-scale=1.0, user-scalable=1" />
+<meta name="format-detection" content="telephone=no" />
+<link rel="shortcut  icon" href="https://w.heiyan.com/favicon.ico" type="image/x-icon" />
+<link rel="stylesheet" type="text/css" href="{?$jieqi_url?}/slms/css/jlbase.css" media="all" />
+<link rel="stylesheet" href="{?$jieqi_url?}/slms/css/jlswiper.min.css?1" media="all" />
+<script type="text/javascript" src="{?$jieqi_url?}/slms/js/jquery-1.11.1.min.js"></script>
+<title>{?$articlename?}打赏记录-{?$jieqi_sitename?}</title>
+<style>
+#content.error {
+	border: 1px solid red;
+}
+#count.error {
+	border: 1px solid red;
+}
+	.header_title{color:#fd700d;}
+</style>
+</head>
+<body class="donate_body">
+<div class="head_sty02">
+  <div class="top">
+    <div class="header_btn"> <span class="back_icon"></span><span class="home_icon"></span> </div>
+    <p class="header_title">『{?$articlename?}』的打赏记录</p>
+  </div>
+</div>
+<div class="container" style="padding:0;">
+
+  <div class="error alert-error"></div>
+  
+  <div class="block comments donate-list">
+    <div class="bd">
+      <ul id="template-ul">  
+		{?section name=i loop=$actlogrows?}{?if $actlogrows[i].actname == 'redrose'||$actlogrows[i].actname == 'yellowrose'||$actlogrows[i].actname == 'greenrose'||$actlogrows[i].actname == 'bluerose'||$actlogrows[i].actname == 'whiterose'||$actlogrows[i].actname == 'blackrose'?}{?if $actlogrows[i].actname == 'redrose'?}
+		  <li class="column-2" data-role="item" data-feed-storage="true" data-feed-id="" data-feed-type="22">
+          <div class="right">
+            <div class="head-icon"> <a href="javascript:;" title="{?$actlogrows[i].uname?}"> <img alt="{?$actlogrows[i].uname?}" src="{?function jieqi_geturl:'system':'avatar':$actlogrows[i].uid:'l':$actlogrows[i].avatar?}"> </a> </div>
+            <h3 style="padding-top:0"> <a href="javascript:;" class="name">{?$actlogrows[i].uname?}</a> <span>为作品捧场了<em class="count">{?$actlogrows[i].actnum?}把</em></span> <img src="/slms/images/ds/1.png" width="24" height="24" /> </h3>
+            <p class="summary">赠言: 鲜花送上，祝作者早日成神</p>
+            <div class="controls"> <span class="time">{?$actlogrows[i].addtime|date:'Y-m-d H:i:s'?}</span> </div>
+          </div>
+        </li>
+											{?elseif $actlogrows[i].actname == 'yellowrose'?}
+		<li class="column-2" data-role="item" data-feed-storage="true" data-feed-id="" data-feed-type="22">
+          <div class="right">
+            <div class="head-icon"> <a href="javascript:;" title="{?$actlogrows[i].uname?}"> <img alt="{?$actlogrows[i].uname?}" src="{?function jieqi_geturl:'system':'avatar':$actlogrows[i].uid:'l':$actlogrows[i].avatar?}"> </a> </div>
+            <h3 style="padding-top:0"> <a href="javascript:;" class="name">{?$actlogrows[i].uname?}</a> <span>为作品捧场了<em class="count">{?$actlogrows[i].actnum?}个</em></span> <img src="/slms/images/ds/2.png" width="24" height="24" /> </h3>
+            <p class="summary">赠言: 汉堡一个，祝作者每天饱饱</p>
+            <div class="controls"> <span class="time">{?$actlogrows[i].addtime|date:'Y-m-d H:i:s'?}</span> </div>
+          </div>
+        </li>
+											{?elseif $actlogrows[i].actname == 'greenrose'?}
+		 <li class="column-2" data-role="item" data-feed-storage="true" data-feed-id="" data-feed-type="22">
+          <div class="right">
+            <div class="head-icon"> <a href="javascript:;" title="{?$actlogrows[i].uname?}"> <img alt="{?$actlogrows[i].uname?}" src="{?function jieqi_geturl:'system':'avatar':$actlogrows[i].uid:'l':$actlogrows[i].avatar?}"> </a> </div>
+            <h3 style="padding-top:0"> <a href="javascript:;" class="name">{?$actlogrows[i].uname?}</a> <span>为作品捧场了<em class="count">{?$actlogrows[i].actnum?}把</em></span> <img src="/slms/images/ds/3.png" width="24" height="24" /> </h3>
+            <p class="summary">赠言: 支持作者风流倜傥，玉树临风</p>
+            <div class="controls"> <span class="time">{?$actlogrows[i].addtime|date:'Y-m-d H:i:s'?}</span> </div>
+          </div>
+        </li>
+		  {?elseif $actlogrows[i].actname == 'bluerose'?}
+		  <li class="column-2" data-role="item" data-feed-storage="true" data-feed-id="" data-feed-type="22">
+          <div class="right">
+            <div class="head-icon"> <a href="javascript:;" title="{?$actlogrows[i].uname?}"> <img alt="{?$actlogrows[i].uname?}" src="{?function jieqi_geturl:'system':'avatar':$actlogrows[i].uid:'l':$actlogrows[i].avatar?}"> </a> </div>
+            <h3 style="padding-top:0"> <a href="javascript:;" class="name">{?$actlogrows[i].uname?}</a> <span>为作品捧场了<em class="count">{?$actlogrows[i].actnum?}朵</em></span> <img src="/slms/images/ds/3.png" width="24" height="24" /> </h3>
+            <p class="summary">赠言: 支持作者文质彬彬</p>
+            <div class="controls"> <span class="time">{?$actlogrows[i].addtime|date:'Y-m-d H:i:s'?}</span> </div>
+          </div>
+        </li>
+		  {?elseif $actlogrows[i].actname == 'whiterose'?}
+		  <li class="column-2" data-role="item" data-feed-storage="true" data-feed-id="" data-feed-type="22">
+          <div class="right">
+            <div class="head-icon"> <a href="javascript:;" title="{?$actlogrows[i].uname?}"> <img alt="{?$actlogrows[i].uname?}" src="{?function jieqi_geturl:'system':'avatar':$actlogrows[i].uid:'l':$actlogrows[i].avatar?}"> </a> </div>
+            <h3 style="padding-top:0"> <a href="javascript:;" class="name">{?$actlogrows[i].uname?}</a> <span>为作品捧场了<em class="count">{?$actlogrows[i].actnum?}把</em></span> <img src="/slms/images/ds/4.png" width="24" height="24" /> </h3>
+            <p class="summary">赠言:支持作者文质彬彬，君子如玉</p>
+            <div class="controls"> <span class="time">{?$actlogrows[i].addtime|date:'Y-m-d H:i:s'?}</span> </div>
+          </div>
+        </li>
+		  {?elseif $actlogrows[i].actname == 'blackrose'?}
+		  <li class="column-2" data-role="item" data-feed-storage="true" data-feed-id="" data-feed-type="22">
+          <div class="right">
+            <div class="head-icon"> <a href="javascript:;" title="{?$actlogrows[i].uname?}"> <img alt="{?$actlogrows[i].uname?}" src="{?function jieqi_geturl:'system':'avatar':$actlogrows[i].uid:'l':$actlogrows[i].avatar?}"> </a> </div>
+            <h3 style="padding-top:0"> <a href="javascript:;" class="name">{?$actlogrows[i].uname?}</a> <span>为作品捧场了<em class="count">{?$actlogrows[i].actnum?}把</em></span> <img src="/slms/images/ds/6.png" width="24" height="24" /> </h3>
+            <p class="summary">赠言: 支持作者风流倜傥，玉树临风</p>
+            <div class="controls"> <span class="time">{?$actlogrows[i].addtime|date:'Y-m-d H:i:s'?}</span> </div>
+          </div>
+        </li>
+											{?/if?}
+		    	                		</li>
+										{?/if?}
+									{?/section?}  
+
+      </ul>
+	  
+	  
+	  {?$url_jumppage?}
+    </div>
+    <div class="loading-slider"><p>{?$jieqi_sitename?}&copy;版权所有</p><p>2015-2018</p></div>
+  </div>
+</div>
+ 
+<script type="text/javascript">
+
+	$(".back_icon").click(function(){
+		history.go(-1)
+	});
+	$(".home_icon").click(function(){
+		window.location.href="/";
+	});
+	
+	
+	
+	
+	
+</script>
+
+</body>
+</html>

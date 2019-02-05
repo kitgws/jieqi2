@@ -1,0 +1,332 @@
+{?set jieqi_blocks_module = "article"?}
+{?set jieqi_blocks_config = "infoblocks"?}
+{?set $jieqi_pagetitle = "{$articlename}-{$author}-{$jieqi_sitename}"?}
+{?set $meta_keywords = "{$articlename} {$author} {$sort}"?}
+
+
+<div class="container">
+	<div class="top-alert"></div>
+	<div class="mod detail">
+		<div class="bd column-2">
+			<div class="left">
+				<a href="{?$url_read?}"><img src="{?$url_simage?}" id="htmlImage" width="90"></a>
+			</div>
+			<div id="htmlbookinfo" class="right">
+				<h2>{?$articlename?}</h2>
+				<p class="info">
+							作者：<a href="javascript:void(0)" class="name">{?$author?}</a><br>
+                            字数：<font>{?$size_c?}</font>字 <br/>
+							有<font id="jsstoujian">{?$allvote?}</font>人推荐<br/>
+                            有<font id="jsshoucang">{?$goodnum?}</font>人收藏<br/>
+                            有<font id="jsdianji">{?$allvisit?}</font>人阅读<br>
+				</p>
+				<span class="status is-serialize">{?$fullflag?}</span>
+			</div>
+		</div>
+		<div class="ft">
+			<table class="control" cellpadding="0" cellspacing=" 0" width="100%">
+			<tbody>
+			<tr>
+				<td width="30%">
+					<a href="{?function jieqi_geturl:'article':'article':$articleid:read?}" id="htmldianjiyuedu" class="read start">开始阅读</a>
+				</td>
+				<td width="3%">
+					&nbsp;
+				</td>
+				<td width="30%">
+					<a class="collect" href="javascript:;"  onclick="GPage.addbook('{?$url_bookcase?}');" id="addbook"  style="opacity:1">加入收藏</a>
+				</td>
+				<td width="3%">
+					&nbsp;
+				</td>
+				<td width="30%">
+					<a class="collect" href="javascript:;"  id="share">我要分享</a>
+				</td>
+			</tr>
+			</tbody>
+			</table>
+		</div>
+	</div>
+	<div class="mod book-intro">
+		<div id="htmljieshao" class="bd">{?$intro|htmlclickable?}</div>
+	</div>
+<!--
+	{?if $vipid > 0?}
+	<div class="mod block recommend">
+	{?if $autobuy > 0?}
+	<a class="btn" style="display:block;color:#09c;padding:5px 0" href="javascript:;"  onclick="GPage.addbook('{?$jieqi_modules['obook']['url']?}/buylist.php?obuyid={?$vipid?}&act=unsetautobuy{?$jieqi_token_url?}');" id="addbook">取消自动订阅</a>
+	{?else?}
+	<a class="btn" style="display:block;color:#09c;padding:5px 0" href="javascript:;"  onclick="GPage.addbook('{?$jieqi_modules['obook']['url']?}/buylist.php?obuyid={?$vipid?}&act=setautobuy{?$jieqi_token_url?}');" id="addbook">开启自动订阅</a>
+	{?/if?}		
+	</div>
+	{?/if?}
+	-->
+	<div class="mod block recommend">
+		<div class="hd">
+			<h4><span style="float:right;color: #09c;cursor:pointer" id="wantreward"><a href="javascript:void(0);"  id="daoju">我要捧场</a></span> 棒场总数：{?$rosenum?}</h4>
+		</div>
+		<div class="bd">
+			<ul class="reward">
+				<li><a href="javascript:void(0);"  id="daoju">
+				<img src="/wap/img/ico/Reward/hong.png"><br/>红包
+				<br/>{?$redrose?}
+				</a></li>
+				<li><a href="javascript:void(0);"  id="daoju">
+				<img src="/wap/img/ico/Reward/huan.png"><br/>宝石
+				<br/>{?$yellowrose?}</a>
+				</li>
+				<li><a href="javascript:void(0);"  id="daoju">
+				<img src="/wap/img/ico/Reward/lv.png"><br/>马车
+				<br/>{?$bluerose?}</a>
+				</li>
+				<li><a href="javascript:void(0);"  id="daoju">
+				<img src="/wap/img/ico/Reward/lan.png"><br/>丫鬟
+				<br/>{?$whiterose?}</a>
+				</li>
+				<li><a href="javascript:void(0);"  id="daoju">
+				<img src="/wap/img/ico/Reward/bai.png"><br/>府邸
+				<br/>{?$greenrose?}</a>
+				</li>
+				<li><a href="javascript:void(0);"  id="daoju">
+				<img src="/wap/img/ico/Reward/hei.png"><br/>金印
+				<br/>{?$blackrose?}</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<div class="mod block recommend">
+		<div class="hd">
+			<h4>最新捧场</h4>
+		</div>
+		<div class="bd">
+			<ul class="lists">{?$jieqi_pageblocks['8']['content']?}
+			</ul>
+		</div>
+	</div>
+	<div class="mod block tab recommend">
+		<div class="hd cs3 c4">
+			<ul id="nav">
+			<li id="one1" onclick="setTab('one',1,2)" class="item active">章节目录</li>
+			<li id="one2" onclick="setTab('one',2,2)" class="item">最新章节</li>
+			</ul>
+		</div>
+		<div class="bd">
+			<ul class="item lists" id="con_one_1">{?$jieqi_pageblocks['6']['content']?}
+				<li class="g_btn"><a href="{?$url_read?}">全部章节...</a></li>
+			</ul>
+			<ul class="item lists none" id="con_one_2">{?$jieqi_pageblocks['5']['content']?}
+				<li class="g_btn"><a href="{?$url_read?}">全部章节...</a></li>
+			</ul>
+		</div>
+	</div>
+<div class=" block comments">
+		<div class="hd"><h4>粉丝评论</h4></div>
+		<div class="bd">
+			<ul id="htmlreview">
+			{?block bid="0" blockname="最新书评" module="article" filename="block_areviews" classname="BlockArticleAreviews" side="-1" title="最新书评" vars="10,0,0,id" template="block_areviews.html" contenttype="4" custom="0" publish="3" hasvars="1"?}
+            <li class="g_btn"><a href="{?$jieqi_modules['article']['url']?}/reviews.php?aid={?$articleid?}">更多评论...</a></li>
+</ul>
+            
+            
+        <div class="pl_nr">
+        <form name="frmreview" id="frmreview" method="post" action="{?$jieqi_modules['article']['url']?}/reviews.php?aid={?$articleid?}" target="_blank">
+        <p>发表新评论</p>
+        <textarea name="pcontent" id="pcontent" maxlength="500" style="height:100px;margin-top:10px;opacity:1"  placeholder="内容"></textarea>
+		<input type="hidden" name="act" id="act" value="newpost" />{?$jieqi_token_input?}
+        <input type="submit" name="Submit" class="button" value=" 发表书评 ">
+        </form>
+        </div>
+        
+        </div>
+	</div>
+
+
+	</div>
+</div>
+<script type="text/javascript">
+function setTab(name,cursel,n){
+for(i=1;i<=n;i++){
+var menu=document.getElementById(name+i);
+var con=document.getElementById("con_"+name+"_"+i);
+menu.className=i==cursel?"item active":"item";
+con.style.display=i==cursel?"block":"none";
+}
+}
+	function showReply(id, obj) {
+        var comment = $("#__comment_" + id);
+        var _html = comment.html();
+        //alert(comment.is(":hidden"));
+        if (comment.is(":hidden")) {
+            if (_html == "") {
+                $.ajax({
+                    url: '/ajax/chapter/SubReply/',
+                    type: 'post',
+                    data: { replyId: id, page: 1, size: 50 },
+                    async: false, //默认为true 异步     
+                    error: function () {
+                        alert('error');
+                    },
+                    success: function (data) {
+                        comment.html(data);
+                    }
+                });
+            }
+            comment.show();
+        } else {
+            comment.hide();
+            $(obj).removeClass("comment-status-open");
+        }
+    }
+$(function(){
+		$('#frmreview').on('submit', function(e){
+		e.preventDefault();
+		 var tips = layer.open({type: 2,content: '加载中'});
+				GPage.postForm('frmreview', $("#frmreview").attr("action"),
+			   function(data){
+					if(data.status=='OK'){
+					    layer.close(tips);
+						$.ajaxSetup ({ cache: false });
+						openMsg(data.msg);
+					}else{
+					    layer.close(tips);
+		                openMsg(data.msg);
+					}
+			   });
+//			}
+		});
+});
+
+ $("#daoju").click(function(){
+	if(getUserId()<1){
+	 	userLogin();
+	}else{
+		layer.open({
+		title: '捧场',
+        type: 1,
+        content: '<div style="width:280px;margin-left:10px;">'
+		+'<form action="{?$jieqi_modules['article']['url']?}/gifts.php?do=submit" method="post" id="formgift" name="formgift">'
+		+'<table class="rewarddir">'
+		+'<tr>'
+		+'<td>'
+		+'<label onclick=\"$(\'.reply\').val(\'多更多福气。满满的红包送上，祝大大早日立地成神！\')\">'
+		+'<input type="radio" id="rid" name="rid" checked="checked" value="2">'
+		+'红包 <span style="color: #f60;">{?$redroses?}</span>{?$eglodname?}/个</label></td>'
+		+'<td style="text-align:right;"><img src="/wap/img/ico/Reward/hong.png"></td>'
+		+'</tr>'
+		+'<tr>'
+		+'<td>'
+		+'<label onclick=\"$(\'.reply\').val(\'宝石一颗永留存，愿大大的故事能永世长存！\')\">'
+		+'<input type="radio" id="rid" name="rid" value="3">'
+		+'宝石 <span style="color: #f60;">{?$yellowroses?}</span>{?$eglodname?}/颗</label></td>'
+		+'<td style="text-align:right;"><img src="/wap/img/ico/Reward/huan.png"></td>'
+		+'</tr>'
+		+'<tr>'
+		+'<td>'
+		+'<label onclick=\"$(\'.reply\').val(\'作者大大的文太好看了，坐着马车去赶场\')\">'
+		+'<input type="radio" id="rid" name="rid" value="4">'
+		+'马车 <span style="color: #f60;">{?$greenroses?}</span>{?$eglodname?}/辆</label></td>'
+		+'<td style="text-align:right;"><img src="/wap/img/ico/Reward/lv.png"></td>'
+		+'</tr>'
+		+'<tr>'
+		+'<td>'
+		+'<label onclick=\"$(\'.reply\').val(\'送给大大随身丫鬟，保管您瞬间文思泉涌！\')\">'
+		+'<input type="radio" id="rid" name="rid" value="5">'
+		+'丫鬟 <span style="color: #f60;">{?$blueroses?}</span>{?$eglodname?}/个</label></td>'
+		+'<td style="text-align:right;"><img src="/wap/img/ico/Reward/lan.png"></td>'
+		+'</tr>'
+		+'<tr>'
+		+'<td>'
+		+'<label onclick=\"$(\'.reply\').val(\'谢谢作者大大满足了我们的最初幻想，梦幻的府邸送上！\')\">'
+		+'<input type="radio" id="rid" name="rid" value="6">'
+		+'府邸 <span style="color: #f60;">{?$whiteroses?}</span>{?$eglodname?}/座</label></td>'
+		+'<td style="text-align:right;"><img src="/wap/img/ico/Reward/bai.png"></td>'
+		+'</tr>'
+		+'<tr>'
+		+'<td>'
+		+'<label onclick=\"$(\'.reply\').val(\'大大的小说精彩至极，一枚金印在手无人敢挡！\')\">'
+		+'<input type="radio" id="rid" name="rid" value="7">'
+		+'金印 <span style="color: #f60;">{?$blackroses?}</span>{?$eglodname?}/枚</label></td>'
+		+'<td style="text-align:right;"><img src="/wap/img/ico/Reward/hei.png"></td>'
+		+'</tr>'
+		+'</table>'
+		+'<table class="rewarddir">'
+		+'<tr>'
+		+'<td width="30">数量</td>'
+		+'<td><input type="number" class="form-control" style="width:95%;padding:3px 5px;border-color:#ccc" placeholder="数量" name="count" value="1" /></td>'
+		+'</tr>'
+		+'<tr>'
+		+'<td>留言</td>'
+		+'<td>'
+		+'<textarea rows="3" style="width:95%;resize: none;padding:3px 5px;border-color:#ccc" class="form-control reply" placeholder="打赏内容" name="reply">多更多福气。满满的红包送上，祝大大早日立地成神！</textarea>'
+		+'</td>'
+		+'</tr>'
+		+'</table>'
+		+'<input type="hidden" name="act" value="post" />{?$jieqi_token_input?}'
+		+'<input type="hidden" name="id" value="{?$articleid?}" />'
+		+'<button type="submit" name="Submit" class="btn btn-success btn-sm btn-block" style="margin-top:10px;">捧场</button>'
+		+'</form>'
+		+'</div>',
+        style: 'width:300px; background-color:#F2F2F2; border:none;',
+		success: function(olayer){
+        $('#formgift').on('submit', function(e){
+		e.preventDefault();
+		 var tips = layer.open({type: 2,content: '加载中'});
+				GPage.postForm('formgift', $("#formgift").attr("action"),
+			   function(data){
+					if(data.status=='OK'){
+                        $.ajaxSetup ({ cache: false });
+					    layer.close(tips);
+                        openMsg(data.msg);
+					}else{
+					    layer.close(tips);
+		                openMsg(data.msg);
+					}
+			   });
+//			}
+		});
+	}
+});
+}
+});
+  $("#share").click(function(){
+	layer.open({
+	  title: '分享',
+	  content: '<input style="padding-right:5px;" type="image" src="/wap/img/Qz.png"  onclick="sharethreeparty(\'qzone\')"/><input style="padding-right:5px;" type="image" src="/wap/img/weibo.png" onclick="sharethreeparty(\'qblog\')"/><input style="padding-right:5px;" type="image" src="/wap/img/sina.png" onclick="sharethreeparty(\'sinablog\')"/><input style="padding-right:5px;" type="image" src="/wap/img/douban.png" onclick="sharethreeparty(\'douban\')"/><input style="padding-right:5px;" type="image" src="/wap/img/tieba.png"  onclick="sharethreeparty(\'tieba\')"/><input style="padding-right:5px;" type="image" src="/wap/img/wy.png"  onclick="sharethreeparty(\'163blog\')"/>'
+	});
+  });
+  //分享函数
+  function sharethreeparty(typeNum){
+	switch(typeNum){
+	  //分享到QQ空间
+	  case "qzone":
+		window.open('http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url='+ encodeURIComponent(location.href)+ '&title='+encodeURIComponent('《{?$articlename?}》'),'_blank');
+		break;
+	  //分享到腾讯微博
+	  case "qblog":
+	    var _t = encodeURI('《{?$articlename?}》,'+document.title);
+		var _url = encodeURI(document.location);
+		var _appkey = encodeURI("appkey");//你从腾讯获得的appkey
+		var _pic = encodeURI('{?$url_simage?}');//（列如：var _pic='图片url1|图片url2|图片url3....）
+		var _site = '';//你的网站地址
+		var _u = 'http://v.t.qq.com/share/share.php?title='+_t+'&url='+_url+'&appkey='+_appkey+'&site='+_site+'&pic='+_pic;
+		window.open( _u,'转播到腾讯微博', 'width=700, height=680, top=0, left=0, toolbar=no, menubar=no, scrollbars=no, location=yes, resizable=no, status=no' );
+		break;
+	  //分享到新浪微博
+	  case "sinablog":
+	    window.open('http://service.weibo.com/share/share.php?url='+document.location+'&appkey=&title=《{?$articlename?}》&pic=&ralateUid=&language=');
+		break;
+	  case "douban":
+	    var _t = encodeURI('《{?$articlename?}》,'+document.title);
+	    var _url = encodeURI(document.location);
+	    window.open('http://www.douban.com/recommend/?url='+_url+'&title='+_t);
+		break;
+	  case "tieba":
+	    window.open('http://tieba.baidu.com/i/app/open_share_api?link='+encodeURIComponent(location.href));
+		break;
+	  case "163blog":
+	    window.open('http://t.163.com/article/user/checkLogin.do?link=http://news.163.com/&info='+encodeURIComponent(document.title)+encodeURIComponent(location.href),'_blank','width=510,height=300');
+		break;
+	}
+  }
+</script>
+</script>

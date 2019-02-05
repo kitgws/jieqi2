@@ -1,0 +1,21 @@
+@charset "utf-8";body,html{-webkit-text-size-adjust:none !important}
+body{margin:0;color:#333;font-family:"Microsoft Yahei",sans-serif;line-height:1.6;background:#fff}
+ul,ol{margin:0;padding-left:0;list-style:none}
+ul li,ol li{vertical-align:middle}
+dl,p{margin:0}
+dd{margin-left:0}
+h1,h2,h3,h4,h5,h6{margin:0;font-weight:normal}
+strong{font-weight:bold}
+em{font-style:italic}
+img{display:block;border:0}
+a,a:link,a:visited,a:active,a:hover{text-decoration:none}
+a{color:#333}
+a,button,input{-webkit-tap-highlight-color:rgba(0,0,0,.2);font-family:"Microsoft Yahei",sans-serif}
+
+.content{ width: 100%; margin: 0 auto; text-align: center; }
+.content img{ width: 100%; display: block; }
+/*电脑访问优化*/
+@media only screen and (min-width: 1024px){
+html{position: relative; width: 375px; height: 100%; margin: 0 auto; background: #ccc;}
+body{background: #eaeaea; height: 100%;}
+}

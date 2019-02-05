@@ -1,0 +1,139 @@
+  
+/*----2018-01-30 ---
+.vip-item2p{ position:fixed; width:100%; top:50%; left:0; z-index:11; }
+.vip-item2p .inner {overflow: visible;padding-top: 25px;top: 50%;-webkit-transform: translateY(-40%);transform: translateY(-40%);}
+.vip-item2p .inner{left:1.167rem; right:1.167rem; -webkit-transform:translateY(-50%); transform:translateY(-50%); background:none; padding-bottom:6.7rem; position:absolute; border-radius:12px; text-align:center; margin:0 auto; }
+.vip-item2p .inner .welfare-con{ width:347px; height:396px; background: url(../images/welfare-acty-bg.png); background-repeat:no-repeat; background-size:100%; margin:0 auto; }
+.vip-item2p .inner .welfare-con .text{ padding: 0px 4rem 0 4.18rem; padding-top:8.4rem; height:12.2rem; }
+.vip-item2p .inner .welfare-con .text p{ font-size:14px; color:#100202; line-height:1.8rem; text-align:left; padding-bottom:.68rem; }
+.vip-item2p .inner .welfare-con .text p b{ color:#ed1c24; font-weight:normal; }
+.vip-welfare-btn{ padding-top:2.2rem; padding-bottom:2.1rem; }
+.vip-welfare-btn a{ width:20.834rem; height:3.75rem; line-height:3.75rem; border-radius:3.75rem; font-size:16px; text-align:center; display:inline-block; }
+.vip-welfare-btn a.half-year{ color:#832800; background:-webkit-linear-gradient(top, #fde101 0%,#ffbc2b 100%); box-shadow:0px 3px rgba(0, 0, 0, 0.12); }
+.vip-welfare-btn a.three-year{ width:20rem; color:#ffb7b6; background-color:#d83434; margin-top:0.7rem; box-shadow: 0px 3px rgba(0, 0, 0, 0.2); }
+.vip-item2p .welfare-close-icon{ width:3.76rem; height:3.76rem; background: url(../images/welfare-close-icon.png); background-repeat:no-repeat; background-size:3.76rem; display:inline-block; position:absolute; bottom:0; margin-left:-1.88rem; margin:0 auto; left: 50%; margin-left: -1.88rem;}
+.vip-welfare-btn a.half-year .w-rec-icon{ width:26px; height:14px; margin-left:5px; display:inline-block; }
+.vip-item3p .inner{ left:1.333rem; right:1.333rem; }
+.vip-item3p .inner .welfare-con{ width:28.083rem; height:23.625rem; background: url(../images/welfare-acty-bgi.png); background-repeat:no-repeat; background-size:100%; }
+.vip-item3p .vip-welfare-btn{ padding-top:2.7rem; }
+.vip-item3p .inner .welfare-con .text p{ text-align:center; font-size:15px; }
+.vip-item3p .inner .welfare-con .text{ height:auto; padding-left:0; padding-right:0; }*/
+
+/*----2018-01-31----*/
+.vip-item2p .inner{ left:14px; right:14px; top:50%; -webkit-transform:translateY(-50%); transform:translateY(-50%); background:none; padding-bottom:68px; position:absolute;border-radius:12px; text-align:center; margin:0 auto; }
+.vip-item2p .inner .welfare-con{ width:347px; height:396px; background:url(../images/welfare-acty-bg.png); background-repeat:no-repeat; background-size:100%; margin:0 auto; }
+.vip-item2p .inner .welfare-con .text{ padding: 0px 48px 0 50px; padding-top:100px; height:146px; }
+.vip-item2p .inner .welfare-con .text p{ font-size:14px; color:#100202; line-height:21px; text-align:left; padding-bottom:8px; }
+.vip-item2p .inner .welfare-con .text p b{ color:#ed1c24; font-weight:normal; }
+.vip-welfare-btn{ padding-top:27px; padding-bottom:25px; }
+.vip-welfare-btn a{ width:250px; height:45px; line-height:45px; border-radius:45px; font-size:16px; text-align:center; display:inline-block; }
+.vip-welfare-btn a.half-year{ color:#832800; background:-webkit-linear-gradient(top, #fde101 0%,#ffbc2b 100%); box-shadow:0px 3px rgba(0, 0, 0, 0.12); }
+.vip-welfare-btn a.three-year{ width:240px; color:#ffb7b6; background-color:#d83434; margin-top:7px; box-shadow: 0px 3px rgba(0, 0, 0, 0.2); }
+.vip-item2p .welfare-close-icon{ width:46px; height:46px; background:url(../images/welfare-close-icon.png); background-repeat:no-repeat; background-size:46px; display:inline-block; position:absolute; bottom:0; margin:0 auto; left:50%; margin-left:-23px; }
+.vip-welfare-btn a.half-year .w-rec-icon{ width:26px; height:14px; margin-left:5px; display:inline-block; }
+.vip-item3p .inner{ left:14px; right:15px; }
+.vip-item3p .inner .welfare-con{ width:346px; height:292px; background: url(../images/welfare-acty-bgi.png); background-repeat:no-repeat; background-size:100%; }
+.vip-item3p .vip-welfare-btn{ padding-top:30px; }
+.vip-item3p .inner .welfare-con .text p{ text-align:center; font-size:15px; }
+.vip-item3p .inner .welfare-con .text{ height:auto; padding-left:0; padding-right:0; }
+
+
+
+@media only screen and (min-width:320px) and (max-width:360px){
+	.vip-item2p .inner{ padding-bottom:57px; }
+	.vip-item2p .inner .welfare-con .text{ padding-top:88px; height:130px; }
+	.vip-item2p .inner .welfare-con .text p{ font-size:12px; line-height:16px; }
+	.vip-item2p .inner .welfare-con{ width:291px; height:333px; }
+	.vip-welfare-btn a{ width:213px; height:39px; line-height:39px; font-size:14px; }
+	.vip-welfare-btn a.three-year{ width:205px; }
+	.vip-welfare-btn { padding-top:10px; padding-bottom:19px; }
+	.vip-item3p .inner .welfare-con .text{ height:20px; }
+	.vip-item3p .inner .welfare-con{ height:240px; }
+	}
+
+@media screen and (min-width:414px) {
+	.vip-item2p .inner{ padding-bottom:73px; }
+	.vip-item2p .inner .welfare-con .text{ padding-top:110px; height:188px; padding-left:66px; padding-right:66px; }
+	.vip-item2p .inner .welfare-con .text p{ font-size:15px; line-height:20px; padding-bottom:10px; }
+	.vip-item2p .inner .welfare-con{ width:385px; height:440px; }
+	.vip-welfare-btn a{ width:276px; height:50px; line-height:50px; font-size:17px; }
+	.vip-welfare-btn a.three-year{ width:264px; margin-top:13px; }
+	.vip-welfare-btn { padding-top:10px; padding-bottom:19px; }
+	.vip-item3p .inner .welfare-con .text{ height:40px; }
+	.vip-item3p .inner .welfare-con{ height:315px; }
+}
+
+
+
+
+/*-----------包月会员-----------*/
+.new-user-vip .entry .pull-left{ overflow:hidden; position:relative; }
+.new-user-vip .entry .pull-left img{ width:54px; height:54px; }
+.new-user-vip .entry .pull-left .user-vip-icon{ width:27px; height:29px; background:url(../images/user-vip-icon.png) no-repeat; position:absolute; left:0; top:0; background-size:cover; display:inline-block; }
+.new-user-vip .entry .pull-right h3{ color:#ed1c24; font-size:16px; line-height:16px; }
+.new-user-vip .entry .pull-right p.no-expire{ color:#787878; font-size:12px; padding-top:6px; }
+.new-user-vip .entry .pull-right p.expiry-time{ color:#45a8eb; font-size:12px; }
+
+/*-- 签到成功 --*/
+.item4p{ top:50%; }
+.item4p .inner{ left:52px; right:52px; padding-bottom:0; }
+.item4p { margin:0; }
+.item4p .inner { overflow:visible; padding-top:25px; top:50%; -webkit-transform:translateY(-40%); transform:translateY(-40%); }
+.item4p .inner .media {position:absolute; left:0; right:0; top:-120px; width:221px; margin:0 auto; }
+.item4p .inner .action { margin-bottom:26px; margin-top:16px; }
+.item4p .inner .btn { border:0; border-radius:45px; height:45px; background-color:#41a4e7; color:#fff; display:block; margin:0 36px; font-size:16px; line-height:45px; }
+.item4p .inner .text { font-size:14px; color:#999; }
+.item4p .inner .tt { font-size:16px; }
+.item4p .inner .tt .num { font-size:40px; color:#ed1c24; font-weight:600; }
+.item4p .new-inner .title{ padding-top:0; }
+.item4p .new-inner .btn{ height:60px; line-height:60px; border-top:1px solid #e2e2e2; margin:0; background:#fff; border-radius:0; border-bottom-right-radius:12px; border-bottom-left-radius:12px; }
+.item4p .new-inner .btn a{ height:60px; line-height:60px; font-size:17px; color:#f98700; }
+
+/*---- 2018-2-6 签到浮层新 ----*/
+.new-signer .n-check-inner{ overflow:inherit; padding-bottom:0; left:37.5px; right:37.5px; border-radius:5px; }
+.new-signer .n-check-inner .n-tl{ width:222px; height:46px; margin:0 auto; text-align:center; text-indent:-999px; top:-35px; position:relative; background-image: url(../images/new-check.png); background-repeat:no-repeat; background-size: 222px 46px; display:inline-block; }
+.new-signer .n-check-inner .n-txt{ width:100%; text-align:center; top:-23px; position:relative; }
+.new-signer .n-check-inner .n-txt .coupon-num{ font-size:16px; color:#333; position:relative; line-height:30px; }
+.new-signer .n-check-inner .n-txt .coupon-num b{ font-weight: bold; font-size:40px; color:#ff7100; padding-right:8px; }
+.new-signer .n-check-inner .n-txt .day-flow-num li.active span{ background-color:#ff7100; color:#ffff00;  }
+.new-signer .n-check-inner .n-txt .day-flow-num li.active i{ color:#ff7100; }
+.new-signer .n-check-inner .n-txt .n-prompt{ font-size:14px; color:#999; padding-top:2px; }
+.new-signer .n-check-inner .n-txt .n-prompt i{ color:#ff7100; padding:0px 1px; }
+.new-signer .n-check-inner .n-txt > .row {display: -webkit-box; display: -webkit-flex; display: -ms-flexbox; display: flex;font-size:12px; color:#333;padding:0px 10px;padding-top:22px; }
+.new-signer .n-check-inner .n-txt > .row .col { -webkit-box-flex:1; -webkit-flex:1; -ms-flex:1; flex:1; text-align:center; position:relative; }
+.new-signer .n-check-inner .n-txt > .row > .col .box {width:20px; height:20px; background-color:#ccc; color:#fff; font-size:12px;line-height:20px; border-radius:20px; margin:0 auto; position:relative; z-index:2;}
+.new-signer .n-check-inner .n-txt > .row > .col .box .combo {display:block; width:24px; height:24px; position:absolute;background-size:100%; background-repeat:no-repeat;left:50%; top:-3px; -webkit-transform:translateX(-50%); transform:translateX(-50%);border:1px solid #fff; border-radius:3px;}
+.new-signer .n-check-inner .n-txt > .row > .col .box .c2x2 { background-image:url('../images/2x2.png'); color:#ff0; line-height:24px; }
+.new-signer .n-check-inner .n-txt > .row > .col:before {display:block;content:" ";position:absolute;left:0;top:8px; height:5px;background-color:#ccc;width:50%;z-index:1;}
+.new-signer .n-check-inner .n-txt > .row > .col:after {display:block;content:" ";position:absolute; right:0; top:8px; height:5px;background-color:#ccc;width:50%;z-index:1;}
+.new-signer .n-check-inner .n-txt > .row > .col:first-child:before,
+.new-signer .n-check-inner .n-txt > .row > .col:last-child:after { display:none; }
+.new-signer .n-check-inner .n-txt > .row > .col .day { margin-top:3px; font-size:12px; }
+.share_box .item:last-child a { border:none; }
+.new-signer .n-check-inner .n-txt > .row > .active:before,
+.new-signer .n-check-inner .n-txt > .row > .active:after { background-color:#ff7100; }
+.new-signer .n-check-inner .n-txt > .row > .active .box { background-color:#ff7100; color:#ff0; }
+.new-signer .n-check-inner .n-txt > .row > .active .day { color:#ff7100; }
+.new-signer .n-check-inner .n-txt > .row > .active .box .combo { border-color:#ff0; }
+.new-signer .n-check-inner .n-txt .okay-btn{ overflow:hidden; padding:16px 30px 2px 30px; }
+.new-signer .n-check-inner .n-txt .okay-btn a{ width:100%; height:45px; line-height:45px; background:#45a8eb; border-radius:45px; display:block; font-size:16px; color:#fff; }
+
+
+@media screen and (min-width: 375px) {
+	.item4p{ top:50%; }
+}
+@media screen and (min-width:414px) {
+	html {font-size:68.9%!important}
+	.new-signer .n-check-inner .n-txt .n-prompt{ font-size:15px; }
+	.new-signer .n-check-inner .n-txt > .row > .col .box{width:26px; height:26px; line-height:26px; font-size:13px; }
+	.new-signer .n-check-inner .n-txt > .row > .col .day{ font-size:14px; }
+	.new-signer .n-check-inner .n-txt > .row > .col .box .combo{ width:28px; height:28px; line-height:28px; }
+	.new-signer .n-check-inner .n-txt .okay-btn a{ height:55px; line-height:55px; font-size:17px; }
+	.new-signer .n-check-inner .n-tl{ width:250px; height:52px; background-size: 250px 52px; }
+	.new-signer .n-check-inner .n-txt{ top:-20px; }
+	.new-signer .n-check-inner .n-txt > .row{ padding-top:25px; }
+	.new-signer .n-check-inner .n-txt .okay-btn{ padding-top:20px; padding-bottom:8px; }
+
+}
+ 
+

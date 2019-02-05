@@ -1,0 +1,91 @@
+{?set jieqi_blocks_module = "system"?}{?set jieqi_blocks_config = "userblocks"?}{?set $jieqi_pagetitle = "用户设置-{$jieqi_sitename}"?}
+<script type="text/javascript">
+function jieqiFormValidate_useredit(){
+  if(document.useredit.email.value == ""){
+    alert("请输入Email");
+    document.useredit.email.focus();
+    return false;
+  }
+}
+</script>
+<div class="container">
+	<div class="mod block form">
+		<div class="hd">
+			<h4>用户设置</h4>
+		</div>
+		<form name="useredit" id="useredit" action="{?$jieqi_url?}/useredit.php?do=submit" method="post" onsubmit="return jieqiFormValidate_useredit();" class="form-horizontal">
+			<div class="bd">
+				<div class="item">
+					<div class="item-label">
+						用户名
+					</div>
+					<div class="item-control">{?$username?}</div>
+				</div>
+				<div class="item">
+					<div class="item-label">
+						昵  称
+					</div>
+					<div class="item-control">
+						<input type="text" maxlength="60" size="28" class="text" name="nickname" id="nickname" value="{?$nickname?}">
+					</div>
+				</div>
+				<div class="item">
+					<div class="item-label">
+						Email
+					</div>
+					<div class="item-control">
+						{?if $verify['email'] > 0?}{?$email?}{?else?}<input type="text" maxlength="60" size="28" class="text" name="email" id="email" value="{?$email?}">{?/if?}&nbsp;<input type="checkbox" class="checkbox" name="showset_email" value="1"{?if $showset['email'] > 0?} checked="checked"{?/if?} />公开邮箱
+					</div>
+				</div>
+				<div class="item">
+					<div class="item-label">
+						性　别
+					</div>
+					<div class="item-control">
+						<input type="radio" name="sex" value="1"{?if $sex == 1?} checked{?/if?}> 男
+						<input type="radio" name="sex" value="2"{?if $sex == 2?} checked{?/if?}> 女
+						<input type="radio" name="sex" value="0"{?if $sex == 0?} checked{?/if?}> 保密
+					</div>
+				</div>
+				<div class="item">
+					<div class="item-label">
+						Ｑ　Ｑ
+					</div>
+					<div class="item-control">
+						<input type="text" maxlength="60" size="28" class="text" name="qq" id="qq" value="{?$qq?}">
+					</div>
+				</div>
+				<div class="item">
+					<div class="item-label">
+						网站/微博
+					</div>
+					<div class="item-control">
+						<input type="text" maxlength="60" size="28" class="text" name="url" id="url" value="{?$url?}">
+					</div>
+				</div>
+			</div>
+			<div class="ft"><input type="hidden" name="act" value="update" />{?$jieqi_token_input?}<input type="submit" name="submit" value="保存设置" class="btn btn-auto btn-blue">
+			</div>
+		</form>
+	</div>
+</div>
+<script type="text/javascript">
+$(function(){
+		$('#useredit').on('submit', function(e){
+		e.preventDefault();
+		 var tips = layer.open({type: 2,content: '加载中'});
+				GPage.postForm('useredit', $("#useredit").attr("action"),
+			   function(data){
+					if(data.status=='OK'){
+                        $.ajaxSetup ({ cache: false });
+					    layer.close(tips);
+                        openMsg(data.msg);
+					}else{
+					    layer.close(tips);
+		                openMsg(data.msg);
+					}
+			   });
+//			}
+		});
+});
+</script>

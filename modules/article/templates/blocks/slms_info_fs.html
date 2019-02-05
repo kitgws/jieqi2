@@ -1,0 +1,25 @@
+{?section name=i loop=$creditrows?}{?if $i['order'] == 1?}  
+<li>
+					<a href="/modules/article/donate.php?id={?$creditrows[i].articleid?}" class="touxiang">
+					  <div class="slmsimg"><img src="{?$jieqi_url?}/avatar.php?uid={?$creditrows[i].uid?}&size=s" /><i class="touxie s1"></i></div>
+					  <p class="mingzi">{?$creditrows[i].uname?}</p>
+					  <p class="shuliang">{?$creditrows[i].point?} È±“</p>
+					</a>
+				  </li>
+{?elseif $i['order'] == 2?}
+			      <li>
+					<a href="/modules/article/donate.php?id={?$creditrows[i].articleid?}" class="touxiang">
+					 <div class="slmsimg"><img src="{?$jieqi_url?}/avatar.php?uid={?$creditrows[i].uid?}&size=s" /><i class="touxie s2"></i></div>
+					  <p class="mingzi">{?$creditrows[i].uname?}</p>
+					  <p class="shuliang">{?$creditrows[i].point?} È±“</p>
+					</a>
+				  </li>
+{?elseif $i['order'] == 3?}
+				  <li>
+					<a href="/modules/article/donate.php?id={?$creditrows[i].articleid?}" class="touxiang">
+					 <div class="slmsimg"><img src="{?$jieqi_url?}/avatar.php?uid={?$creditrows[i].uid?}&size=s" /><i class="touxie s3"></i></div>
+					  <p class="mingzi">{?$creditrows[i].uname?}</p>
+					  <p class="shuliang">{?$creditrows[i].point?} È±“</p>
+					</a>
+				  </li>
+{?/if?}{?/section?}

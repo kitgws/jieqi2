@@ -1,0 +1,321 @@
+<script language="javascript" type="text/javascript" src="{?$jieqi_url?}/scripts/jdfocus.js"></script>
+
+
+<div class="main">
+	<!-- slider begin-->
+		<style>
+        .sliderBox{width:676px;height:300px;overflow:hidden;position:relative;margin:0 0 10px 0;z-index:0}
+        #show_pic{margin:0;padding:0;list-style:none;height:300px;position:absolute}
+        #show_pic li{float:left;margin:0;padding:0;height:300px;position:absolute}
+        /*#show_pic li a{display:inline-block;height:300px;width:676px;background:url(../../images/loading.gif) center center no-repeat}*/
+        #show_pic li img{display:block;height:300px;width:676px}
+        .sliderBox .img_pagebox{position:absolute;height:24px;bottom:10px;right:10px;right:10px\9}
+        .sliderBox .img_page{background:rgba(110,110,110,0.3);*background:transparent;filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#36000000,endColorstr=#36000000);*zoom:1;float:left;width:auto;height:24px;padding-left:3px;border-radius:10px;display:block}
+        #img_text{display:none}
+        .sliderBox #icon_num a{float:left;display:inline-block;background-color:#fff;padding-right:1px;width:19px;height:20px;color:#6e6e6e;text-align:center;cursor:pointer;margin:2px 3px 0 0;display:inline-block;line-height:20x;font-size:12px;border-radius:10px;position:relative;text-decoration:none}
+        .sliderBox #icon_num a.active,.sliderBox #icon_num a.active:visited,.sliderBox #icon_num a.active:hover,.sliderBox #icon_num a.active:active{background-color:#23c7c8;color:#fefefe;text-decoration:none}
+        .sliderBox #icon_num a,.sliderBox #icon_num a:visited,.sliderBox #icon_num a:hover{color:#6e6e6e;text-decoration:none;line-height:20px}
+				.ulrow_li { float:left;margin-right:5px;margin-bottom:10px; }
+
+        </style>
+	<div class="indexslider">
+		{?$jieqi_pageblocks['211']['content']?}
+	</div>
+	<!-- slider end-->
+	
+	<div class="indexcr">
+		
+		<div class="block" style="height:165px;">
+			<div class="blocktitle">悦读达人</div>
+			<div class="blockcontent">
+				{?$jieqi_pageblocks['233']['content']?}
+				{?$jieqi_pageblocks['234']['content']?}
+			</div>
+		</div>
+		<div class="block" style="height:125px;">
+			<div class="blocktitle">站务公告</div>
+			<div class="blockcontent">
+			{?$jieqi_pageblocks['222']['content']?}
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- recommand begin-->
+<div class="main">
+	<div class="indexcm">
+			<div class="blocktitlezb">
+              <div class="blockname">重磅推荐</div>
+            </div>
+      	<div class="indexcmtl">
+		{?$jieqi_pageblocks['221']['content']?}	
+		</div>
+		<div class="indexcmtr">
+		{?$jieqi_pageblocks['311']['content']?}	
+		</div>
+	</div>
+	<div class="indexcr">
+      	<div class="block" style="height:355px;">
+			<div class="index_tabl2">
+				<span>作品人气</span>
+				<ul>
+					<li><a href="javascript:void(0)" onmouseover="selecttab(this)" class="selected">总</a></li>
+					<li><a href="javascript:void(0)" onmouseover="selecttab(this)">月</a></li>
+					<li><a href="javascript:void(0)" onmouseover="selecttab(this)">周</a></li>
+				</ul>
+				<div class="cb"></div>
+			</div>
+			<div class="index_tabc2">
+				<div class="tabvalue">{?$jieqi_pageblocks['526']['content']?}</div>
+				<div class="tabvalue" style="display:none">{?$jieqi_pageblocks['525']['content']?}</div>
+				<div class="tabvalue" style="display:none">{?$jieqi_pageblocks['524']['content']?}</div>
+			</div>
+		</div>
+      </div>
+</div>
+<!-- recommand end-->
+
+
+
+<div class="main">
+    <!-- man recommand begin -->
+    <div class="indexcm">
+          <div class="block" style="height:280px;">
+            <div class="blocktitleman">
+              <div class="blockname">男频推荐</div>
+              <div class="blocknav"><a href="">现代都市</a><a href="">玄幻仙侠</a><a href="">职场商战</a><a href="">其他类别</a></div>
+            </div>
+            <!-- man recommand list begin-->
+            <div class="blockcontentman">
+              <ul>
+                <!-- detail size : 188 x 270--> 
+                <!-- list image size : 97 x 140-->
+                {?$jieqi_pageblocks['511']['content']?}
+              </ul>
+            </div>
+            <!-- man recommand list end--> 
+          </div>
+          <div class="block" style="height:60px;"><a href="http://www.yuedufang.com/modules/article/articleinfo.php?id=84"><img src="/themes/jieqiyc/images/huhua.jpg" width="676" height="60"></a>
+			
+          </div>
+        </div>
+      </div>
+      <!-- man recommand end-->
+
+	<div class="indexcr">
+		<div class="block" style="height:350px;">
+			<div class="index_tabl2">
+				<span>书友推荐</span>
+				<ul>
+					<li><a href="javascript:void(0)" onmouseover="selecttab(this)" class="selected">总</a></li>
+					<li><a href="javascript:void(0)" onmouseover="selecttab(this)">月</a></li>
+					<li><a href="javascript:void(0)" onmouseover="selecttab(this)">周</a></li>
+				</ul>
+				<div class="cb"></div>
+			</div>
+			<div class="index_tabc2">
+				<div class="tabvalue">{?$jieqi_pageblocks['323']['content']?}</div>
+				<div class="tabvalue" style="display:none">{?$jieqi_pageblocks['322']['content']?}</div>
+				<div class="tabvalue" style="display:none">{?$jieqi_pageblocks['321']['content']?}</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- female recommand begin -->
+    <div class="indexcm">
+          <div class="block" style="height:280px;">
+            <div class="blocktitlefemale">
+              <div class="blockname">女频推荐</div>
+              <div class="blocknav"><a href="">总裁豪门</a><a href="">穿越架空</a><a href="">青春言情</a><a href="">其他类别</a></div>
+            </div>
+            <!-- female recommand list begin-->
+            <div class="blockcontentfemale">
+              <ul>
+                <!-- detail size : 188 x 270--> 
+                <!-- list image size : 97 x 140-->
+                {?$jieqi_pageblocks['512']['content']?}
+              </ul>
+            </div>
+            <!-- female recommand list end--> 
+          </div>
+          <div class="block" style="height:60px;"> <a href="http://www.yuedufang.com/modules/article/articleinfo.php?id=71"><img src="/themes/jieqiyc/images/mengqilaixi.jpg"></a></div>
+        </div>
+      </div>
+      <!-- female recommand end-->
+	<div class="indexcr">
+		<div class="block" style="height:350px;">
+			<div class="index_tabl2">
+				<span>鲜花排行</span>
+				<ul>
+					<li><a href="javascript:void(0)" onmouseover="selecttab(this)" class="selected">总</a></li>
+					<li><a href="javascript:void(0)" onmouseover="selecttab(this)">月</a></li>
+					<li><a href="javascript:void(0)" onmouseover="selecttab(this)">周</a></li>
+				</ul>
+				<div class="cb"></div>
+			</div>
+			<div class="index_tabc2">
+				<div class="tabvalue">{?$jieqi_pageblocks['326']['content']?}</div>
+				<div class="tabvalue" style="display:none">{?$jieqi_pageblocks['325']['content']?}</div>
+				<div class="tabvalue" style="display:none">{?$jieqi_pageblocks['324']['content']?}</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<div class="main">
+	<div class="indexcm">
+		
+	<div class="block" style="height:275px;">
+          <div class="blocktitlemovies">
+            <div class="blockname">出版影视</div>
+            <div class="blocknav"><a href="">爱情小说</a><a href="">婚姻家庭</a><a href="">社科励志</a><a href="">影视剧本</a></div>
+          </div>
+          <!-- movies recommand list begin-->
+          <div class="blockcontentmovies">
+            <ul>
+                {?$jieqi_pageblocks['513']['content']?}
+            </ul>
+          </div>
+          <!-- movies recommand list end--> 
+
+        </div>
+		<div class="block" style="height:70px;"><a target="_blank" href="http://www.yuedufang.com/modules/article/articleinfo.php?id=129"><img src="/themes/jieqiyc/images/qingliangyixia.jpg" width="676" height="70"></a></div>
+          </div>
+	</div>
+
+	<!--<div class="indexcr">
+		<div class="block" style="height:342px;">
+			<div class="index_tabl2">
+				<span>月票榜</span>
+				<ul>
+					<li><a href="javascript:void(0)" onmouseover="selecttab(this)" class="selected">总</a></li>
+					<li><a href="javascript:void(0)" onmouseover="selecttab(this)">月</a></li>
+					<li><a href="javascript:void(0)" onmouseover="selecttab(this)">周</a></li>
+				</ul>
+				<div class="cb"></div>
+			</div>
+			<div class="index_tabc2">
+				<div class="tabvalue">{?$jieqi_pageblocks['523']['content']?}</div>
+				<div class="tabvalue" style="display:none">{?$jieqi_pageblocks['522']['content']?}</div>
+				<div class="tabvalue" style="display:none">{?$jieqi_pageblocks['521']['content']?}</div>
+			</div>
+		</div>
+		
+	</div>-->
+	<div class="indexcr">
+		<div class="block" style="height:355px;">
+			<div class="index_tabl2">
+				<span>新书抢鲜</span>
+				<!--<ul>
+					<li><a href="javascript:void(0)" onmouseover="selecttab(this)" class="selected">总</a></li>
+					<li><a href="javascript:void(0)" onmouseover="selecttab(this)">月</a></li>
+					<li><a href="javascript:void(0)" onmouseover="selecttab(this)">周</a></li>
+				</ul>-->
+				<div class="cb"></div>
+			</div>
+			<div class="index_tabc2">
+				<div class="tabvalue">{?$jieqi_pageblocks['231']['content']?}</div>
+				<!--<div class="tabvalue" style="display:none">{?$jieqi_pageblocks['522']['content']?}</div>
+				<div class="tabvalue" style="display:none">{?$jieqi_pageblocks['521']['content']?}</div>-->
+			</div>
+		</div>
+		
+	</div>
+</div>
+
+<div class="main">
+	<div class="indexcm">
+		<div class="block" style="height:700px;">
+			<div class="index_tabl3">
+				<ul>
+					<li><a href="javascript:void(0)" onmouseover="selecttab(this)" class="selected">公众章节最近更新</a></li>
+					<li><a href="javascript:void(0)" onmouseover="selecttab(this)">VIP章节最近更新</a></li>
+				</ul>
+			</div>
+			<div class="index_tabc3">
+				<div class="tabvalue">
+				 <table class="indexgrid" width="100%" align="left">
+                <tbody>
+                  <tr align="left" class="tabletr">
+                    <td width="8%">类型</td>
+					<td width="30%">书名</td>
+                    <td width="35%">最新章节</td>
+                    <td width="12%">作者</td>
+                    <td width="15%">更新时间</td>
+
+                  </tr>
+                {?$jieqi_pageblocks['611']['content']?}
+                  
+                </tbody>
+              </table>
+				</div>
+				<div class="tabvalue" style="display:none">
+				<table class="indexgrid" width="100%" align="left">
+                <tbody>
+                  <tr align="left" class="tabletr">
+                     <td width="8%">类型</td>
+					<td width="25%">书名</td>
+                    <td width="37%">最新章节</td>
+                    <td width="10%">作者</td>
+                    <td width="20%">更新时间</td>
+
+                  </tr>
+                                 {?$jieqi_pageblocks['612']['content']?}
+
+                  
+                </tbody>
+              </table>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="indexcr">
+		<div class="block" style="height:700px;">
+			<div class="blocktitle">读者热评</div>
+			<div class="blockcontent">
+				<!-- reviews_recommend begin -->
+        <style type="text/css">
+			.reviews_container { width:246px; height:110px; margin:0 auto; }
+			.reviews_imgs { margin:10px 0 0 0; float:left;}
+			.reviews_imgs img { padding:3px; border:#ccc 1px solid;}
+			.reviews_imgs_a  a { color:#fe7b8d; }
+			.reviews_imgs_a {width:70px; height:auto; margin:0 auto;;text-align:center;}
+			.reviews_contents { width:156px; float:right; margin:10px 0 0 0;}
+			.contents_title { font-size:14px;}
+			.reviews_contents .content {}
+			.contents_bottom {}
+			.reviews_pinglun { float:right;color:#fe7b8d; width:68px;}
+			.reviews_pinglun a { color:#fe7b8d; }
+        </style>
+          <ul class="reviews_recommend">
+            
+          </ul>
+          
+          <script type="text/javascript">
+		  $.ajax({
+					url:"/extends/api/reviews/reviews.php",
+					data:{},
+					type:"get",
+					dataType:"html",
+					success: function(result){
+						$('.reviews_recommend').html(result);
+					}
+			});
+		  </script>
+          <!-- reviews_recommend end -->
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="main">
+	<div class="block">
+		<div class="blocktitle">友情链接</div>
+		<div class="index_links">
+			{?$jieqi_pageblocks['700']['content']?}
+		</div>
+		<div class="cb"></div>
+	</div>
+</div>

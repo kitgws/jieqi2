@@ -1,0 +1,2 @@
+{?section name=i loop=$richrows?}{?if $richrows[i].egoldnum > 0?}
+				<li{?if $i['order'] > 4?} class='t'{?/if?}><a href="{?function jieqi_geturl:'system':'user':$richrows[i].uid:'info'?}"><span class="count">{?$i['order']?}</span>{?$richrows[i].uname?}</a></li>{?/if?}{?/section?}

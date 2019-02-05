@@ -1,0 +1,65 @@
+{?set jieqi_blocks_module = "article"?}
+{?set jieqi_blocks_config = "sortblocks"?}
+{?set $jieqi_pagetitle = "{$articletitle}-{$jieqi_sitename}"?}
+{?set jieqi_page_rows = "30"?}
+{?set jieqi_page_links = "5"?}
+<link href="/sink/css/top.css" type="text/css" rel="stylesheet" />
+<script type="text/javascript" src="/sink/js/jquery.cookie.js"></script> 
+<!--wrap begin-->
+<div class="wrap clearfix">
+  <!--topside begin-->
+
+  <div class="topside fl">
+   <!--box_side begin-->
+    <div class="box_side">
+      <div class="t"><h3>∑÷¿‡∞Ò</h3></div>
+      <ul class="f-gray3">
+{?section name=i loop=$sortrows?}
+  <li><a href="{?function jieqi_geturl:'article':'articlelist':1:$i['key']?}" {?if $sortid == $i['key']?} class="on"{?/if?}>{?$sortrows[i].caption?}</a></li>
+{?/section?}	 
+      </ul>
+    </div><!--box_side end-->
+  </div><!--topside end-->
+
+  <!--toplist begin-->
+  <div class="toplist fr">
+     <div class="t">
+      <h2>{?$articletitle?}</h2>
+     </div>
+     <!--box begin-->
+     <div class="box">
+
+	        <dl class="list">
+	          {?section name=i loop=$articlerows?}	
+	         	<dd>
+	           <em class="numb">{?$i['order']?}</em>
+	           <span class="sort"><a href="{?function jieqi_geturl:article:articlelist:1:$articlerows[i].sortid?}" target="_blank" class="f-gray5">[{?$articlerows[i].sortname|truncate:4?}]</a></span>
+	           <p class="name"><a href="{?$articlerows[i].url_articleinfo?}" target="_blank" class="f-green f14">{?$articlerows[i].articlename?}</a>{?if $articlerows[i].vipchapterid > 0?}<a href="{?$articlerows[i].url_vipchapter?}" target="_blank" class="f12 f-gray3 pl5">{?$articlerows[i].vipvolume?} {?$articlerows[i].vipchapter?}</a><em class="v"></em>{?else?}<a href="{?$articlerows[i].url_lastchapter?}" target="_blank" class="f12 f-gray3 pl5">{?$articlerows[i].lastvolume?} {?$articlerows[i].lastchapter?}</a>{?/if?}</p>
+	                      <span class="author">{?$articlerows[i].author?}</span>
+	           <span class="date">{?$articlerows[i].lastupdate|date:'Y-m-d h:i'?}</span>
+	           </dd>
+	            {?/section?} 
+	           
+	       </dl>
+       
+	  <div class="page3">{?$url_jumppage?}</div>
+     </div><!--box end-->
+  </div><!--toplist end-->
+</div><!--wrap end-->
+<script type="text/javascript">
+$(function(){
+	$("#switch span.s_img").click(function(){
+		if('on_list'=='on_list'){
+			$.cookie("topview","on_img",{expires:1, path: '/'});
+			window.location.reload(true);				   
+		}
+	});
+	$("#switch span.s_list").click(function(){
+		if('on_list'=='on_img'){
+			$.cookie("topview","on_list",{expires:1, path: '/'});
+			window.location.reload(true);
+		}
+	});
+});
+
+</script></div> 

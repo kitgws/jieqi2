@@ -1,0 +1,4 @@
+{?section name=i loop=$articlerows?}
+<li{?if $i['order'] == 1?} class="firstl"{?/if?}><a href="{?$articlerows[i].url_articleinfo?}" target="_blank">{?$articlerows[i].articlename?}</a></li>
+{?/section?}	
+

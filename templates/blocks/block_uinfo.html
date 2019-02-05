@@ -1,0 +1,23 @@
+{?if $ownerid > 0?}
+<link href="/sink/css/home.css" type="text/css" rel="stylesheet" />
+
+<div class="homtop Book">
+  <div class="orn"></div>
+  <!--wrap begin-->
+  <div class="wrap fix">
+    <div class="homtop_l">
+     <img src="{?function jieqi_geturl:'system':'avatar':$uid:'s':$avatar?}" width="170" height="170">
+     <dl>
+      <dd><a href="{?$jieqi_url?}/newmessage.php?receiver={?$name|urlencode?}"><em></em>发短信</a></dd>
+      <dd><a href="{?$jieqi_url?}/addfriends.php?id={?$uid?}"><em></em>加好友</a></dd>
+     </dl>
+    </div>
+    
+    <div class="homtop_r fix">
+     <ul>
+      <li class="info"><span class="name"><em class="b">用户名：</em>{?$name?}</span> <em class="pr20">|</em><em class="pr20">|</em><span><em class="b">用户类型：</em>{?$group?}</span><em class="pr20">|</em><span><em class="b">会员级别：</em>{?$honor?}</span></li>
+      <li class="txt"><em class="b">个性签名：</em><p>{?$sign?}</p></li>
+    </div>
+  </div><!--wrap end-->
+</div>
+{?/if?}

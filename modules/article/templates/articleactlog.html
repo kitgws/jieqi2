@@ -1,0 +1,82 @@
+{?set jieqi_blocks_module = "article"?}
+{?set jieqi_blocks_config = "authorblocks"?}
+<style>
+/* table */
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+table.fix {
+	table-layout: fixed;
+}
+table.fix td {
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	-o-text-overflow: ellipsis;
+}
+table.grid {
+	border: 1px solid #d2d2d2;
+	background: #fff;
+}
+table.grid caption, .gridtop {
+	height: 2.5em;
+	line-height: 2.5em;
+	background: #fff;
+	border: 1px solid #d2d2d2;
+	_border-right: 1px solid #d2d2d2;
+	_border-bottom: 1px solid #d2d2d2;
+	font-weight: bold;
+	font-size: 18px;
+	color: #239eda;
+	text-align: left;
+	padding-left: 10px;
+
+}
+table.grid th {
+	border-bottom: 1px solid #d2d2d2;
+	color: #666666;
+	line-height: 2.5;
+	padding: 0 0.3em;
+	text-align: center;
+}
+table.grid tr {
+	border-bottom: 1px dashed #dedede;
+}
+table.grid td {
+	padding: 0.4em;
+}
+table.hide, table.hide caption, table.hide tr, table.hide th, table.hide td, table.nb {
+	border: 0;
+}
+/* table add-ons */
+</style>
+<div class="container">
+	<div class="mod block form">
+		<div class="hd">
+			<h4>《{?$articlename?}》{?if $actname != ''?}{?$actname?}{?else?}互动{?/if?}记录</h4>
+</div>
+<div class="bd">
+<table width="100%" cellpadding="0" cellspacing="1" class="grid">
+  <tr>
+    <td colspan="4" class="title">合计次数：{?$actlogsum['count']?}，合计{?$egoldname?}：{?$actlogsum['actnum']?}</td>
+  </tr>
+  <tr align="center">
+    <td width="40%" class="head">会员名称</td>
+	<td width="20%" class="head">动作时间</td>
+	<td width="20%" class="head">动作名称</td>
+    <td width="20%" class="head">数量</td>
+  </tr>
+{?section name=i loop=$actlogrows?}
+  <tr>
+    <td><a href="{?function jieqi_geturl:'system':'user':$actlogrows[i].uid?}" target="_blank">{?$actlogrows[i].uname?}</a></td>
+    <td align="center">{?$actlogrows[i].addtime|date:'Y-m-d H:i:s'?}</td>
+    <td align="center">{?$actlogrows[i].actname?}</td>
+    <td align="center">{?$actlogrows[i].actnum?}</td>
+  </tr>
+{?/section?}
+</table>
+</div>
+<div class="pages">{?$url_jumppage?}</div>
+</div>
+</div>

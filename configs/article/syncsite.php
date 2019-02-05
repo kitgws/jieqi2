@@ -1,0 +1,7 @@
+<?php
+$syncsite[1]=array (
+  'config' => '1',
+  'sitename' => 'Ãµ¹å',
+  'siteurl' => 'http://www.meiguiwxw.com',
+);
+?>

@@ -1,0 +1,11 @@
+<!--{?if $ownerid > 0?}
+<ul class="ullist">
+	{?section name=i loop=$articlerows?}
+	<li>[<a target="_blank" href="{?function jieqi_geturl:'article':'articlelist':1:$articlerows[i].sortid?}"><span>{?$articlerows[i].sort|truncate:8:''?}</span></a>]&nbsp;<a target="_blank" href="{?$articlerows[i].url_articleinfo?}">{?$articlerows[i].articlename|truncate:20:'..'?}</a></li>
+	{?/section?}
+</ul>
+{?/if?}-->
+<ul class ="ullist_home">
+<li><strong>最新代表作</strong></li>
+<li><a href="http://www.yuedufang.com/modules/article/articleinfo.php?id=70" target="_blank">《重生之风华庶女》</a></li>
+</ul>

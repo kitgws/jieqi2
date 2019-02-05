@@ -1,0 +1,217 @@
+{?set $jieqi_pagetitle = "{$articlename}-{$author}-{$jieqi_sitename}"?}
+{?set $meta_keywords = "{$articlename} {$author} {$sort}"?}
+<script language="javascript" src="{?$jieqi_url?}/scripts/rating.js"></script>
+
+<div class="main">
+	<div id="centerm">
+<!-- left start -->
+<div class="divbox">
+	<div class="info_top">
+		{?if $rgroup_n == 1?}<div class="info_ns"></div>{?/if?}
+		<div class="info_title">
+			<h1>{?$articlename?}</h1>
+			<span>作者：{?if $authorid > 0?}<a href="{?function jieqi_geturl:'system':'user':$authorid?}" target="_blank">{?$author?}</a>{?else?}{?$author?}{?/if?}</span>
+		</div>
+		<div class="info_rate">
+			<div class="ratediv"><b class="fl">评分：</b>
+				<div class="rateblock">
+				<script language="javascript">
+				showRating({?$ratemax?}, {?$rateavg?}, 'rating', '{?$articleid?}');
+				function rating(score, id){
+					Ajax.Request( '{?$article_dynamic_url?}/rating.php?score='+score+'&id='+id,{onComplete:function(){alert(this.response.replace(/<br[^<>]*>/g,'\n'));}});
+				}
+				</script>
+				</div>
+				<span class="ratenum">{?$rateavg?}</span>({?$ratenum?}人已评)
+			</div>
+		</div>
+		<div class="info_vars">
+			总字数：{?$size_c?} 
+			总点击：{?$allvisit?}
+			总推荐：{?$allvote?}
+			作品类别：<a href="{?function jieqi_geturl:'article':'articlelist':1:$sortid?}">{?$sort?}</a>
+			更新时间：{?$lastupdate|date:'Y-m-d'?}
+		</div>
+	</div>
+
+	<div class="info_i">
+		<div class="info_il">
+			<a href="{?$url_limage?}" target="_blank"><img src="{?$url_simage?}" /></a>
+		</div>
+		<div class="info_ir">
+			<p>【作品简介】</p>
+			<div class="info_intro">{?$intro|htmlclickable?}</div>
+			<div class="info_tag"><b>标签：</b>{?section name=i loop=$tagrows?}
+	  <a href="{?$jieqi_modules['article']['url']?}/tagarticle.php?tag={?$tagrows[i].tagencode?}" target="_blank">{?$tagrows[i].tagname?}</a> 
+	  {?/section?}</div>
+			<div class="info_btn">
+			<a class="info_djyd" href="{?$url_read?}"> </a>
+			<a class="info_jrsj info_btns" id="a_addbookcase" href="javascript:;" onclick="if({?$jieqi_userid?}) Ajax.Tip(event, '{?$url_bookcase?}',3000); else openDialog('{?$jieqi_user_url?}/login.php?jumpurl={?$jieqi_thisurl|urlencode?}&ajax_gets=jieqi_contents', false);">加入书架</a>
+			<a class="info_tjbs info_btns" id="a_uservote" href="javascript:;" onclick="if({?$jieqi_userid?}) Ajax.Tip(event, '{?$url_uservote?}',3000); else openDialog('{?$jieqi_user_url?}/login.php?jumpurl={?$jieqi_thisurl|urlencode?}&ajax_gets=jieqi_contents', false);">推荐本书</a>
+			{?if $maketxtfull > 0?}<a class="info_xzbs info_btns" href="{?$article_static_url?}/packdown.php?id={?$articleid?}&type=txt&fname={?$articlename|urlencode?}" rel="nofollow">下载本书</a>{?/if?}
+			</div>
+		</div>
+		<div class="cb"></div>
+	</div>
+</div>
+
+<div class="divbox" style="padding:5px;">
+  <span class="hottext">我要：</span>
+  <a class="btnlink" id="a_vipvote" href="javascript:;" onclick="openDialog('{?$jieqi_modules['article']['url']?}/gift.php?type=vipvote&id={?$articleid?}&ajax_gets=jieqi_contents', false);">投月票</a>
+  <a class="btnlink" id="a_tip" href="javascript:;" onclick="openDialog('{?$jieqi_modules['article']['url']?}/tip.php?id={?$articleid?}&ajax_gets=jieqi_contents', false);">打　赏</a>
+  <a class="btnlink" id="a_flower" href="javascript:;" onclick="openDialog('{?$jieqi_modules['article']['url']?}/gift.php?type=flower&id={?$articleid?}&ajax_gets=jieqi_contents', false);">送鲜花</a>
+  <a class="btnlink" id="a_egg" href="javascript:;" onclick="openDialog('{?$jieqi_modules['article']['url']?}/gift.php?type=egg&id={?$articleid?}&ajax_gets=jieqi_contents', false);">砸鸡蛋</a>
+</div>
+
+<div class="info_up">
+	<div class="tablist">
+         <ul>
+             <li><a href="javascript:void(0)" onmouseover="selecttab(this)" class="selected">最新公共更新章节</a></li>
+             {?if $isvip_n > 0?}<li><a href="javascript:void(0)" onmouseover="selecttab(this)">最新VIP更新章节</a></li>{?/if?}
+         </ul>
+      </div>
+      <div class="tabcontent">
+         <div class="tabvalue" style="height:200px;overflow: hidden;">
+		   <a href="{?$url_lastchapter?}">{?$lastchapter?}</a>
+		   <div><p>{?$lastsummary?}</p></div>
+		 </div>
+		 {?if $isvip_n > 0?}
+         <div class="tabvalue" style="display:none;height:200px;overflow: hidden;">
+		   <a href="{?$jieqi_modules['obook']['url']?}/reader.php?aid={?$vipid?}&cid={?$vipchapterid?}">{?if $vipvolume != ''?}{?$vipvolume?} {?/if?}{?$vipchapter?}</a>
+		   <div><p>{?$vipsummary?}</p></div>
+		 </div>
+		 {?/if?}
+      </div>
+</div>
+
+
+{?if $showvote > 0?}
+<div class="divbox" style="padding:5px;">
+  <form name="frmvote" method="post" action="{?$jieqi_modules['article']['url']?}/votedo.php" target="_blank">  
+  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="50%"><span class="hottext">作品投票调查：</span></td>
+    <td width="50%" align="right">
+	  <input name="aid" type="hidden" value="{?$articleid?}" />
+	  <input name="vid" type="hidden" value="{?$voteid?}" />
+      <input type="submit" name="votepost" value="提交投票" class="button" />&nbsp;
+      <input type="button" name="voteshow" value="查看结果" class="button" onclick="window.open('{?$jieqi_modules['article']['url']?}/voteresult.php?id={?$voteid?}')" />
+      &nbsp;</td>
+  </tr>
+  <tr>
+    <td colspan="2">主题：<strong>{?$votetitle?}</strong></td>
+  </tr>
+  <tr>
+    <td colspan="2">
+	<ul>
+		{?section name=i loop=$voteitemrows?}
+		<li style="width:49%;float:left;padding:3px;">
+		{?if $mulselect == 1?}
+		<input name="voteitem[]" type="checkbox" value="{?$voteitemrows[i].id?}" />
+		{?else?}
+		<input name="voteitem" type="radio" value="{?$voteitemrows[i].id?}" />
+		{?/if?}
+		{?$voteitemrows[i].item?}
+		</li>
+		{?/section?}
+    </ul>
+	</td>
+  </tr>
+  </table>
+  </form>
+</div>
+{?/if?}
+
+<table class="grid" width="100%" align="center" style="margin-bottom:5px;">
+	 <caption>[最新书评]&nbsp;&nbsp;&nbsp; [<a href="{?$jieqi_modules['article']['url']?}/reviews.php?aid={?$articleid?}&type=good" target="_blank">精华书评</a>]&nbsp;&nbsp;&nbsp; [<a href="{?$jieqi_modules['article']['url']?}/reviews.php?aid={?$articleid?}&type=all" target="_blank">全部书评</a>]</caption>
+	 {?block bid="0" blockname="最新书评" module="article" filename="block_areviews" classname="BlockArticleAreviews" side="-1" title="最新书评" vars="10,0,0,id" template="block_areviews.html" contenttype="4" custom="0" publish="3" hasvars="1"?}
+</table>
+{?if $jieqi_userid > 0?}
+<form name="frmreview" id="frmreview" method="post" action="{?$jieqi_modules['article']['url']?}/reviews.php?aid={?$articleid?}" target="_blank">
+          <table class="grid" width="100%" align="center">
+              <caption>发表书评：</caption>
+			  <tr>
+			    <td class="odd" width="25%">标题</td>
+                  <td class="even"><input type="text" class="text" name="ptitle" id="ptitle" size="60" maxlength="60" value="" /></td>
+              </tr>
+              <tr>
+                <td class="odd" width="25%">内容</td>
+                  <td class="even"><textarea class="textarea" name="pcontent" id="pcontent" cols="60" rows="8"></textarea>
+				  <script language="javascript">loadJs("{?$jieqi_url?}/scripts/ubbeditor_{?$jieqi_charset?}.js", function(){UBBEditor.Create("pcontent");});</script></td>
+              </tr>
+{?if $postcheckcode > 0?}
+<tr>
+  <td class="odd">验证码</td>
+  <td class="even"><input type="text" class="text" name="checkcode" id="checkcode" size="8" maxlength="8" value="" /> <span class="hottext">&nbsp;<img src="{?$jieqi_url?}/checkcode.php" style="cursor:pointer;" onclick="this.src='{?$jieqi_url?}/checkcode.php?rand='+Math.random();"></span></td>
+</tr>
+{?/if?}
+              <tr>
+                <td class="odd" width="25%">&nbsp;<input type="hidden" name="action" id="action" value="newpost" /></td>
+                  <td class="even">
+				  <!-- <input type="submit" name="Submit" class="button" value=" 发表书评 "> -->
+				  <input type="button" name="Submit" class="button" value=" 发表书评 " style="cursor:pointer;" onclick="Ajax.Request('frmreview',{onComplete:function(){alert(this.response.replace(/<br[^<>]*>/g,'\n'));Form.reset('frmreview');
+}});">
+				  </td>
+              </tr>
+          </table>
+</form>
+{?else?}
+<table class="grid" width="100%" align="center">
+	<caption>发表书评：</caption>
+	<tr><td align="center">
+		<br />您需要 <a href="{?$jieqi_url?}/login.php">登录</a> 才能发表书评！<br /><br />
+	</td></tr>
+</table>
+{?/if?}
+	<!-- left end -->
+	</div>
+	<div id="right">
+	<!-- right start -->
+		<div class="block">
+			<div class="blocktitle">关于作者</div>
+			<div class="blockcontent info_gyzz">
+				{?block bid="0" blockname="关于作者" module="system" filename="block_uinfo" classname="BlockSystemUinfo" side="-1" title="关于作者" vars="$authorid" template="info_authorinfo.html" contenttype="4" custom="0" publish="3" hasvars="1"?}
+				<div class="info_zzxx">
+				<h4>本书公告</h4>
+                <p>{?if $notice != ""?}{?$notice|htmlclickable?}{?else?}本书尚无公告！{?/if?}</p>
+				</div>
+				<div class="info_zzxx">
+                <h4>作者作品</h4>
+				{?block bid="0" blockname="作者作品" module="article" filename="block_uarticles" classname="BlockArticleUarticles" side="-1" title="作者作品" vars="lastupdate,5,0,$authorid" template="info_authorarticles.html" contenttype="4" custom="0" publish="3" hasvars="1"?}
+				</div>
+			</div>
+		</div>
+		{?if $eachlinknum > 0 && $eachlinkcount > 0?}
+		<div class="block">
+			<div class="blocktitle">作者推荐</div>
+			<div class="blockcontent">
+				<ul class="ullist">
+					{?section name=i loop=$eachlinkrows?}
+					<li><a href="{?$eachlinkrows[i].url_articleinfo?}" target="_blank">{?$eachlinkrows[i].articlename?}</a></li>
+					{?/section?}
+				</ul>
+			</div>
+		</div>
+		{?/if?}
+		<div class="block">
+			<div class="blocktitle">编辑推荐</div>
+			<div class="blockcontent">
+			{?block bid="0" blockname="编辑推荐" module="article" filename="block_articlelist" classname="BlockArticleArticlelist" side="-1" title="编辑推荐" vars="toptime,10,0,0,0,0" template="info_bjtj.html" contenttype="4" custom="0" publish="3" hasvars="1"?}
+			</div>
+		</div>
+		<div class="block">
+			<div class="blocktitle">联系我们</div>
+			<div class="blockcontent">
+				<ul class="ulrow">
+					<li>客服QQ：88888888</li>
+					<li>客服邮箱：kefu@email.com</li>
+					<li>投诉邮箱：tousu@email.com</li>
+					<li>合作邮箱：hezuo@email.com</li>
+				</ul>
+			</div>
+		</div>
+		
+	<!-- right end -->
+	</div>
+	<div class="cb"></div>
+</div>

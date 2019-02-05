@@ -1,0 +1,268 @@
+<?php
+echo '<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset='.$this->_tpl_vars['jieqi_charset'].'" />
+<meta name="format-detection" content="telephone=no">
+<meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0" />
+<meta content="telephone=no" name="format-detection" />
+<meta http-equiv="Cache-Control" content="no-transform " />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="applicable-device" content="mobile" />
+<title>小说_小说排行榜_免费小说下载_好看的小说网-'.$this->_tpl_vars['jieqi_pagetitle'].'</title>
+<meta name="Keywords" content="小说，免费小说，好看的小说，小说下载，言情小说，免费小说下载" />
+<meta name="Description" content="'.$this->_tpl_vars['jieqi_pagetitle'].'提供最新免费言情小说在线阅读及下载。'.$this->_tpl_vars['jieqi_pagetitle'].'包括言情小说，玄幻小说，穿越小说，都市小说，言情小说书库等，小说在线阅读就选'.$this->_tpl_vars['jieqi_pagetitle'].'。" />
+<link rel="dns-prefetch" href="'.$this->_tpl_vars['jieqi_url'].'" />
+<link rel="dns-prefetch" href="'.$this->_tpl_vars['jieqi_url'].'" />
+<link rel="canonical" href="'.$this->_tpl_vars['jieqi_url'].'" />
+<link rel="stylesheet" type="text/css" href="'.$this->_tpl_vars['jieqi_url'].'/slms/index/base.css" />
+<link rel="stylesheet" type="text/css" href="'.$this->_tpl_vars['jieqi_url'].'/slms/index/recharge.css" />
+<script type="text/javascript" src="'.$this->_tpl_vars['jieqi_url'].'/slms/js/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="'.$this->_tpl_vars['jieqi_url'].'/slms/js/public.js"></script>
+<script type="text/javascript" src="'.$this->_tpl_vars['jieqi_url'].'/slms/js/jquery.cookie.js"></script>
+<style>
+body {
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+</style>
+</head>
+<body>
+<!--header begin-->
+<div class="header">
+  <div class="inner">
+    <div class="logo"><img src="//cj.qirexiaoshuo.com/static/newtheme/assets/images/logo.png"></div>
+    <div class="entry">
+      <ul>
+        <li><a class="active" href="'.$this->_tpl_vars['jieqi_url'].'/ns/">男频</a></li>
+        <li><a href="'.$this->_tpl_vars['jieqi_url'].'"  >女频</a></li>
+      </ul>
+    </div>
+    <div class="sear"><a onclick="show_ser_box();"><i class="icon-ss"></i></a></div>
+    <!--搜索 begin-->
+    <div class="search" id="show_ser_box" style="display: none;">
+      <div class="cs-box">
+        <button type="button" class="btn" id="show_cleare_btn" onclick="hide_ser_box();">取消</button>
+        <button type="button" class="btn" id="show_sear_btn" onclick="key_search_href();" style="display: none;">搜索</button>
+        <div class="field">
+          <input type="text" name="keyword" id="search_keyword" maxlength="18" placeholder="" onkeyup="keyup_search(this,\'top\')">
+          <div class="action"><a href="javascript:;"  style="display: none;" id="closeid" onclick="close_clear();"><i class="icon-close"></i></a></div>
+        </div>
+      </div>
+    </div>
+  <!--搜索 end--></div>
+</div>
+<!--header end-->
+<div class="search-result" id="page_html" style="position: fixed; top: 0; left: 0; z-index: 50; width: 100%; padding-bottom: 0;"></div>
+<!--single-media begin-->
+<div class="media" id="single-media">
+  <div  ><a href="javascript:;"><img src="https://p.qirexiaoshuo.com/uploads/slide/201801/31/slide201801311514172532.jpg" /></a></div>
+  <div style=\'display:none;\' ><a href="javascript:;"><img src="https://p.qirexiaoshuo.com/uploads/slide/201801/31/slide201801311514487107.jpg" /></a></div>
+  <div style=\'display:none;\' ><a href="javascript:;"><img src="https://p.qirexiaoshuo.com/uploads/slide/201801/31/slide201801311515136185.jpg" /></a></div>
+</div>
+<!--single-media end--><!--record begin-->
+<div class="record" id="jilu"><a href="javascript:;" class="title">阅读记录</a>
+  <div class="entry"><a id="info" href="/book/10759/0/"><span></span>
+    <p></p>
+  </a><i class="icon-arrow"></i></div>
+</div>
+<!--record end--><!--classify begin-->
+<div class="classify">
+  <ul>
+    <li><a href="/modules/article/articlefilter.php"><i class="icon-fl"></i>分类</a></li>
+    <li><a href="'.$this->_tpl_vars['jieqi_url'].'/top"><i class="icon-ranking"></i>排行</a></li>
+    <li><a href="'.$this->_tpl_vars['jieqi_url'].'/baoyue"><i class="icon-vip"></i>包月</a></li>
+    <li><a href="'.$this->_tpl_vars['jieqi_url'].'/mianfei"><i class="icon-free"></i>免费</a></li>
+  </ul>
+</div>
+<!--classify end--><!--主编推荐 begin-->
+<div class="recommend bor-top">
+  <div class="title">
+    <h3>主编推荐</h3>
+  <span class="dot"><!--<a href="#" class="active"></a>--></span></div>
+  <div class="entry"  id="edit_box">
+    <ul style="display: block; " id="recommend_box" >
+		'.$this->_tpl_vars['jieqi_pageblocks']['2']['content'].'
+    </ul>
+  </div>
+</div>
+<!--主编推荐 end--><!-- 短篇小说 begin -->
+<div class="recommend hot-box bor-top">
+  <div class="title">
+    <h3>短篇小说</h3>
+  <a href="javascript:;">更多<i class="icon-arrow"></i></a></div>
+  <div class="entry">
+	  '.$this->_tpl_vars['jieqi_pageblocks']['3']['content'].'
+  </div>
+</div>
+<!-- 短篇小说 end --><!-- 热门小说 begin -->
+<div class="recommend hot-box bor-top">
+  <div class="title">
+    <h3>热门小说</h3>
+  <a href="javascript:;">更多<i class="icon-arrow"></i></a></div>
+  <div class="entry">
+	 '.$this->_tpl_vars['jieqi_pageblocks']['4']['content'].'
+  </div>
+</div>
+<!-- 热门小说 end --><!--新书推荐 begin-->
+<div class="recommend hot-box new-book bor-top">
+  <div class="title">
+    <h3>新书推荐</h3>
+  <a href="javascript:;">更多<i class="icon-arrow"></i></a></div>
+  <div class="entry">
+    <div class="book">
+      <ul>
+		 '.$this->_tpl_vars['jieqi_pageblocks']['5']['content'].'  
+      </ul>
+    </div>
+	     '.$this->_tpl_vars['jieqi_pageblocks']['6']['content'].'   
+  </div>
+</div>
+<!--新书推荐 end--><!--限时免费 begin-->
+<div class="recommend free bor-top">
+  <div class="title">
+    <h3>限时免费</h3>
+  <span class="time" id="downdate_box" startdate="2018/03/15 07:00:00" ><!--倒计时: 3天--><!--<i class="num">08</i>--><!--<small>:</small>--><!--<i class="num">40</i>--><!--<small>:</small>--><!--<i class="num">03</i>--></span></div>
+  <div class="entry">
+    <ul>
+		'.$this->_tpl_vars['jieqi_pageblocks']['7']['content'].' 
+    </ul>
+  </div>
+</div>
+<!--限时免费 end--><!--猜你喜欢 begin-->
+<div class="recommend like bor-top">
+  <div class="title">
+    <h3>猜你喜欢</h3>
+  <a id="dj" href="javascript:;"><i class="icon-change"></i>换一批</a></div>
+  <div class="entry" id="slms_book">
+    <ul>
+	 '.$this->_tpl_vars['jieqi_pageblocks']['8']['content'].' 
+    </ul>
+	<ul>
+	 '.$this->_tpl_vars['jieqi_pageblocks']['9']['content'].' 
+    </ul>
+	<ul>
+	 '.$this->_tpl_vars['jieqi_pageblocks']['10']['content'].' 
+    </ul>
+  </div>
+</div>
+<!--猜你喜欢 end--><!--畅销书单 begin-->
+<div class="sellwell bor-top">
+  <div class="title">
+    <h3>畅销书单</h3>
+  <!--<a href="#">更多<i class="icon-arrow"></i></a>--></div>
+  <div class="entry">
+    <ul>
+     '.$this->_tpl_vars['jieqi_pageblocks']['11']['content'].' 
+    </ul>
+  </div>
+</div>
+<!--畅销书单 end-->
+<div class="copyright bor-top mar-foot"><span><a href="/">首页</a><small></small><a href="javascript:;">充值</a><small></small><a href="javascript:;">客户端</a><small></small><a href="/Rank/copyright">合作联系</a></span>
+  <p>@2018 '.$this->_tpl_vars['jieqi_pagetitle'].'</p>
+  <p>****信息科技有限公司</p>
+  <p>*ICP备*******号-*</p>
+</div>
+<div class="footer" id="footer_nav">
+  <ul>
+    <li><a href="/modules/article/bookcase.php"><i class="icon-book"></i>书架</a></li>
+    <li><a href="/" class="active"><i class="icon-choice"></i>精选</a></li>
+    <li><a href="/userdetail.php"><i class="icon-my"></i>我的</a></li>
+  </ul>
+</div>
+
+<script> 
+	$(function(){
+        var fontSize=$(window).width()/25;
+        $("html").css("font-size",fontSize);
+        uid = "0";
+    })
+</script>
+<script type="text/javascript" src="'.$this->_tpl_vars['jieqi_url'].'/slms/js/slick.min.js"></script>
+	
+	<script type="text/javascript">  
+	
+	(function($) {
+            $(document).ready(function() {
+                $(\'#single-media\').slick({
+                    arrows: false, // 屏蔽左右控制箭头
+                    dots: true, // 启用计数点
+                    autoplay: true, // 启用自动播放
+                    autoplaySpeed: 4000 //自动播放时间间隔
+                });
+
+                $(\'#recommend_box\').slick({
+                    arrows: false, // 屏蔽左右控制箭头
+                    dots: true, // 启用计数点
+                    autoplay: true, // 启用自动播放
+                    slidesToShow: 3,
+                    slidesToScroll: 3
+                });
+
+              
+                setInterval(function(){GetRTime("downdate_box")},1000);  // 倒计时
+//                recommend_lh(5000);  // 主编推荐
+
+                $("#single-media div").show();
+                $("#recommend_box li").show();
+                //回车自动提交
+                $(\'#search_keyword\').keyup(function(event){
+                    var key_v = $(\'#search_keyword\').val();
+                    if(key_v == \'\'){
+                        bh_msg_tips("请输入搜索内容");
+                        return false;
+                    }
+                    if(event.keyCode===13){
+                        key_search_href();
+                    }
+                });
+
+            });
+        })(jQuery)
+    </script>  
+
+	<script type="text/javascript">    /*防止iframe劫持*/
+ var i = 0;
+	$("#slms_book ul").eq(1).css("display","none");
+	$("#slms_book ul").eq(2).css("display","none");
+	$("#dj").click(function(){
+		i++;
+		if(i>=3)
+	    i=0;
+		if(i==0){$("#slms_book ul").eq(0).css("display","block").siblings().css("display","none");}else if(i==1){
+			$("#slms_book ul").eq(1).css("display","block").siblings().css("display","none");}else if(i==2){
+			$("#slms_book ul").eq(2).css("display","block").siblings().css("display","none");}
+		
+	});
+    
+//阅读记录
+
+//$.cookie(\'img\',img, { expires: 30, path: \'/\' });//写入cookie
+	//$.cookie(\'bookid\',bookid, { expires: 30, path: \'/\' });
+	//$.cookie(\'chid\',chid, { expires: 30, path: \'/\' });
+	//$.cookie(\'boonmen\',boonmen, { expires: 30, path: \'/\' });		
+var img = decodeURIComponent($.cookie(\'img\'));
+var bookid = $.cookie(\'bookid\');
+var chid = $.cookie(\'chid\');
+var boonmen = decodeURIComponent($.cookie(\'boonmen\'));
+var sort = decodeURIComponent($.cookie(\'sort\'));
+var ming = decodeURIComponent($.cookie(\'ming\'));
+
+	//alert(img);
+		if(img != "undefined"){
+		  $("#info").attr("href","/modules/article/reader.php?aid="+bookid+"&cid="+chid);
+		  $("#jilu p").text(boonmen);
+		  $("#jilu span").text(ming);
+		}else{
+			 $("#jilu").remove();
+		}
+		
+</script>
+</body>
+</html>';
+?>

@@ -1,0 +1,19 @@
+   <div class="boxm2 fl">
+    <div class="focuspic clearfix" id="featured2">
+    	<ul class="ui-tabs-nav">
+ {?section name=i loop=$articlerows?}     
+      <li class="ui-tabs-nav-item{?if $i['order'] == 2 ?} ui-tabs-selected{?/if?}" id="nav-fragment-{?$i['order']?} "><a href="#featured2-{?$i['order']?}"><img src="{?$articlerows[i].url_image?}" alt="{?$articlerows[i].articlename?}"></a></li>
+{?/section?}	  
+</ul>
+  {?section name=i loop=$articlerows?}     
+     <div id="featured2-{?$i['order']?}" class="ui-tabs-panel ui-tabs-hide" style="">
+      <a href="{?$articlerows[i].url_articleinfo?}" target="_blank" class="img"><img src="{?$articlerows[i].url_image?}" alt="{?$articlerows[i].articlename?}"></a>
+      <div class="info">
+       <h2><a href="{?$articlerows[i].url_articleinfo?}" target="_blank" class="name">{?$articlerows[i].articlename?}</a><span class="author">ื๗ี฿:{?$articlerows[i].author?}</span></h2>
+       <p class="txt">  {?$articlerows[i].intro|truncate:180?}..
+<a class="f-org" href="{?$articlerows[i].url_articleinfo?}" target="_blank">[ฯ๊ว้]</a></p>
+       
+      </div>
+     </div>   
+{?/section?}	
+

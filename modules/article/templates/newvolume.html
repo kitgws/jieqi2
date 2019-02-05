@@ -1,0 +1,63 @@
+{?set jieqi_blocks_module = "article"?}
+{?set jieqi_blocks_config = "authorblocks"?}
+<script type="text/javascript">
+function frmnewvolume_validate(){
+  if(document.frmnewvolume.chaptername.value == ""){
+    alert("请输入新增分卷");
+    document.frmnewvolume.chaptername.focus();
+    return false;
+  }
+}
+</script>
+<div class="container">
+	<div class="mod block form">
+		<div class="hd">
+			<h4>增加分卷</h4>
+</div>
+<form name="frmnewvolume" id="frmnewvolume" action="{?$jieqi_modules['article']['url']?}/newvolume.php?do=submit" method="post" onsubmit="return frmnewvolume_validate();">
+<div class="mail-zc">
+<div class="phone-name"> 
+  <h3>小说名称：</h3>
+  <a href="{?$jieqi_modules['article']['url']?}/articlemanage.php?id={?$articleid?}">{?$articlename?}</a>
+</div>
+<div class="phone-name"> 
+  <h3>现有分卷：</h3>
+
+  {?section name=i loop=$volumerows?}
+  {?$volumerows[i].chaptername?}<br />
+  {?/section?}
+
+</div>
+<div class="phone-name"> 
+  <h3>新增分卷：</h3>
+  <input type="text" class="text" name="chaptername" id="chaptername" size="50" maxlength="50" value="" />
+</div>
+<div class="ft">
+  <input type="hidden" name="act" value="newvolume" />{?$jieqi_token_input?}
+  <input type="hidden" name="aid" value="{?$articleid?}" />
+  <input type="submit" class="btn btn-auto btn-blue" name="submit" value="提 交" />
+</div>
+</div>
+</form>
+</div>
+</div>
+<script type="text/javascript">
+$(function(){
+		$('#frmnewvolume').on('submit', function(e){
+		e.preventDefault();
+		 var tips = layer.open({type: 2,content: '加载中'});
+				GPage.postForm('frmnewvolume', $("#frmnewvolume").attr("action"),
+			   function(data){
+					if(data.status=='OK'){
+                        $.ajaxSetup ({ cache: false });
+					    layer.close(tips);
+                        jumpurl(data.jumpurl);
+					}else{
+					    layer.close(tips);
+		                openMsgs(data.msg);
+					}
+			   });
+//			}
+		});
+});
+</script> 
